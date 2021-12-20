@@ -13,7 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   List images = [
     {
       "img":
@@ -53,7 +53,10 @@ class _HomePageState extends State<HomePage>
   }
 
   @override
+  bool get wantKeepAlive => true;
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -64,17 +67,17 @@ class _HomePageState extends State<HomePage>
                     horizontal: dynamicWidth(context, 0.05)),
                 child: Column(
                   children: [
-                    heightBox(context, 0.03),
+                    heightBox(context, 0.02),
                     homeBar(context),
                     heightBox(context, 0.03),
                     plansforTodayCard(context, progressDegrees, fadeInDuration),
-                    heightBox(context, 0.03),
-                    rowText(context, "Start New Goal", 0.04, myBlack),
+                    heightBox(context, 0.02),
+                    rowText(context, "Start New Goal", 0.04, myBlack, false),
                   ],
                 ),
               ),
               SizedBox(
-                height: dynamicHeight(context, 0.37),
+                height: dynamicHeight(context, 0.35),
                 width: dynamicWidth(context, 1),
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
@@ -89,7 +92,7 @@ class _HomePageState extends State<HomePage>
                     horizontal: dynamicWidth(context, 0.05)),
                 child: Column(
                   children: [
-                    rowText(context, "Daily Task", 0.04, myBlack),
+                    rowText(context, "Daily Task", 0.04, myBlack, false),
                     ListView.builder(
                       itemCount: images.length,
                       shrinkWrap: true,
@@ -173,7 +176,7 @@ Widget gymCardsRow(context, img, index) {
   );
 }
 
-Widget gymCards(context, img) {
+Widget gymCards(context, img, {check = false}) {
   return Container(
     margin: EdgeInsets.all(dynamicWidth(context, 0.04)),
     decoration: BoxDecoration(
@@ -187,48 +190,51 @@ Widget gymCards(context, img) {
         ],
         color: myWhite,
         borderRadius: BorderRadius.circular(dynamicWidth(context, 0.1))),
-    height: dynamicHeight(context, 0.35),
+    height: dynamicHeight(context, 0.32),
     width: dynamicWidth(context, 0.8),
     child: Column(
       children: [
         Stack(
           children: [
             SizedBox(
-              height: dynamicHeight(context, 0.2),
+              height: dynamicHeight(context, 0.17),
             ),
             ClipRRect(
               borderRadius: BorderRadius.circular(dynamicWidth(context, 0.1)),
               child: Image.network(
                 img,
                 fit: BoxFit.cover,
-                height: dynamicHeight(context, 0.18),
+                height: dynamicHeight(context, 0.16),
                 width: dynamicWidth(context, 0.8),
               ),
             ),
-            Positioned(
-              bottom: 0,
-              right: dynamicWidth(context, 0.1),
-              child: Container(
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  boxShadow: [
-                    BoxShadow(
-                      color: myBlack.withOpacity(0.2),
-                      spreadRadius: 2,
-                      blurRadius: 8,
-                      offset: const Offset(0, 3), // changes position of shadow
+            check == true
+                ? Container()
+                : Positioned(
+                    bottom: 0,
+                    right: dynamicWidth(context, 0.05),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: myBlack.withOpacity(0.2),
+                            spreadRadius: 2,
+                            blurRadius: 8,
+                            offset: const Offset(
+                                0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      child: const CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: Icon(
+                          Icons.play_arrow,
+                          color: Colors.orange,
+                        ),
+                      ),
                     ),
-                  ],
-                ),
-                child: const CircleAvatar(
-                  backgroundColor: Colors.white,
-                  child: Icon(
-                    Icons.play_arrow,
-                    color: Colors.orange,
-                  ),
-                ),
-              ),
-            )
+                  )
           ],
         ),
         Expanded(
@@ -239,8 +245,8 @@ Widget gymCards(context, img) {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                text(context, "Body Building", 0.05, myBlack, bold: true),
-                text(context, "Full body workout", 0.04, myGrey),
+                text(context, "Body Building", 0.045, myBlack, bold: true),
+                text(context, "Full body workout", 0.035, myGrey),
                 heightBox(context, 0.01),
                 Row(
                   children: [
@@ -282,49 +288,57 @@ Widget roundWidget(context, icon, text1, color, {check = false}) {
   );
 }
 
-Widget rowText(context, text1, size, color) {
+Widget rowText(context, text1, size, color, bold, {check = false}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
-      text(context, text1, size, color),
-      text(context, "See all", 0.03, Colors.blue)
+      text(context, text1, size, color, bold: bold),
+      check == true ? Container() : text(context, "See all", 0.03, Colors.blue)
     ],
   );
 }
 
-Widget homeBar(context) {
+Widget homeBar(context, {check = false, text1 = ""}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          text(context, "Good Morning! ", 0.04, myGrey),
-          text(context, "Sami Ahmed ", 0.06, myBlack, bold: true),
-        ],
-      ),
-      Row(
-        children: [
-          CircleAvatar(
-            radius: dynamicWidth(context, 0.052),
-            backgroundColor: myGrey.withOpacity(0.3),
-            child: CircleAvatar(
-                radius: dynamicWidth(context, 0.05),
-                backgroundColor: myWhite,
-                child: Icon(
-                  Icons.search,
-                  color: myBlack,
-                  size: dynamicWidth(context, 0.06),
-                )),
-          ),
-          widthBox(context, 0.05),
-          CircleAvatar(
-            radius: dynamicWidth(context, 0.052),
-            backgroundImage: const NetworkImage(
-                "https://flyingcdn-942385.b-cdn.net/wp-content/uploads/2018/03/Awesome-Profile-Pictures-for-Guys-look-away2.jpg"),
-          )
-        ],
-      )
+      check == true
+          ? text(context, text1, 0.06, myBlack, bold: true)
+          : Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                text(context, "Good Morning! ", 0.04, myGrey),
+                text(context, "Sami Ahmed ", 0.06, myBlack, bold: true),
+              ],
+            ),
+      check == true
+          ? CircleAvatar(
+              radius: dynamicWidth(context, 0.052),
+              backgroundImage: const NetworkImage(
+                  "https://flyingcdn-942385.b-cdn.net/wp-content/uploads/2018/03/Awesome-Profile-Pictures-for-Guys-look-away2.jpg"),
+            )
+          : Row(
+              children: [
+                CircleAvatar(
+                  radius: dynamicWidth(context, 0.052),
+                  backgroundColor: myGrey.withOpacity(0.3),
+                  child: CircleAvatar(
+                      radius: dynamicWidth(context, 0.05),
+                      backgroundColor: myWhite,
+                      child: Icon(
+                        Icons.search,
+                        color: myBlack,
+                        size: dynamicWidth(context, 0.06),
+                      )),
+                ),
+                widthBox(context, 0.05),
+                CircleAvatar(
+                  radius: dynamicWidth(context, 0.052),
+                  backgroundImage: const NetworkImage(
+                      "https://flyingcdn-942385.b-cdn.net/wp-content/uploads/2018/03/Awesome-Profile-Pictures-for-Guys-look-away2.jpg"),
+                )
+              ],
+            )
     ],
   );
 }

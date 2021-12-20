@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:warehouse_gym/screens/home.dart';
+import 'package:warehouse_gym/screens/bottom_nav.dart';
 import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
@@ -32,7 +32,7 @@ class Login extends StatelessWidget {
                   alignment: Alignment.center,
                   child: colorfulButton(context, "Sign In", myBlack, myYellow,
                       function: () {
-                    push(context, const HomePage());
+                    push(context, const BottomNavBar());
                   })),
               heightBox(context, 0.02),
               Align(
