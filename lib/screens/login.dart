@@ -46,7 +46,7 @@ class Login extends StatelessWidget {
   }
 }
 
-Widget bar(context, leadingIcon) {
+Widget bar(context, leadingIcon, {centerCheck = false, centerText = ""}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
@@ -67,7 +67,28 @@ Widget bar(context, leadingIcon) {
                   )),
             )
           : Container(),
-      text(context, "Need Help?", 0.03, myGrey)
+      (centerCheck == true)
+          ? Align(
+              alignment: Alignment.center,
+              child: text(context, centerText, 0.04, myBlack, bold: true))
+          : text(context, "Need Help?", 0.03, myGrey),
+      centerCheck == true
+          ? CircleAvatar(
+              radius: dynamicWidth(context, 0.037),
+              backgroundColor: Colors.transparent,
+              child: CircleAvatar(
+                  radius: dynamicWidth(context, 0.035),
+                  backgroundColor: Colors.transparent,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: dynamicWidth(context, 0.01)),
+                    child: Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.transparent,
+                      size: dynamicWidth(context, 0.04),
+                    ),
+                  )),
+            )
+          : Container(),
     ],
   );
 }

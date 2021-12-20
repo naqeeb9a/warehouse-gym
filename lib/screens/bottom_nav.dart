@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:warehouse_gym/screens/activity.dart';
 import 'package:warehouse_gym/screens/discover.dart';
 import 'package:warehouse_gym/screens/home.dart';
+import 'package:warehouse_gym/screens/settings.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({Key? key}) : super(key: key);
@@ -49,7 +51,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           value = index;
         });
       },
-      children: const [HomePage(), Discover()],
+      children: const [HomePage(), Discover(), Activity(), Settings()],
     );
   }
 }
