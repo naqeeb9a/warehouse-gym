@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:warehouse_gym/screens/home.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
+import 'package:warehouse_gym/widgets/essential_widgets.dart';
+import 'package:warehouse_gym/widgets/home_page_widgets.dart';
 import 'package:warehouse_gym/widgets/text_widge.dart';
 
 class Discover extends StatefulWidget {
@@ -27,8 +28,10 @@ class _DiscoverState extends State<Discover>
           "https://simlionfitness.com/wp-content/uploads/2019/10/shutterstock_227369644-min-768x523.jpg"
     },
   ];
+
   @override
   bool get wantKeepAlive => true;
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
