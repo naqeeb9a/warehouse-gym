@@ -36,8 +36,9 @@ class Login extends StatelessWidget {
                   })),
               heightBox(context, 0.02),
               Align(
-                  alignment: Alignment.center,
-                  child: text(context, "Forgot Password?", 0.03, Colors.orange))
+                alignment: Alignment.center,
+                child: text(context, "Forgot Password?", 0.03, Colors.orange),
+              )
             ],
           ),
         ),
