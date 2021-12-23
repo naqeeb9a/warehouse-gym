@@ -10,45 +10,57 @@ class Activity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Container(
-          padding: EdgeInsets.symmetric(
-              horizontal: dynamicWidth(context, 0.034),
-              vertical: dynamicHeight(context, 0.04)),
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding:
+              EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              heightBox(context, 0.02),
               homeBar(context, activityCheck: true),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  workoutBox(context, "Calories", "1000", "Kcal",
-                      Icons.local_fire_department_outlined, Colors.orange),
-                  workoutBox(context, "Steps", "720", "Steps",
-                      Icons.directions_walk_outlined, Colors.purple),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  workoutBox(
-                      context, "Sleep", "6 hr", "Hours", Icons.bed, myGreen),
-                  workoutBox(context, "Water", "2 Lits", "liters",
-                      Icons.whatshot_outlined, myBlue),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  workOutRow(
-                      context, "Workout", "40", " min", 0.05, myBlack, true,
-                      check: true),
-                  workOutRow(context, "Weekly Average", "30", " min", 0.035,
-                      myGrey, false),
-                ],
-              ),
-              barChartCustom(context)
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        workoutBox(
+                            context,
+                            "Calories",
+                            "1000",
+                            "Kcal",
+                            Icons.local_fire_department_outlined,
+                            Colors.orange),
+                        workoutBox(context, "Steps", "720", "Steps",
+                            Icons.directions_walk_outlined, Colors.purple),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        workoutBox(context, "Sleep", "6 hr", "Hours", Icons.bed,
+                            myGreen),
+                        workoutBox(context, "Water", "2 Lits", "liters",
+                            Icons.whatshot_outlined, myBlue),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        workOutRow(context, "Workout", "40", " min", 0.05,
+                            myBlack, true,
+                            check: true),
+                        workOutRow(context, "Weekly Average", "30", " min",
+                            0.035, myGrey, false),
+                      ],
+                    ),
+                    barChartCustom(context),
+                  ],
+                ),
+              )
             ],
           ),
         ),

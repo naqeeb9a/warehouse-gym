@@ -91,7 +91,7 @@ Widget customProgress(context, progressDegrees, fadeInDuration) {
 Widget workoutBox(context, text1, text2, text3, icon, color) {
   return Container(
     padding: EdgeInsets.all(dynamicWidth(context, 0.05)),
-    width: dynamicWidth(context, 0.45),
+    width: dynamicWidth(context, 0.42),
     height: dynamicHeight(context, 0.17),
     decoration: BoxDecoration(
         color: color.withOpacity(0.15),
