@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 import 'package:warehouse_gym/widgets/home_page_widgets.dart';
@@ -14,17 +15,18 @@ Widget rowText(context, text1, size, color, bold, {check = false}) {
   );
 }
 
-Widget homeBar(context, {check = false, text1 = ""}) {
+Widget homeBar(context, {check = false, text1 = "",activityCheck = false}) {
+  var date=DateTime.now();
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       check == true
           ? text(context, text1, 0.06, myBlack, bold: true)
-          : Column(
+          :  Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                text(context, "Good Morning! ", 0.04, myGrey),
-                text(context, "Sami Ahmed ", 0.06, myBlack, bold: true),
+                activityCheck==true?text(context,DateFormat('EEEE').format(date).toString(),0.04,myGrey) : text(context, "Good Morning! ", 0.04, myGrey),
+                activityCheck==true?text(context,DateFormat('dd'" "'MMMM').format(date).toString(),0.06,myBlack) :text(context, "Sami Ahmed ", 0.06, myBlack, bold: true),
               ],
             ),
       check == true
@@ -35,7 +37,7 @@ Widget homeBar(context, {check = false, text1 = ""}) {
             )
           : Row(
               children: [
-                CircleAvatar(
+                activityCheck==true?Container():CircleAvatar(
                   radius: dynamicWidth(context, 0.052),
                   backgroundColor: myGrey.withOpacity(0.3),
                   child: CircleAvatar(
@@ -72,5 +74,41 @@ Widget customProgress(context, progressDegrees, fadeInDuration) {
           child: text(context, "75%", 0.05, myWhite, bold: true)),
     ),
     painter: RadialPainter(progressDegrees),
+  );
+}
+
+
+Widget workoutBox (context,text1,text2,text3,icon,color){
+  return Container(
+    padding: EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.03),vertical: dynamicHeight(context, 0.02)),
+    width: dynamicWidth(context, 0.45),
+    height: dynamicHeight(context, 0.17),
+    decoration: BoxDecoration(
+        color: color.withOpacity(0.3),
+      borderRadius: BorderRadius.circular(dynamicWidth(context, 0.06))
+    ),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(bottom: dynamicHeight(context, 0.03)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              text(context, text1, 0.045, myBlack),
+              Icon(icon),
+            ],
+          ),
+        ), Row(
+          children: [
+            text(context, text2, 0.07, myBlack,)
+          ],
+        ), Row(
+          children: [
+            text(context, text3, 0.044, myGrey)
+          ],
+        ),
+      ],
+    ),
   );
 }

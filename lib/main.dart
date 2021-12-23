@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:warehouse_gym/screens/activity.dart';
 import 'package:warehouse_gym/screens/login.dart';
 import 'package:warehouse_gym/screens/subscription.dart';
 
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: primaryColor,
       ),
-      home: const Login(),
+      home: const Activity(),
     );
   }
 }
