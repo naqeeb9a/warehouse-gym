@@ -24,8 +24,10 @@ class Activity extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    Wrap(
+                      alignment: WrapAlignment.spaceEvenly,
+                      spacing: dynamicWidth(context, .05),
+                      runSpacing: dynamicWidth(context, .05),
                       children: [
                         workoutBox(
                             context,
@@ -34,17 +36,30 @@ class Activity extends StatelessWidget {
                             "Kcal",
                             Icons.local_fire_department_outlined,
                             Colors.orange),
-                        workoutBox(context, "Steps", "720", "Steps",
-                            Icons.directions_walk_outlined, Colors.purple),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        workoutBox(context, "Sleep", "6 hr", "Hours", Icons.bed,
-                            myGreen),
-                        workoutBox(context, "Water", "2 Lits", "liters",
-                            Icons.whatshot_outlined, myBlue),
+                        workoutBox(
+                          context,
+                          "Steps",
+                          "720",
+                          "Steps",
+                          Icons.directions_walk_outlined,
+                          Colors.purple,
+                        ),
+                        workoutBox(
+                          context,
+                          "Sleep",
+                          "6 hr",
+                          "Hours",
+                          Icons.bed,
+                          myGreen,
+                        ),
+                        workoutBox(
+                          context,
+                          "Water",
+                          "2 Lits",
+                          "liters",
+                          Icons.whatshot_outlined,
+                          myBlue,
+                        ),
                       ],
                     ),
                     Row(
@@ -135,6 +150,7 @@ class Activity extends StatelessWidget {
           },
         ),
       );
+
   FlTitlesData titlesData(context) {
     return FlTitlesData(
       show: true,
@@ -176,6 +192,7 @@ class Activity extends StatelessWidget {
   FlBorderData get borderData => FlBorderData(
         show: false,
       );
+
   List<BarChartGroupData> get barGroups => [
         BarChartGroupData(
           x: 0,
