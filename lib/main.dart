@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:warehouse_gym/screens/activity.dart';
-import 'package:warehouse_gym/screens/login.dart';
-import 'package:warehouse_gym/screens/subscription.dart';
+import 'package:warehouse_gym/screens/bottom_nav.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,7 +32,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: primaryColor,
       ),
-      home: const Activity(),
+      home: const BottomNavBar(),
     );
   }
 }

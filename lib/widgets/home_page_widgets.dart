@@ -34,8 +34,8 @@ Widget gymCardsRow(context, img, index) {
                 roundWidget(context, Icons.timer, "  5 min", Colors.green,
                     check: true),
                 widthBox(context, 0.05),
-                roundWidget(
-                    context, Icons.fireplace, "  120 cal", Colors.orange,
+                roundWidget(context, Icons.local_fire_department, "  120 cal",
+                    Colors.orange,
                     check: true),
               ],
             )
@@ -143,8 +143,8 @@ Widget gymCards(context, img, {check = false}) {
                   children: [
                     roundWidget(context, Icons.timer, "  35 min", Colors.green),
                     widthBox(context, 0.05),
-                    roundWidget(
-                        context, Icons.fireplace, "  120 cal", Colors.orange)
+                    roundWidget(context, Icons.local_fire_department,
+                        "  120 cal", Colors.orange)
                   ],
                 ),
                 heightBox(context, 0.01),

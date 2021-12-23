@@ -91,10 +91,15 @@ class _SubscriptionState extends State<Subscription> {
                     ),
                   ],
                 ),
-                planCard(context,"Monthly","40000/month"),
-                planCard(context,"Annual","20000/month"),
-                planCard(context,"Free Trial","7 free days"),
-            colorfulButton(context, "Choose", myBlack, myYellow,),
+                planCard(context, "Monthly", "40000/month"),
+                planCard(context, "Annual", "20000/month"),
+                planCard(context, "Free Trial", "7 free days"),
+                colorfulButton(
+                  context,
+                  "Choose",
+                  myBlack,
+                  myYellow,
+                ),
               ],
             ),
           ),
@@ -104,9 +109,7 @@ class _SubscriptionState extends State<Subscription> {
   }
 }
 
-Widget planCard(
-  context,validity,paisa
-) {
+Widget planCard(context, validity, paisa) {
   return Container(
     padding: EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
     width: dynamicWidth(context, 0.9),
@@ -138,16 +141,19 @@ Widget planCard(
                 Text(
                   paisa,
                   style: TextStyle(
-                    fontSize: dynamicWidth(context, 0.04),
-                    color: myBlack.withOpacity(0.4)
-                  ),
+                      fontSize: dynamicWidth(context, 0.04),
+                      color: myBlack.withOpacity(0.4)),
                 ),
               ],
             ),
           ],
         ),
-
-        Radio(value: "yes", groupValue: null, onChanged: null,visualDensity: VisualDensity(horizontal: -4),),
+        const Radio(
+          value: "yes",
+          groupValue: null,
+          onChanged: null,
+          visualDensity: VisualDensity(horizontal: -4),
+        ),
       ],
     ),
   );

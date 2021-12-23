@@ -13,76 +13,199 @@ class Activity extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          padding: EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.034),vertical: dynamicHeight(context, 0.04)),
+          padding: EdgeInsets.symmetric(
+              horizontal: dynamicWidth(context, 0.034),
+              vertical: dynamicHeight(context, 0.04)),
           child: Column(
-              children: [
-                homeBar(context,activityCheck: true),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    workoutBox(context,"Calories","1000","Kcal",Icons.local_fire_department_outlined,myRed),
-                    workoutBox(context,"Steps","720","Steps",Icons.directions_walk_outlined ,myYellow),
-                  ],
-                ),Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    workoutBox(context,"Sleep","6 hr","Hours",Icons.star_border_outlined,myGreen),
-                    workoutBox(context,"Water","2 Lits","liters",Icons.whatshot_outlined,myBlue),
-                  ],
-                ),
-                Row(
-                  children: [
-                    text(context, "Workout", 0.05, myBlack,bold: true)
-                  ],
-                ),Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    text(context, "Weakly Average", 0.035, myGrey)
-                  ],
-                ),Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        text(context, "40", 0.09, myBlack,bold: true),
-                        text(context, "min", 0.05, myGrey,),
-                      ],
-                    ),Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        text(context, "30", 0.09, myBlack,bold: true),
-                        text(context, "min", 0.05, myGrey,),
-                      ],
-                    )
-                  ],
-                ),
-          BarChart(
-
-            BarChartData(
-              barGroups: [BarChartGroupData(x: 1,barRods: [
-              BarChartRodData(
-                y: 1 ,
-                colors: [Colors.lime],
-                width: dynamicWidth(context, 0.02),
-                borderSide: const BorderSide(color: Colors.white, width: 0),
-                backDrawRodData: BackgroundBarChartRodData(
-                  show: true,
-                  y: 20,
-                  colors: [Colors.blueGrey],
-                ),
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              homeBar(context, activityCheck: true),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  workoutBox(context, "Calories", "1000", "Kcal",
+                      Icons.local_fire_department_outlined, Colors.orange),
+                  workoutBox(context, "Steps", "720", "Steps",
+                      Icons.directions_walk_outlined, Colors.purple),
+                ],
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  workoutBox(
+                      context, "Sleep", "6 hr", "Hours", Icons.bed, myGreen),
+                  workoutBox(context, "Water", "2 Lits", "liters",
+                      Icons.whatshot_outlined, myBlue),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  workOutRow(
+                      context, "Workout", "40", " min", 0.05, myBlack, true,
+                      check: true),
+                  workOutRow(context, "Weekly Average", "30", " min", 0.035,
+                      myGrey, false),
+                ],
+              ),
+              barChartCustom(context)
             ],
-
-            ),BarChartGroupData(x: 5),BarChartGroupData(x: 1),BarChartGroupData(x: 2),]
-            ),
-            swapAnimationDuration: Duration(milliseconds: 150), // Optional
-            swapAnimationCurve: Curves.linear, // Optional
-          ),
-              ],
           ),
         ),
       ),
     );
   }
+
+  workOutRow(context, text1, text2, text3, size, color, bold, {check = false}) {
+    return Column(
+      children: [
+        text(context, text1, size, color, bold: bold),
+        Visibility(
+          visible: check,
+          child: heightBox(context, 0.01),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            text(context, text2, 0.09, myBlack, bold: true),
+            text(
+              context,
+              text3,
+              0.05,
+              myGrey,
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget barChartCustom(context) {
+    return AspectRatio(
+      aspectRatio: 2,
+      child: Card(
+        elevation: 0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+        color: Colors.transparent,
+        child: BarChart(
+          BarChartData(
+              barTouchData: barTouchData,
+              titlesData: titlesData(context),
+              borderData: borderData,
+              barGroups: barGroups,
+              alignment: BarChartAlignment.spaceAround,
+              maxY: dynamicHeight(context, 0.02),
+              gridData: FlGridData(show: false)),
+        ),
+      ),
+    );
+  }
+
+  BarTouchData get barTouchData => BarTouchData(
+        enabled: false,
+        touchTooltipData: BarTouchTooltipData(
+          tooltipBgColor: Colors.transparent,
+          tooltipPadding: const EdgeInsets.all(0),
+          tooltipMargin: 8,
+          getTooltipItem: (
+            BarChartGroupData group,
+            int groupIndex,
+            BarChartRodData rod,
+            int rodIndex,
+          ) {
+            return BarTooltipItem(
+              rod.y.round().toString(),
+              const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            );
+          },
+        ),
+      );
+  FlTitlesData titlesData(context) {
+    return FlTitlesData(
+      show: true,
+      bottomTitles: SideTitles(
+        showTitles: true,
+        getTextStyles: (context, value) => TextStyle(
+          color: const Color(0xff7589a2),
+          fontWeight: FontWeight.bold,
+          fontSize: dynamicWidth(context, 0.03),
+        ),
+        margin: dynamicHeight(context, 0.02),
+        getTitles: (double value) {
+          switch (value.toInt()) {
+            case 0:
+              return 'S';
+            case 1:
+              return 'M';
+            case 2:
+              return 'T';
+            case 3:
+              return 'W';
+            case 4:
+              return 'T';
+            case 5:
+              return 'F';
+            case 6:
+              return 'S';
+            default:
+              return '';
+          }
+        },
+      ),
+      leftTitles: SideTitles(showTitles: false),
+      topTitles: SideTitles(showTitles: false),
+      rightTitles: SideTitles(showTitles: false),
+    );
+  }
+
+  FlBorderData get borderData => FlBorderData(
+        show: false,
+      );
+  List<BarChartGroupData> get barGroups => [
+        BarChartGroupData(
+          x: 0,
+          barRods: [
+            BarChartRodData(
+                y: 8, colors: [Colors.lightBlueAccent, Colors.greenAccent])
+          ],
+        ),
+        BarChartGroupData(
+          x: 1,
+          barRods: [
+            BarChartRodData(
+                y: 10, colors: [Colors.lightBlueAccent, Colors.greenAccent])
+          ],
+        ),
+        BarChartGroupData(
+          x: 2,
+          barRods: [
+            BarChartRodData(
+                y: 14, colors: [Colors.lightBlueAccent, Colors.greenAccent])
+          ],
+        ),
+        BarChartGroupData(
+          x: 3,
+          barRods: [
+            BarChartRodData(
+                y: 15, colors: [Colors.lightBlueAccent, Colors.greenAccent])
+          ],
+        ),
+        BarChartGroupData(
+          x: 3,
+          barRods: [
+            BarChartRodData(
+                y: 13, colors: [Colors.lightBlueAccent, Colors.greenAccent])
+          ],
+        ),
+        BarChartGroupData(
+          x: 3,
+          barRods: [
+            BarChartRodData(
+                y: 10, colors: [Colors.lightBlueAccent, Colors.greenAccent])
+          ],
+        ),
+      ];
 }
