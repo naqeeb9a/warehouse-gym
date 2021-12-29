@@ -5,12 +5,12 @@ import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 import 'package:warehouse_gym/widgets/home_page_widgets.dart';
 import 'package:warehouse_gym/widgets/text_widge.dart';
 
-Widget rowText(context, text1, size, color, bold, {check = false}) {
+Widget rowText(context, text1,text2, size, color, bold, {check = false}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       text(context, text1, size, color, bold: bold),
-      check == true ? Container() : text(context, "See all", 0.03, Colors.blue)
+      check == true ? Container() : text(context, text2, 0.03, Colors.blue)
     ],
   );
 }

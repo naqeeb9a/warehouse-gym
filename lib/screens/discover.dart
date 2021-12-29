@@ -50,7 +50,7 @@ class _DiscoverState extends State<Discover>
                     heightBox(context, 0.02),
                     discoverCard(context),
                     heightBox(context, 0.02),
-                    rowText(context, "Select by Goal", 0.05, myBlack, true,
+                    rowText(context, "Select by Goal","See all", 0.05, myBlack, true,
                         check: true)
                   ],
                 ),
@@ -71,7 +71,7 @@ class _DiscoverState extends State<Discover>
                     horizontal: dynamicWidth(context, 0.05)),
                 child: Column(
                   children: [
-                    rowText(context, "Add New Task", 0.04, myBlack, true),
+                    rowText(context, "Add New Task","See all", 0.04, myBlack, true),
                     ListView.builder(
                       itemCount: images.length,
                       shrinkWrap: true,

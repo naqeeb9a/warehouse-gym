@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:warehouse_gym/screens/my_plan.dart';
+import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 import 'package:warehouse_gym/widgets/essential_widgets.dart';
@@ -12,23 +14,23 @@ class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
-
+List images = [
+  {
+    "img":
+    "https://s1.1zoom.me/big0/173/Men_Workout_Gym_Muscle_Barbell_581920_1280x853.jpg"
+  },
+  {
+    "img":
+    "https://www.wallpaperup.com/uploads/wallpapers/2017/11/19/1157037/b9898ccf2837e5d17cb8860f61293053-700.jpg"
+  },
+  {
+    "img":
+    "https://img5.goodfon.com/wallpaper/nbig/1/97/workout-fitness-home.jpg"
+  }
+];
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
-  List images = [
-    {
-      "img":
-          "https://s1.1zoom.me/big0/173/Men_Workout_Gym_Muscle_Barbell_581920_1280x853.jpg"
-    },
-    {
-      "img":
-          "https://www.wallpaperup.com/uploads/wallpapers/2017/11/19/1157037/b9898ccf2837e5d17cb8860f61293053-700.jpg"
-    },
-    {
-      "img":
-          "https://img5.goodfon.com/wallpaper/nbig/1/97/workout-fitness-home.jpg"
-    }
-  ];
+
   late AnimationController _radialProgressAnimationController;
   late Animation<double> _progressAnimation;
   final Duration fadeInDuration = const Duration(milliseconds: 500);
@@ -72,9 +74,21 @@ class _HomePageState extends State<HomePage>
                     heightBox(context, 0.02),
                     homeBar(context),
                     heightBox(context, 0.03),
-                    plansForTodayCard(context, progressDegrees, fadeInDuration),
+                    InkWell(
+                      onTap: () {
+                        push(
+                          context,
+                          MyPlan(),
+                        );
+                      },
+                      child: plansForTodayCard(
+                        context,
+                        progressDegrees,
+                        fadeInDuration,
+                      ),
+                    ),
                     heightBox(context, 0.02),
-                    rowText(context, "Start New Goal", 0.04, myBlack, false),
+                    rowText(context, "Start New Goal","See all", 0.04, myBlack, false),
                   ],
                 ),
               ),
@@ -94,7 +108,7 @@ class _HomePageState extends State<HomePage>
                     horizontal: dynamicWidth(context, 0.05)),
                 child: Column(
                   children: [
-                    rowText(context, "Daily Task", 0.04, myBlack, false),
+                    rowText(context, "Daily Task","See all", 0.04, myBlack, false),
                     ListView.builder(
                       itemCount: images.length,
                       shrinkWrap: true,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:warehouse_gym/screens/bottom_nav.dart';
+import 'package:warehouse_gym/screens/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: primaryColor,
       ),
-      home: const BottomNavBar(),
+      home: const Login(),
     );
   }
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:warehouse_gym/screens/bottom_nav.dart';
 import 'package:warehouse_gym/screens/login.dart';
+import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 import 'package:warehouse_gym/widgets/text_widge.dart';
@@ -99,6 +101,9 @@ class _SubscriptionState extends State<Subscription> {
                   "Choose",
                   myBlack,
                   myYellow,
+                  function: (){
+                    push(context, BottomNavBar());
+                  }
                 ),
               ],
             ),

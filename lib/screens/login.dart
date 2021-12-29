@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:warehouse_gym/screens/bottom_nav.dart';
+import 'package:warehouse_gym/screens/subscription.dart';
 import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
@@ -32,7 +33,7 @@ class Login extends StatelessWidget {
                   alignment: Alignment.center,
                   child: colorfulButton(context, "Sign In", myBlack, myYellow,
                       function: () {
-                    push(context, const BottomNavBar());
+                    push(context, const Subscription());
                   })),
               heightBox(context, 0.02),
               Align(
@@ -47,7 +48,7 @@ class Login extends StatelessWidget {
   }
 }
 
-Widget bar(context, leadingIcon, {centerCheck = false, centerText = ""}) {
+Widget bar(context, leadingIcon, {centerCheck = false, centerText = "",editIcon = Icons.arrow_back_ios,editColor=Colors.transparent}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
@@ -83,8 +84,8 @@ Widget bar(context, leadingIcon, {centerCheck = false, centerText = ""}) {
                   child: Padding(
                     padding: EdgeInsets.only(left: dynamicWidth(context, 0.01)),
                     child: Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.transparent,
+                      editIcon,
+                      color: editColor,
                       size: dynamicWidth(context, 0.04),
                     ),
                   )),
