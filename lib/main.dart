@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:warehouse_gym/screens/bottom_nav.dart';
 
 void main() {
@@ -24,8 +25,17 @@ class MyApp extends StatelessWidget {
     },
   );
 
+
+
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations(
+      [
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown,
+      ],
+    );
+
     return MaterialApp(
       title: 'WareHouse Gym',
       debugShowCheckedModeBanner: false,
@@ -35,4 +45,6 @@ class MyApp extends StatelessWidget {
       home: const BottomNavBar(),
     );
   }
+
+
 }
