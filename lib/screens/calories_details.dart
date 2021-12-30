@@ -10,8 +10,8 @@ import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 import 'package:warehouse_gym/widgets/essential_widgets.dart';
 import 'package:warehouse_gym/widgets/text_widge.dart';
 
-class StepsDetails extends StatelessWidget {
-  const StepsDetails({Key? key}) : super(key: key);
+class CaloriesDetails extends StatelessWidget {
+  const CaloriesDetails({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,15 +19,22 @@ class StepsDetails extends StatelessWidget {
       child: Scaffold(
         body: Padding(
           padding:
-          EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
+              EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               heightBox(context, 0.02),
-              bar(context, true,centerCheck: true,centerText: "Steps",editIcon: Icons.mode_edit_outlined,editColor: myPurple),
+              bar(context, true,
+                  centerCheck: true,
+                  centerText: "Calories Details",
+                  editIcon: Icons.mode_edit_outlined,
+                  editColor: myOrange),
               heightBox(context, 0.02),
-              Center(child: text(context, "Great Work", 0.04, myGrey)),
-              Center(child: text(context, "Your Daily Tasks Almost Done!", 0.08, myBlack,bold: true)),
+              Center(child: text(context, "Keep Going!", 0.04, myGrey)),
+              Center(
+                  child: text(
+                      context, "You Have To Eat More Calories!", 0.08, myBlack,
+                      bold: true)),
               Center(
                 child: CircularPercentIndicator(
                   animation: true,
@@ -38,7 +45,7 @@ class StepsDetails extends StatelessWidget {
                   percent: 0.7,
                   center: DottedBorder(
                     dashPattern: [10, 10, 10, 10],
-                    color: myPurple,
+                    color: myOrange,
                     borderType: BorderType.Circle,
                     strokeWidth: 4,
                     child: Container(
@@ -46,44 +53,23 @@ class StepsDetails extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-
                           Icon(
-                            Icons.directions_run_outlined ,
+                            Icons.local_fire_department_outlined,
                             size: 50.0,
-                            color: myPurple,
+                            color: myOrange,
                           ),
-                        text(context, "768", 0.08, myBlack,bold: true),
-                        text(context, "Steps", 0.06, myGrey),
+                          text(context, "159", 0.08, myBlack, bold: true),
+                          text(context, "Calories", 0.06, myGrey),
                         ],
                       ),
                     ),
                   ),
                   backgroundColor: myGrey,
-                  progressColor: myPurple,
+                  progressColor: myOrange,
                 ),
               ),
               rowText(context, "My Activity", "Today", 0.06, myBlack, true),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Icon(Icons.directions_walk_outlined),
-                  Expanded(
-                    child: ExpandablePanel(
-                      header: Text("article.title"),
-                      collapsed: Text(
-                        "",
-                        softWrap: true,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      expanded: Text(
-                        "jskfh\nhkj\njhkhk\nfkdokg,d",
-                        softWrap: true,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+
             ],
           ),
         ),

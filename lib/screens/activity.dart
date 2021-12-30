@@ -1,9 +1,13 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:warehouse_gym/screens/steps_details.dart';
+import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 import 'package:warehouse_gym/widgets/essential_widgets.dart';
 import 'package:warehouse_gym/widgets/text_widge.dart';
+
+import 'calories_details.dart';
 
 class Activity extends StatelessWidget {
   const Activity({Key? key}) : super(key: key);
@@ -29,20 +33,36 @@ class Activity extends StatelessWidget {
                       spacing: dynamicWidth(context, .05),
                       runSpacing: dynamicWidth(context, .05),
                       children: [
-                        workoutBox(
+                        InkWell(
+                          onTap: () {
+                            push(
+                              context,
+                              CaloriesDetails(),
+                            );
+                          },
+                          child: workoutBox(
+                              context,
+                              "Calories",
+                              "1000",
+                              "Kcal",
+                              Icons.local_fire_department_outlined,
+                              Colors.orange),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            push(
+                              context,
+                              StepsDetails(),
+                            );
+                          },
+                          child: workoutBox(
                             context,
-                            "Calories",
-                            "1000",
-                            "Kcal",
-                            Icons.local_fire_department_outlined,
-                            Colors.orange),
-                        workoutBox(
-                          context,
-                          "Steps",
-                          "720",
-                          "Steps",
-                          Icons.directions_walk_outlined,
-                          Colors.purple,
+                            "Steps",
+                            "720",
+                            "Steps",
+                            Icons.directions_walk_outlined,
+                            Colors.purple,
+                          ),
                         ),
                         workoutBox(
                           context,

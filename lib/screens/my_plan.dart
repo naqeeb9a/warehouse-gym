@@ -6,6 +6,7 @@ import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 import 'package:warehouse_gym/widgets/essential_widgets.dart';
 import 'package:warehouse_gym/widgets/home_page_widgets.dart';
 
+import 'calories_details.dart';
 import 'home.dart';
 import 'login.dart';
 
@@ -36,7 +37,12 @@ class MyPlan extends StatelessWidget {
                       runSpacing: dynamicWidth(context, .05),
                       children: [
                         InkWell(
-
+                          onTap: () {
+                            push(
+                              context,
+                              CaloriesDetails(),
+                            );
+                          },
                           child: workoutBox(
                               context,
                               "Calories",
