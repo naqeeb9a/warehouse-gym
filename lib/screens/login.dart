@@ -48,26 +48,56 @@ class Login extends StatelessWidget {
   }
 }
 
-Widget bar(context, leadingIcon, {centerCheck = false, centerText = "",editIcon = Icons.arrow_back_ios,editColor=Colors.transparent}) {
+Widget bar(context, leadingIcon,
+    {centerCheck = false,
+    centerText = "",
+    editIcon = Icons.arrow_back_ios,
+    editColor = Colors.transparent,
+    pop = false}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       leadingIcon == true
-          ? CircleAvatar(
-              radius: dynamicWidth(context, 0.037),
-              backgroundColor: myGrey.withOpacity(0.3),
-              child: CircleAvatar(
-                  radius: dynamicWidth(context, 0.035),
-                  backgroundColor: myWhite,
-                  child: Padding(
-                    padding: EdgeInsets.only(left: dynamicWidth(context, 0.01)),
-                    child: Icon(
-                      Icons.arrow_back_ios,
-                      color: myBlack,
-                      size: dynamicWidth(context, 0.04),
+          ? pop == true
+              ? InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: CircleAvatar(
+                    radius: dynamicWidth(context, 0.037),
+                    backgroundColor: myGrey.withOpacity(0.3),
+                    child: CircleAvatar(
+                      radius: dynamicWidth(context, 0.035),
+                      backgroundColor: myWhite,
+                      child: Padding(
+                        padding:
+                            EdgeInsets.only(left: dynamicWidth(context, 0.01)),
+                        child: Icon(
+                          Icons.arrow_back_ios,
+                          color: myBlack,
+                          size: dynamicWidth(context, 0.04),
+                        ),
+                      ),
                     ),
-                  )),
-            )
+                  ),
+                )
+              : CircleAvatar(
+                  radius: dynamicWidth(context, 0.037),
+                  backgroundColor: myGrey.withOpacity(0.3),
+                  child: CircleAvatar(
+                    radius: dynamicWidth(context, 0.035),
+                    backgroundColor: myWhite,
+                    child: Padding(
+                      padding:
+                          EdgeInsets.only(left: dynamicWidth(context, 0.01)),
+                      child: Icon(
+                        Icons.arrow_back_ios,
+                        color: myBlack,
+                        size: dynamicWidth(context, 0.04),
+                      ),
+                    ),
+                  ),
+                )
           : Container(),
       (centerCheck == true)
           ? Align(

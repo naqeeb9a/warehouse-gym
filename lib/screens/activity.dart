@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:warehouse_gym/screens/sleep_details.dart';
 import 'package:warehouse_gym/screens/steps_details.dart';
 import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
@@ -23,7 +24,33 @@ class Activity extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               heightBox(context, 0.02),
-              homeBar(context, activityCheck: true),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    onTap: (){
+                      pop(context);
+                    },
+                    child: CircleAvatar(
+                      radius: dynamicWidth(context, 0.037),
+                      backgroundColor: myGrey.withOpacity(0.3),
+                      child: CircleAvatar(
+                        radius: dynamicWidth(context, 0.035),
+                        backgroundColor: myWhite,
+                        child: Padding(
+                          padding: EdgeInsets.only(left: dynamicWidth(context, 0.01)),
+                          child: Icon(
+                            Icons.arrow_back_ios,
+                            color: myBlack,
+                            size: dynamicWidth(context, 0.04),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  homeBar(context, activityCheck: true),
+                ],
+              ),
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -64,13 +91,21 @@ class Activity extends StatelessWidget {
                             Colors.purple,
                           ),
                         ),
-                        workoutBox(
-                          context,
-                          "Sleep",
-                          "6 hr",
-                          "Hours",
-                          Icons.bed,
-                          myGreen,
+                        InkWell(
+                          onTap: () {
+                            push(
+                              context,
+                              SleepDetails(),
+                            );
+                          },
+                          child: workoutBox(
+                            context,
+                            "Sleep",
+                            "6 hr",
+                            "Hours",
+                            Icons.bed,
+                            myGreen,
+                          ),
                         ),
                         workoutBox(
                           context,

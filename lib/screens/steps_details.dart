@@ -24,7 +24,7 @@ class StepsDetails extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               heightBox(context, 0.02),
-              bar(context, true,centerCheck: true,centerText: "Steps",editIcon: Icons.mode_edit_outlined,editColor: myPurple),
+              bar(context, true,centerCheck: true,centerText: "Steps",editIcon: Icons.mode_edit_outlined,editColor: myPurple,pop: true,),
               heightBox(context, 0.02),
               Center(child: text(context, "Great Work", 0.04, myGrey)),
               Center(child: text(context, "Your Daily Tasks Almost Done!", 0.08, myBlack,bold: true)),
@@ -63,27 +63,8 @@ class StepsDetails extends StatelessWidget {
                 ),
               ),
               rowText(context, "My Activity", "Today", 0.06, myBlack, true),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Icon(Icons.directions_walk_outlined),
-                  Expanded(
-                    child: ExpandablePanel(
-                      header: Text("article.title"),
-                      collapsed: Text(
-                        "",
-                        softWrap: true,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      expanded: Text(
-                        "jskfh\nhkj\njhkhk\nfkdokg,d",
-                        softWrap: true,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              expandableThingy(context,Icons.directions_run_outlined,"6am-7am","","Time","Distance","2h.30min","20.6km"),
+              expandableThingy(context,Icons.directions_run_outlined,"10pm-11pm","","Time","Distance","1h.10min","8.8km"),
             ],
           ),
         ),

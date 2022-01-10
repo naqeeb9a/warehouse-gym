@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:warehouse_gym/screens/sleep_details.dart';
 import 'package:warehouse_gym/screens/steps_details.dart';
 import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
@@ -19,12 +20,12 @@ class MyPlan extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding:
-          EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
+              EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               heightBox(context, 0.02),
-              bar(context, true, centerCheck: true, centerText: "My Plan"),
+              bar(context, true, centerCheck: true, centerText: "My Plan",pop: true),
               heightBox(context, 0.06),
               rowText(context, "Daily Plan", "Statics", 0.06, myBlack, true),
               Expanded(
@@ -40,22 +41,17 @@ class MyPlan extends StatelessWidget {
                           onTap: () {
                             push(
                               context,
-                              CaloriesDetails(),
+                              const CaloriesDetails(),
                             );
                           },
-                          child: workoutBox(
-                              context,
-                              "Calories",
-                              "1000",
-                              "Kcal",
-                              Icons.local_fire_department_outlined,
-                              myOrange),
+                          child: workoutBox(context, "Calories", "1000", "Kcal",
+                              Icons.local_fire_department_outlined, myOrange),
                         ),
                         InkWell(
                           onTap: () {
                             push(
                               context,
-                              StepsDetails(),
+                              const StepsDetails(),
                             );
                           },
                           child: workoutBox(
@@ -67,13 +63,21 @@ class MyPlan extends StatelessWidget {
                             myPurple,
                           ),
                         ),
-                        workoutBox(
-                          context,
-                          "Sleep",
-                          "6 hr",
-                          "Hours",
-                          Icons.bed,
-                          myGreen,
+                        InkWell(
+                          onTap: () {
+                            push(
+                              context,
+                              const SleepDetails(),
+                            );
+                          },
+                          child: workoutBox(
+                            context,
+                            "Sleep",
+                            "6 hr",
+                            "Hours",
+                            Icons.bed,
+                            myGreen,
+                          ),
                         ),
                         workoutBox(
                           context,
@@ -88,7 +92,12 @@ class MyPlan extends StatelessWidget {
                   ],
                 ),
               ),
-              Text("Goal In Progress",style: TextStyle(fontWeight: FontWeight.bold,fontSize: dynamicWidth(context, 0.06)),),
+              Text(
+                "Goal In Progress",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: dynamicWidth(context, 0.06)),
+              ),
               SizedBox(
                 height: dynamicHeight(context, 0.35),
                 width: dynamicWidth(context, 1),

@@ -4,6 +4,8 @@ import 'package:warehouse_gym/screens/discover.dart';
 import 'package:warehouse_gym/screens/home.dart';
 import 'package:warehouse_gym/screens/settings.dart';
 
+import 'cart.dart';
+
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({Key? key}) : super(key: key);
 
@@ -26,18 +28,18 @@ class _BottomNavBarState extends State<BottomNavBar> {
           setState(() {
             value = index;
             _pageController.animateToPage(value,
-                duration: const Duration(milliseconds: 600),
+                duration: const Duration(milliseconds: 500),
                 curve: Curves.easeInOut);
           });
         },
         showUnselectedLabels: true,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: "Home"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.compass_calibration), label: "Discovery"),
+              icon: Icon(Icons.compass_calibration_outlined), label: "Discovery"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.local_activity), label: "Activity"),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Setting"),
+              icon: Icon(Icons.shopping_cart_outlined ), label: "Cart"),
+          BottomNavigationBarItem(icon: Icon(Icons.settings_outlined), label: "Setting"),
         ],
       ),
     );
@@ -51,7 +53,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           value = index;
         });
       },
-      children: const [HomePage(), Discover(), Activity(), Settings()],
+      children: const [HomePage(), Discover(), Cart(), Settings()],
     );
   }
 }

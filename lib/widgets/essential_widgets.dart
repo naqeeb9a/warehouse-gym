@@ -1,3 +1,4 @@
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:warehouse_gym/utils/config.dart';
@@ -23,7 +24,7 @@ Widget homeBar(context, {check = false, text1 = "", activityCheck = false}) {
       check == true
           ? text(context, text1, 0.06, myBlack, bold: true)
           : Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 activityCheck == true
                     ? text(context, DateFormat('EEEE').format(date).toString(),
@@ -127,3 +128,52 @@ Widget workoutBox(context, text1, text2, text3, icon, color) {
     ),
   );
 }
+
+
+Widget expandableThingy(context,icon,text1,text2,text3,text4,text5,text6){
+  return Row(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Padding(
+        padding:  EdgeInsets.symmetric(vertical: dynamicHeight(context, 0.01)),
+        child: Icon(icon),
+      ),
+      Expanded(
+        child: ExpandablePanel(
+          header: Padding(
+            padding: EdgeInsets.symmetric(vertical: dynamicHeight(context, 0.008)),
+            child: rowText(context, text1, text2, 0.056, myGrey, false,check: false),
+          ),
+          // text(context, "6am-7am", 0.06, myGrey),
+          collapsed: Text(
+            "",
+            softWrap: true,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
+          expanded: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  text(context, text3, 0.05, myGrey),
+                  text(context, text4, 0.05, myGrey),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  text(context, text5, 0.065, myBlack,bold: true),
+                  text(context, text6, 0.065, myBlack,bold: true),
+                ],
+              ),
+            ],
+          ),
+          // "jskfh\nhkj\njhkhk\nfkdokg,d",
+
+        ),
+      ),
+    ],
+  );
+}
+
