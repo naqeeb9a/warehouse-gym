@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:warehouse_gym/screens/sleep_details.dart';
 import 'package:warehouse_gym/screens/steps_details.dart';
+import 'package:warehouse_gym/screens/water_details.dart';
 import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
@@ -25,7 +26,8 @@ class MyPlan extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               heightBox(context, 0.02),
-              bar(context, true, centerCheck: true, centerText: "My Plan",pop: true),
+              bar(context, true,
+                  centerCheck: true, centerText: "My Plan", pop: true),
               heightBox(context, 0.06),
               rowText(context, "Daily Plan", "Statics", 0.06, myBlack, true),
               Expanded(
@@ -79,13 +81,21 @@ class MyPlan extends StatelessWidget {
                             myGreen,
                           ),
                         ),
-                        workoutBox(
-                          context,
-                          "Water",
-                          "2 Lits",
-                          "liters",
-                          Icons.whatshot_outlined,
-                          myBlue,
+                        InkWell(
+                          onTap: () {
+                            push(
+                              context,
+                              const WaterDetails(),
+                            );
+                          },
+                          child: workoutBox(
+                            context,
+                            "Water",
+                            "2 Lits",
+                            "liters",
+                            Icons.whatshot_outlined,
+                            myBlue,
+                          ),
                         ),
                       ],
                     ),

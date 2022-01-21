@@ -46,7 +46,7 @@ class _DiscoverState extends State<Discover>
                 child: Column(
                   children: [
                     heightBox(context, 0.02),
-                    homeBar(context, check: true, text1: "Discover"),
+                    homeBar(context, check: true, text1: "Personal Trainer"),
                     heightBox(context, 0.02),
                     discoverCard(context),
                     heightBox(context, 0.02),

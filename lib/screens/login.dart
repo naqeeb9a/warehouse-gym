@@ -12,6 +12,7 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: myBlack,
       body: SafeArea(
         child: Padding(
           padding:
@@ -19,15 +20,29 @@ class Login extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              heightBox(context, 0.04),
-              bar(context, false),
+              heightBox(context, 0.06),
+              Center(
+                child: Container(
+                  width: dynamicWidth(context, 0.4),
+                  child: Image.asset("assets/warehouse.png"),
+                ),
+              ),
               heightBox(context, 0.05),
-              text(context, "Sign In", 0.08, myBlack, bold: true),
+              text(context, "Sign In", 0.08, myWhite, bold: true),
               heightBox(context, 0.01),
               text(context, "Fill the detail to sign in account", 0.03, myGrey),
               heightBox(context, 0.02),
-              inputTextWidget(context, "  Email", false),
+              inputTextWidget(
+                context,
+                "  Email",
+                false,
+              ),
               inputTextWidget(context, "  Password", true),
+              heightBox(context, 0.02),
+              Align(
+                alignment: Alignment.centerRight,
+                child: text(context, "Forgot Password?", 0.03, myOrange),
+              ),
               heightBox(context, 0.05),
               Align(
                   alignment: Alignment.center,
@@ -35,11 +50,14 @@ class Login extends StatelessWidget {
                       function: () {
                     push(context, const Subscription());
                   })),
-              heightBox(context, 0.02),
-              Align(
-                alignment: Alignment.center,
-                child: text(context, "Forgot Password?", 0.03, Colors.orange),
-              )
+              heightBox(context, 0.03),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  text(context, "Don't have an account?", 0.03, myWhite),
+                  text(context, " Signup", 0.03, myOrange),
+                ],
+              ),
             ],
           ),
         ),
@@ -133,7 +151,8 @@ Widget inputTextWidget(context, hint, isPassword) {
       cursorColor: myGrey,
       decoration: InputDecoration(
         hintText: hint,
-        hintStyle: TextStyle(fontSize: dynamicWidth(context, 0.03)),
+        hintStyle:
+            TextStyle(fontSize: dynamicWidth(context, 0.03), color: myWhite),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: myGrey.withOpacity(0.3)),
         ),

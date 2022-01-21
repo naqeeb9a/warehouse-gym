@@ -24,19 +24,26 @@ class SleepDetails extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               heightBox(context, 0.02),
-              bar(context, true,
-                  centerCheck: true,
-                  centerText: "Steps",
-                  editIcon: Icons.mode_edit_outlined,
-                  editColor: myGreen,
-                  pop: true,
+              bar(
+                context,
+                true,
+                centerCheck: true,
+                centerText: "Sleep",
+                editIcon: Icons.mode_edit_outlined,
+                editColor: myGreen,
+                pop: true,
+              ),
+              heightBox(context, 0.03),
+              Center(
+                child: text(context, "Great Work", 0.04, myGrey),
               ),
               heightBox(context, 0.02),
-              Center(child: text(context, "Great Work", 0.04, myGrey)),
               Center(
-                  child: text(
-                      context, "Your Daily Tasks Almost Done!", 0.08, myBlack,
-                      bold: true)),
+                child: text(
+                    context, "Your Daily Tasks Almost Done!", 0.08, myBlack,
+                    bold: true),
+              ),
+              heightBox(context, 0.02),
               Center(
                 child: Container(
                   width: dynamicWidth(context, 0.7),
@@ -44,6 +51,7 @@ class SleepDetails extends StatelessWidget {
                 ),
               ),
               rowText(context, "My Activity", "Today", 0.06, myBlack, true),
+              heightBox(context, 0.01),
               expandableThingy(context, Icons.directions_run_outlined,
                   "6am-7am", "", "Time", "Distance", "2h.30min", "20.6km"),
               expandableThingy(context, Icons.directions_run_outlined,

@@ -2,6 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:warehouse_gym/screens/sleep_details.dart';
 import 'package:warehouse_gym/screens/steps_details.dart';
+import 'package:warehouse_gym/screens/water_details.dart';
 import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
@@ -28,7 +29,7 @@ class Activity extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   InkWell(
-                    onTap: (){
+                    onTap: () {
                       pop(context);
                     },
                     child: CircleAvatar(
@@ -38,7 +39,8 @@ class Activity extends StatelessWidget {
                         radius: dynamicWidth(context, 0.035),
                         backgroundColor: myWhite,
                         child: Padding(
-                          padding: EdgeInsets.only(left: dynamicWidth(context, 0.01)),
+                          padding: EdgeInsets.only(
+                              left: dynamicWidth(context, 0.01)),
                           child: Icon(
                             Icons.arrow_back_ios,
                             color: myBlack,
@@ -107,13 +109,21 @@ class Activity extends StatelessWidget {
                             myGreen,
                           ),
                         ),
-                        workoutBox(
-                          context,
-                          "Water",
-                          "2 Lits",
-                          "liters",
-                          Icons.whatshot_outlined,
-                          myBlue,
+                        InkWell(
+                          onTap: () {
+                            push(
+                              context,
+                              WaterDetails(),
+                            );
+                          },
+                          child: workoutBox(
+                            context,
+                            "Water",
+                            "2 Lits",
+                            "liters",
+                            Icons.whatshot_outlined,
+                            myBlue,
+                          ),
                         ),
                       ],
                     ),

@@ -1,5 +1,4 @@
 import 'package:dotted_border/dotted_border.dart';
-import 'package:expandable/expandable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -19,15 +18,28 @@ class StepsDetails extends StatelessWidget {
       child: Scaffold(
         body: Padding(
           padding:
-          EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
+              EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               heightBox(context, 0.02),
-              bar(context, true,centerCheck: true,centerText: "Steps",editIcon: Icons.mode_edit_outlined,editColor: myPurple,pop: true,),
+              bar(
+                context,
+                true,
+                centerCheck: true,
+                centerText: "Steps",
+                editIcon: Icons.mode_edit_outlined,
+                editColor: myPurple,
+                pop: true,
+              ),
+              heightBox(context, 0.03),
+              Center(child: text(context, "Great Work", 0.04, myGrey),),
               heightBox(context, 0.02),
-              Center(child: text(context, "Great Work", 0.04, myGrey)),
-              Center(child: text(context, "Your Daily Tasks Almost Done!", 0.08, myBlack,bold: true)),
+              Center(
+                  child: text(
+                      context, "Your Daily Tasks Almost Done!", 0.08, myBlack,
+                      bold: true),),
+              heightBox(context, 0.03),
               Center(
                 child: CircularPercentIndicator(
                   animation: true,
@@ -46,14 +58,13 @@ class StepsDetails extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-
                           Icon(
-                            Icons.directions_run_outlined ,
+                            Icons.directions_run_outlined,
                             size: 50.0,
                             color: myPurple,
                           ),
-                        text(context, "768", 0.08, myBlack,bold: true),
-                        text(context, "Steps", 0.06, myGrey),
+                          text(context, "768", 0.08, myBlack, bold: true),
+                          text(context, "Steps", 0.06, myGrey),
                         ],
                       ),
                     ),
@@ -62,9 +73,13 @@ class StepsDetails extends StatelessWidget {
                   progressColor: myPurple,
                 ),
               ),
+              heightBox(context, 0.03),
               rowText(context, "My Activity", "Today", 0.06, myBlack, true),
-              expandableThingy(context,Icons.directions_run_outlined,"6am-7am","","Time","Distance","2h.30min","20.6km"),
-              expandableThingy(context,Icons.directions_run_outlined,"10pm-11pm","","Time","Distance","1h.10min","8.8km"),
+              heightBox(context, 0.02),
+              expandableThingy(context, Icons.directions_run_outlined,
+                  "6am-7am", "", "Time", "Distance", "2h.30min", "20.6km"),
+              expandableThingy(context, Icons.directions_run_outlined,
+                  "10pm-11pm", "", "Time", "Distance", "1h.10min", "8.8km"),
             ],
           ),
         ),

@@ -36,7 +36,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: "Home"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.compass_calibration_outlined), label: "Discovery"),
+              icon: Icon(Icons.person_outlined ), label: "Trainer"),
           BottomNavigationBarItem(
               icon: Icon(Icons.shopping_cart_outlined ), label: "Cart"),
           BottomNavigationBarItem(icon: Icon(Icons.settings_outlined), label: "Setting"),
