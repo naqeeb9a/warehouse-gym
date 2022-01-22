@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 
-Widget placeCard(context, validity, paisa) {
+Widget placeCard(context, place,name,image) {
   return Container(
     padding: EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
     width: dynamicWidth(context, 0.9),
     height: dynamicHeight(context, 0.15),
     decoration:
         BoxDecoration(color: myWhite, borderRadius: BorderRadius.circular(20),
-        image:DecorationImage(image: NetworkImage("https://static.dezeen.com/uploads/2019/10/warehouse-gym-springs-interiors-vshd-design_dezeen_1704_col_2.jpg"),
+        image: DecorationImage(fit :BoxFit.cover ,
+        colorFilter: ColorFilter.mode(myGrey, BlendMode.darken),image: NetworkImage(image),
         ),),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -21,9 +22,11 @@ Widget placeCard(context, validity, paisa) {
             Row(
               children: [
                 Text(
-                  validity,
+                  place,
                   style: TextStyle(
-                    fontSize: dynamicWidth(context, 0.05),
+                    fontSize: dynamicWidth(context, 0.06),
+                    color: myWhite,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ],
@@ -34,10 +37,12 @@ Widget placeCard(context, validity, paisa) {
             Row(
               children: [
                 Text(
-                  paisa,
+                  name,
                   style: TextStyle(
                       fontSize: dynamicWidth(context, 0.04),
-                      color: myBlack.withOpacity(0.4)),
+                      color: myWhite,
+                      fontWeight: FontWeight.w500,
+                      ),
                 ),
               ],
             ),
@@ -48,6 +53,7 @@ Widget placeCard(context, validity, paisa) {
           groupValue: null,
           onChanged: null,
           visualDensity: VisualDensity(horizontal: -4),
+  
         ),
       ],
     ),
