@@ -1,6 +1,8 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:warehouse_gym/screens/my_cart.dart';
+import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 import 'package:warehouse_gym/widgets/home_page_widgets.dart';
@@ -24,7 +26,9 @@ Widget homeBar(context, {check = false, text1 = "", activityCheck = false}) {
       check == true
           ? text(context, text1, 0.06, myBlack, bold: true)
           : Column(
-              crossAxisAlignment: activityCheck == true? CrossAxisAlignment.end:CrossAxisAlignment.start,
+              crossAxisAlignment: activityCheck == true
+                  ? CrossAxisAlignment.end
+                  : CrossAxisAlignment.start,
               children: [
                 activityCheck == true
                     ? text(context, DateFormat('EEEE').format(date).toString(),
@@ -175,23 +179,20 @@ Widget expandableThingy(
       ),
     ],
   );
-
 }
 
-Widget expandableThingy2(
-    context, title, description) {
+Widget expandableThingy2(context, title, description) {
   return Row(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Expanded(
         child: ExpandablePanel(
           header: Padding(
-            padding:
-                EdgeInsets.symmetric(vertical: dynamicHeight(context, 0.008)),
-            child: Align(
-              alignment: Alignment.centerLeft,
-                child: text(context, title, 0.055, myBlack))
-          ),
+              padding:
+                  EdgeInsets.symmetric(vertical: dynamicHeight(context, 0.008)),
+              child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: text(context, title, 0.055, myBlack))),
           // text(context, "6am-7am", 0.06, myGrey),
           collapsed: Text(
             "",
@@ -200,7 +201,9 @@ Widget expandableThingy2(
             overflow: TextOverflow.ellipsis,
           ),
           expanded: Padding(
-            padding: EdgeInsets.only(top: dynamicHeight(context, 0.01),),
+            padding: EdgeInsets.only(
+              top: dynamicHeight(context, 0.01),
+            ),
             child: text(context, description, 0.04, myBlack),
           ),
         ),
@@ -214,10 +217,72 @@ Widget size(context, text1, {isPressed = false}) {
     width: dynamicWidth(context, 0.2),
     height: dynamicHeight(context, 0.08),
     decoration: BoxDecoration(
-        color: isPressed == true? myYellow.withOpacity(0.7):myWhite,
-        borderRadius: BorderRadius.circular(dynamicWidth(context, 0.02),),),
+      color: isPressed == true ? myYellow.withOpacity(0.7) : myWhite,
+      borderRadius: BorderRadius.circular(
+        dynamicWidth(context, 0.02),
+      ),
+    ),
     child: Center(
       child: text(context, text1, 0.055, myBlack),
+    ),
+  );
+}
+
+Widget stickyBottom(context) {
+  return Padding(
+    padding: EdgeInsets.symmetric(
+        horizontal: dynamicWidth(context, 0.04),
+        vertical: dynamicHeight(context, 0.02)),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        CircleAvatar(
+          backgroundColor: myYellow,
+          radius: dynamicWidth(context, 0.08),
+          child: Icon(
+            Icons.bookmark_border_outlined,
+            color: myBlack,
+            size: dynamicWidth(context, 0.07),
+          ),
+        ),
+        InkWell(
+          onTap: () {
+            push(context, MyCart());
+          },
+          child: Container(
+            height: dynamicHeight(context, 0.07),
+            width: dynamicWidth(context, 0.7),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(dynamicWidth(context, 0.1)),
+              color: myBlack,
+            ),
+            child: Center(child: text(context, "Add To Cart", 0.055, myWhite)),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+Widget itemCard(context, name, size, price) {
+  return Container(
+    child: Row(
+      children: [
+        Container(
+          width: dynamicWidth(context, 0.2),
+          height: dynamicHeight(context, 0.1),
+          child: Image.asset("asset/warehouse.png"),
+        ),
+        Column(
+          children: [
+            text(context, name, 0.05, myBlack),
+            text(context, size, 0.04, myGrey),
+            Row(
+              children: [text(context, price, 0.05, myBlack)],
+            )
+          ],
+        ),
+      ],
     ),
   );
 }

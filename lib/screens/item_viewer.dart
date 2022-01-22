@@ -19,32 +19,7 @@ class _ItemViewerState extends State<ItemViewer> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: Padding(
-          padding: EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.04),vertical: dynamicHeight(context, 0.02)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              CircleAvatar(
-                backgroundColor: myYellow,
-                radius: dynamicWidth(context, 0.08),
-                child: Icon(
-                  Icons.bookmark_border_outlined,
-                  color: myBlack,
-                  size: dynamicWidth(context, 0.07),
-                ),
-              ),
-              Container(
-                height: dynamicHeight(context, 0.07),
-                width: dynamicWidth(context, 0.7),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(dynamicWidth(context, 0.1)),
-                  color: myBlack,
-                ),
-                child: Center(child: text(context, "Add To Cart", 0.055, myWhite)),
-              ),
-            ],
-          ),
-        ),
+        bottomNavigationBar: stickyBottom(context),
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(
