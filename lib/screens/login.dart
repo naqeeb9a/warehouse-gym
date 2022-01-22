@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:warehouse_gym/screens/bottom_nav.dart';
+import 'package:warehouse_gym/screens/signup.dart';
 import 'package:warehouse_gym/screens/subscription.dart';
 import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
@@ -13,52 +14,58 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: myBlack,
-      body: SafeArea(
-        child: Padding(
-          padding:
-              EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              heightBox(context, 0.06),
-              Center(
-                child: Container(
-                  width: dynamicWidth(context, 0.4),
-                  child: Image.asset("assets/warehouse.png"),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding:
+                EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                heightBox(context, 0.06),
+                Center(
+                  child: Container(
+                    width: dynamicWidth(context, 0.4),
+                    child: Image.asset("assets/warehouse.png"),
+                  ),
                 ),
-              ),
-              heightBox(context, 0.05),
-              text(context, "Sign In", 0.08, myWhite, bold: true),
-              heightBox(context, 0.01),
-              text(context, "Fill the detail to sign in account", 0.03, myGrey),
-              heightBox(context, 0.02),
-              inputTextWidget(
-                context,
-                "  Email",
-                false,
-              ),
-              inputTextWidget(context, "  Password", true),
-              heightBox(context, 0.02),
-              Align(
-                alignment: Alignment.centerRight,
-                child: text(context, "Forgot Password?", 0.03, myOrange),
-              ),
-              heightBox(context, 0.05),
-              Align(
-                  alignment: Alignment.center,
-                  child: colorfulButton(context, "Sign In", myBlack, myYellow,
-                      function: () {
-                    push(context, const Subscription());
-                  })),
-              heightBox(context, 0.03),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  text(context, "Don't have an account?", 0.03, myWhite),
-                  text(context, " Signup", 0.03, myOrange),
-                ],
-              ),
-            ],
+                heightBox(context, 0.05),
+                text(context, "Sign In", 0.08, myWhite, bold: true),
+                heightBox(context, 0.01),
+                text(context, "Fill the detail to sign in account", 0.03, myGrey),
+                heightBox(context, 0.02),
+                inputTextWidget(
+                  context,
+                  "  Email",
+                  false,
+                ),
+                inputTextWidget(context, "  Password", true),
+                heightBox(context, 0.02),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: text(context, "Forgot Password?", 0.03, myOrange),
+                ),
+                heightBox(context, 0.05),
+                Align(
+                    alignment: Alignment.center,
+                    child: colorfulButton(context, "Sign In", myBlack, myYellow,
+                        function: () {
+                      push(context, const Subscription());
+                    })),
+                heightBox(context, 0.03),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    text(context, "Don't have an account?", 0.03, myWhite),
+                    InkWell(
+                      onTap :  () {
+                        push(context, const SignUp());
+                      },
+                      child: text(context, " Signup", 0.03, myOrange),),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -79,7 +86,7 @@ Widget bar(context, leadingIcon,
           ? pop == true
               ? InkWell(
                   onTap: () {
-                    Navigator.pop(context);
+                    pop(context);
                   },
                   child: CircleAvatar(
                     radius: dynamicWidth(context, 0.037),
@@ -149,6 +156,9 @@ Widget inputTextWidget(context, hint, isPassword) {
     child: TextFormField(
       obscureText: isPassword == true ? true : false,
       cursorColor: myGrey,
+      style: TextStyle(color:myWhite,
+        fontSize: dynamicWidth(context, 0.03),
+      ),
       decoration: InputDecoration(
         hintText: hint,
         hintStyle:
