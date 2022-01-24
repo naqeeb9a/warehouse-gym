@@ -288,14 +288,22 @@ Widget itemCard(context, name, size, price) {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 text(context, price, 0.05, myWhite),
+                widthBox(context, 0.3),
                 Container(
-                  width: dynamicWidth(context, 0.01),
                   decoration: BoxDecoration(
-                    color: myWhite,
+                    color: myGrey,
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: Row(
-
+                    children: [
+                      widthBox(context, 0.03),
+                      text(context, "-", 0.06, myYellow),
+                      widthBox(context, 0.02),
+                      text(context, "1", 0.04, myWhite),
+                      widthBox(context, 0.02),
+                      text(context, "+", 0.05, myYellow),
+                      widthBox(context, 0.03),
+                    ],
                   ),
                 ),
               ],
