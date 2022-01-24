@@ -254,9 +254,9 @@ Widget stickyBottom(context) {
             width: dynamicWidth(context, 0.7),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(dynamicWidth(context, 0.1)),
-              color: myBlack,
+              color: myWhite,
             ),
-            child: Center(child: text(context, "Add To Cart", 0.055, myWhite)),
+            child: Center(child: text(context, "Add To Cart", 0.055, myBlack)),
           ),
         ),
       ],
@@ -265,52 +265,55 @@ Widget stickyBottom(context) {
 }
 
 Widget itemCard(context, name, size, price) {
-  return Container(
-    height: dynamicHeight(context, 0.12),
-    child: Row(
-      children: [
-        Container(
-          width: dynamicWidth(context, 0.2),
-          height: dynamicHeight(context, 0.1),
-          child: Image.network(
-              "https://whgym.com/wp-content/uploads/2020/10/whgym-whiteResized-01.png"),
-        ),
-        widthBox(context, 0.03),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            heightBox(context, 0.02),
-            text(context, name, 0.05, myWhite),
-            heightBox(context, 0.005),
-            text(context, size, 0.04, myGrey),
-            heightBox(context, 0.003),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                text(context, price, 0.05, myWhite),
-                widthBox(context, 0.3),
-                Container(
-                  decoration: BoxDecoration(
-                    color: myGrey,
-                    borderRadius: BorderRadius.circular(8.0),
+  return Padding(
+    padding: EdgeInsets.symmetric(vertical: dynamicHeight(context, 0.015)),
+    child: Container(
+      height: dynamicHeight(context, 0.12),
+      child: Row(
+        children: [
+          Container(
+            width: dynamicWidth(context, 0.2),
+            height: dynamicHeight(context, 0.1),
+            child: Image.network(
+                "https://whgym.com/wp-content/uploads/2020/10/whgym-whiteResized-01.png"),
+          ),
+          widthBox(context, 0.03),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              heightBox(context, 0.02),
+              text(context, name, 0.05, myWhite),
+              heightBox(context, 0.005),
+              text(context, size, 0.04, myGrey),
+              heightBox(context, 0.003),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  text(context, price, 0.05, myWhite),
+                  widthBox(context, 0.3),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: myGrey,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: Row(
+                      children: [
+                        widthBox(context, 0.03),
+                        text(context, "-", 0.06, myYellow),
+                        widthBox(context, 0.02),
+                        text(context, "1", 0.04, myWhite),
+                        widthBox(context, 0.02),
+                        text(context, "+", 0.05, myYellow),
+                        widthBox(context, 0.03),
+                      ],
+                    ),
                   ),
-                  child: Row(
-                    children: [
-                      widthBox(context, 0.03),
-                      text(context, "-", 0.06, myYellow),
-                      widthBox(context, 0.02),
-                      text(context, "1", 0.04, myWhite),
-                      widthBox(context, 0.02),
-                      text(context, "+", 0.05, myYellow),
-                      widthBox(context, 0.03),
-                    ],
-                  ),
-                ),
-              ],
-            )
-          ],
-        ),
-      ],
+                ],
+              )
+            ],
+          ),
+        ],
+      ),
     ),
   );
 }

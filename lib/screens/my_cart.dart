@@ -13,6 +13,7 @@ class MyCart extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: myBlack,
+        bottomNavigationBar: stickyBottom(context),
         body: Padding(
           padding: EdgeInsets.symmetric(
             horizontal: dynamicWidth(context, 0.05),
@@ -21,7 +22,9 @@ class MyCart extends StatelessWidget {
             children: [
               heightBox(context, 0.02),
               bar(context, true, centerCheck: true, centerText: "My Cart",back: true),
-              heightBox(context, 0.01),
+              heightBox(context, 0.03),
+              itemCard(context, "Warehouse Gym", "10kg", "5000"),
+              itemCard(context, "Warehouse Gym", "10kg", "5000"),
               itemCard(context, "Warehouse Gym", "10kg", "5000"),
             ],
           ),
