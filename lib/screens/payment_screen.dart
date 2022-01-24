@@ -39,6 +39,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                         context,
                         true,
                         centerCheck: true,
+                        back: true,
                       ),
                       text(
                         context,

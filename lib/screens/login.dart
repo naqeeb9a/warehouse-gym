@@ -89,19 +89,15 @@ Widget bar(context, leadingIcon,
                     pop(context);
                   },
                   child: CircleAvatar(
-                    radius: dynamicWidth(context, 0.037),
-                    backgroundColor: myGrey.withOpacity(0.3),
-                    child: CircleAvatar(
-                      radius: dynamicWidth(context, 0.035),
-                      backgroundColor: myWhite,
-                      child: Padding(
-                        padding:
-                            EdgeInsets.only(left: dynamicWidth(context, 0.01)),
-                        child: Icon(
-                          Icons.arrow_back_ios,
-                          color: myBlack,
-                          size: dynamicWidth(context, 0.04),
-                        ),
+                    radius: dynamicWidth(context, 0.035),
+                    backgroundColor: myWhite,
+                    child: Padding(
+                      padding:
+                          EdgeInsets.only(left: dynamicWidth(context, 0.01)),
+                      child: Icon(
+                        Icons.arrow_back_ios,
+                        color: myBlack,
+                        size: dynamicWidth(context, 0.04),
                       ),
                     ),
                   ),
@@ -111,7 +107,7 @@ Widget bar(context, leadingIcon,
       (centerCheck == true)
           ? Align(
               alignment: Alignment.center,
-              child: text(context, centerText, 0.04, myBlack, bold: true))
+              child: text(context, centerText, 0.04, myWhite, bold: true))
           : text(context, "Need Help?", 0.03, myGrey),
       centerCheck == true
           ? CircleAvatar(

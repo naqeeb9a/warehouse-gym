@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 import 'package:warehouse_gym/widgets/essential_widgets.dart';
 
@@ -11,6 +12,7 @@ class MyCart extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: myBlack,
         body: Padding(
           padding: EdgeInsets.symmetric(
             horizontal: dynamicWidth(context, 0.05),

@@ -266,19 +266,34 @@ Widget stickyBottom(context) {
 
 Widget itemCard(context, name, size, price) {
   return Container(
+    height: dynamicHeight(context, 0.12),
     child: Row(
       children: [
         Container(
           width: dynamicWidth(context, 0.2),
           height: dynamicHeight(context, 0.1),
-          child: Image.asset("asset/warehouse.png"),
+          child: Image.network(
+              "https://whgym.com/wp-content/uploads/2020/10/whgym-whiteResized-01.png"),
         ),
+        widthBox(context, 0.03),
         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            text(context, name, 0.05, myBlack),
+            heightBox(context, 0.02),
+            text(context, name, 0.05, myWhite),
+            heightBox(context, 0.005),
             text(context, size, 0.04, myGrey),
+            heightBox(context, 0.003),
             Row(
-              children: [text(context, price, 0.05, myBlack)],
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                text(context, price, 0.05, myWhite),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius:
+                  ),
+                ),
+              ],
             )
           ],
         ),
