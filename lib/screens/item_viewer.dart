@@ -28,7 +28,7 @@ class _ItemViewerState extends State<ItemViewer> {
             child: Column(
               children: [
                 heightBox(context, 0.02),
-                bar(context, true, centerCheck: true, centerText: "View Item",pop: true),
+                bar(context, true, centerCheck: true, centerText: "View Item",back: true),
                 heightBox(context, 0.01),
                 Container(
                   height: dynamicHeight(context, 0.3),

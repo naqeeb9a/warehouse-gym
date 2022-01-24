@@ -30,7 +30,7 @@ class StepsDetails extends StatelessWidget {
                 centerText: "Steps",
                 editIcon: Icons.mode_edit_outlined,
                 editColor: myPurple,
-                pop: true,
+                back: true,
               ),
               heightBox(context, 0.03),
               Center(child: text(context, "Great Work", 0.04, myGrey),),

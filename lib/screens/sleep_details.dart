@@ -31,7 +31,7 @@ class SleepDetails extends StatelessWidget {
                 centerText: "Sleep",
                 editIcon: Icons.mode_edit_outlined,
                 editColor: myGreen,
-                pop: true,
+                back: true,
               ),
               heightBox(context, 0.03),
               Center(

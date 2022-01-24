@@ -18,7 +18,7 @@ class MyCart extends StatelessWidget {
           child: Column(
             children: [
               heightBox(context, 0.02),
-              bar(context, true, centerCheck: true, centerText: "My Cart",pop: true),
+              bar(context, true, centerCheck: true, centerText: "My Cart",back: true),
               heightBox(context, 0.01),
               itemCard(context, "Warehouse Gym", "10kg", "5000"),
             ],

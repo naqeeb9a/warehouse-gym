@@ -27,7 +27,7 @@ class MyPlan extends StatelessWidget {
             children: [
               heightBox(context, 0.02),
               bar(context, true,
-                  centerCheck: true, centerText: "My Plan", pop: true),
+                  centerCheck: true, centerText: "My Plan", back: true),
               heightBox(context, 0.06),
               rowText(context, "Daily Plan", "Statics", 0.06, myBlack, true),
               Expanded(

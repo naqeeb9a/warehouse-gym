@@ -78,12 +78,12 @@ Widget bar(context, leadingIcon,
     centerText = "",
     editIcon = Icons.arrow_back_ios,
     editColor = Colors.transparent,
-    pop = false}) {
+    back = false}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       leadingIcon == true
-          ? pop == true
+          ? back == true
               ? InkWell(
                   onTap: () {
                     pop(context);
@@ -106,23 +106,7 @@ Widget bar(context, leadingIcon,
                     ),
                   ),
                 )
-              : CircleAvatar(
-                  radius: dynamicWidth(context, 0.037),
-                  backgroundColor: myGrey.withOpacity(0.3),
-                  child: CircleAvatar(
-                    radius: dynamicWidth(context, 0.035),
-                    backgroundColor: myWhite,
-                    child: Padding(
-                      padding:
-                          EdgeInsets.only(left: dynamicWidth(context, 0.01)),
-                      child: Icon(
-                        Icons.arrow_back_ios,
-                        color: myBlack,
-                        size: dynamicWidth(context, 0.04),
-                      ),
-                    ),
-                  ),
-                )
+              : Container()
           : Container(),
       (centerCheck == true)
           ? Align(
