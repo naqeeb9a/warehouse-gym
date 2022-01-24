@@ -289,8 +289,13 @@ Widget itemCard(context, name, size, price) {
               children: [
                 text(context, price, 0.05, myWhite),
                 Container(
+                  width: dynamicWidth(context, 0.01),
                   decoration: BoxDecoration(
-                    borderRadius:
+                    color: myWhite,
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  child: Row(
+
                   ),
                 ),
               ],
