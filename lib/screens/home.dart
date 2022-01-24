@@ -62,6 +62,7 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
+      backgroundColor: myBlack,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -88,7 +89,7 @@ class _HomePageState extends State<HomePage>
                       ),
                     ),
                     heightBox(context, 0.02),
-                    rowText(context, "Start New Goal","See all", 0.04, myBlack, false),
+                    rowText(context, "Start New Goal","See all", 0.04, myWhite, false),
                   ],
                 ),
               ),
@@ -108,7 +109,7 @@ class _HomePageState extends State<HomePage>
                     horizontal: dynamicWidth(context, 0.05)),
                 child: Column(
                   children: [
-                    rowText(context, "Daily Task","See all", 0.04, myBlack, false),
+                    rowText(context, "Daily Task","See all", 0.04, myWhite, false),
                     ListView.builder(
                       itemCount: images.length,
                       shrinkWrap: true,

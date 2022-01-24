@@ -18,6 +18,7 @@ class MyPlan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: myBlack,
       body: SafeArea(
         child: Padding(
           padding:
@@ -29,7 +30,7 @@ class MyPlan extends StatelessWidget {
               bar(context, true,
                   centerCheck: true, centerText: "My Plan", pop: true),
               heightBox(context, 0.06),
-              rowText(context, "Daily Plan", "Statics", 0.06, myBlack, true),
+              rowText(context, "Daily Plan", "Statics", 0.06, myWhite, true),
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -47,7 +48,7 @@ class MyPlan extends StatelessWidget {
                             );
                           },
                           child: workoutBox(context, "Calories", "1000", "Kcal",
-                              Icons.local_fire_department_outlined, myOrange),
+                              Icons.local_fire_department_outlined, myOrange1),
                         ),
                         InkWell(
                           onTap: () {
@@ -105,6 +106,7 @@ class MyPlan extends StatelessWidget {
               Text(
                 "Goal In Progress",
                 style: TextStyle(
+                    color:myWhite,
                     fontWeight: FontWeight.bold,
                     fontSize: dynamicWidth(context, 0.06)),
               ),

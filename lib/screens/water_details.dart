@@ -1,7 +1,5 @@
 import 'package:dotted_border/dotted_border.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:warehouse_gym/screens/login.dart';
 import 'package:warehouse_gym/utils/config.dart';
@@ -16,6 +14,7 @@ class WaterDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: myBlack,
         body: Padding(
           padding:
           EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
@@ -31,11 +30,11 @@ class WaterDetails extends StatelessWidget {
                 pop: true,
               ),
               heightBox(context, 0.03),
-              Center(child: text(context, "Good Job!", 0.04, myGrey),),
+              Center(child: text(context, "Good Job!", 0.04, myYellow),),
               heightBox(context, 0.02),
               Center(
                 child: text(
-                    context, "Your Daily Intake Of Water", 0.08, myBlack,
+                    context, "Your Daily Intake Of Water", 0.08, myWhite,
                     bold: true),),
               heightBox(context, 0.03),
               Center(
@@ -61,8 +60,8 @@ class WaterDetails extends StatelessWidget {
                             size: 50.0,
                             color: myBlue,
                           ),
-                          text(context, "159", 0.08, myBlack, bold: true),
-                          text(context, "Calories", 0.06, myGrey),
+                          text(context, "159", 0.08, myWhite, bold: true),
+                          text(context, "Calories", 0.06, myLightGrey),
                         ],
                       ),
                     ),
@@ -72,7 +71,7 @@ class WaterDetails extends StatelessWidget {
                 ),
               ),
               heightBox(context, 0.02),
-              rowText(context, "My Activity", "Today", 0.06, myBlack, true),
+              rowText(context, "My Activity", "Today", 0.06, myWhite, true),
 
             ],
           ),

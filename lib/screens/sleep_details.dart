@@ -17,46 +17,49 @@ class SleepDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Padding(
-          padding:
-              EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              heightBox(context, 0.02),
-              bar(
-                context,
-                true,
-                centerCheck: true,
-                centerText: "Sleep",
-                editIcon: Icons.mode_edit_outlined,
-                editColor: myGreen,
-                pop: true,
-              ),
-              heightBox(context, 0.03),
-              Center(
-                child: text(context, "Great Work", 0.04, myGrey),
-              ),
-              heightBox(context, 0.02),
-              Center(
-                child: text(
-                    context, "Your Daily Tasks Almost Done!", 0.08, myBlack,
-                    bold: true),
-              ),
-              heightBox(context, 0.02),
-              Center(
-                child: Container(
-                  width: dynamicWidth(context, 0.7),
-                  child: Image.asset('assets/cat-moon.png'),
+        backgroundColor: myBlack,
+        body: SingleChildScrollView(
+          child: Padding(
+            padding:
+                EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                heightBox(context, 0.02),
+                bar(
+                  context,
+                  true,
+                  centerCheck: true,
+                  centerText: "Sleep",
+                  editIcon: Icons.mode_edit_outlined,
+                  editColor: myGreen,
+                  pop: true,
                 ),
-              ),
-              rowText(context, "My Activity", "Today", 0.06, myBlack, true),
-              heightBox(context, 0.01),
-              expandableThingy(context, Icons.directions_run_outlined,
-                  "6am-7am", "", "Time", "Distance", "2h.30min", "20.6km"),
-              expandableThingy(context, Icons.directions_run_outlined,
-                  "10pm-11pm", "", "Time", "Distance", "1h.10min", "8.8km"),
-            ],
+                heightBox(context, 0.03),
+                Center(
+                  child: text(context, "Great Work", 0.04, myYellow),
+                ),
+                heightBox(context, 0.02),
+                Center(
+                  child: text(
+                      context, "Your Daily Tasks Almost Done!", 0.08, myWhite,
+                      bold: true),
+                ),
+                heightBox(context, 0.02),
+                Center(
+                  child: Container(
+                    width: dynamicWidth(context, 0.7),
+                    child: Image.asset('assets/cat-moon.png',color: myWhite,),
+                  ),
+                ),
+                rowText(context, "My Activity", "Today", 0.06, myWhite, true),
+                heightBox(context, 0.01),
+                expandableThingy(context, Icons.directions_run_outlined,
+                    "6am-7am", "", "Time", "Distance", "2h.30min", "20.6km"),
+                expandableThingy(context, Icons.directions_run_outlined,
+                    "10pm-11pm", "", "Time", "Distance", "1h.10min", "8.8km"),
+              ],
+            ),
           ),
         ),
       ),

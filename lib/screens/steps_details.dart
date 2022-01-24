@@ -16,6 +16,7 @@ class StepsDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor:myBlack,
         body: Padding(
           padding:
               EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
@@ -33,11 +34,11 @@ class StepsDetails extends StatelessWidget {
                 pop: true,
               ),
               heightBox(context, 0.03),
-              Center(child: text(context, "Great Work", 0.04, myGrey),),
+              Center(child: text(context, "Great Work", 0.04, myLightGrey),),
               heightBox(context, 0.02),
               Center(
                   child: text(
-                      context, "Your Daily Tasks Almost Done!", 0.08, myBlack,
+                      context, "Your Daily Tasks Almost Done!", 0.08, myWhite,
                       bold: true),),
               heightBox(context, 0.03),
               Center(
@@ -63,8 +64,8 @@ class StepsDetails extends StatelessWidget {
                             size: 50.0,
                             color: myPurple,
                           ),
-                          text(context, "768", 0.08, myBlack, bold: true),
-                          text(context, "Steps", 0.06, myGrey),
+                          text(context, "768", 0.08, myWhite, bold: true),
+                          text(context, "Steps", 0.06, myLightGrey),
                         ],
                       ),
                     ),
@@ -74,7 +75,7 @@ class StepsDetails extends StatelessWidget {
                 ),
               ),
               heightBox(context, 0.03),
-              rowText(context, "My Activity", "Today", 0.06, myBlack, true),
+              rowText(context, "My Activity", "Today", 0.06, myWhite, true),
               heightBox(context, 0.02),
               expandableThingy(context, Icons.directions_run_outlined,
                   "6am-7am", "", "Time", "Distance", "2h.30min", "20.6km"),

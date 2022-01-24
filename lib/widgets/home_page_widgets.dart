@@ -28,7 +28,7 @@ Widget gymCardsRow(context, img, index) {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            text(context, "Exercise " + index, 0.04, myBlack, bold: true),
+            text(context, "Exercise " + index, 0.04, myWhite, bold: true),
             Row(
               children: [
                 roundWidget(context, Icons.timer, "  5 min", Colors.green,
@@ -69,20 +69,23 @@ Widget gymCardsRow(context, img, index) {
 
 Widget gymCards(context, img, {check = false}) {
   return Container(
+    width: dynamicWidth(context, 0.8),
     margin: EdgeInsets.all(dynamicWidth(context, 0.04)),
     decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: myBlack.withOpacity(0.2),
-            spreadRadius: 2,
-            blurRadius: 8,
-            offset: const Offset(0, 3), // changes position of shadow
-          ),
-        ],
-        color: myWhite,
-        borderRadius: BorderRadius.circular(dynamicWidth(context, 0.1))),
+      boxShadow: [
+        BoxShadow(
+          color: myBlack.withOpacity(0.2),
+          spreadRadius: 2,
+          blurRadius: 8,
+          offset: const Offset(0, 3), // changes position of shadow
+        ),
+      ],
+      color: myWhite.withOpacity(0.9),
+      borderRadius: BorderRadius.circular(
+        dynamicWidth(context, 0.1),
+      ),
+    ),
     height: dynamicHeight(context, 0.32),
-    width: dynamicWidth(context, 0.8),
     child: Column(
       children: [
         Stack(

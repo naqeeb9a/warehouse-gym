@@ -13,7 +13,7 @@ Widget rowText(context, text1, text2, size, color, bold, {check = false}) {
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       text(context, text1, size, color, bold: bold),
-      check == true ? Container() : text(context, text2, 0.03, Colors.blue)
+      check == true ? Container() : text(context, text2, 0.03, myYellow)
     ],
   );
 }
@@ -24,7 +24,7 @@ Widget homeBar(context, {check = false, text1 = "", activityCheck = false}) {
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       check == true
-          ? text(context, text1, 0.06, myBlack, bold: true)
+          ? text(context, text1, 0.06, myWhite, bold: true)
           : Column(
               crossAxisAlignment: activityCheck == true
                   ? CrossAxisAlignment.end
@@ -33,14 +33,14 @@ Widget homeBar(context, {check = false, text1 = "", activityCheck = false}) {
                 activityCheck == true
                     ? text(context, DateFormat('EEEE').format(date).toString(),
                         0.04, myGrey)
-                    : text(context, "Good Morning! ", 0.04, myGrey),
+                    : text(context, "Good Morning! ", 0.04, myWhite),
                 activityCheck == true
                     ? text(
                         context,
                         DateFormat('dd' " " 'MMMM').format(date).toString(),
                         0.06,
-                        myBlack)
-                    : text(context, "Sami Ahmed ", 0.06, myBlack, bold: true),
+                        myWhite)
+                    : text(context, "Sami Ahmed ", 0.06, myWhite, bold: true),
               ],
             ),
       check == true
@@ -101,7 +101,7 @@ Widget workoutBox(context, text1, text2, text3, icon, color) {
     width: dynamicWidth(context, 0.42),
     height: dynamicHeight(context, 0.17),
     decoration: BoxDecoration(
-        color: color.withOpacity(0.15),
+        color: color.withOpacity(0.9),
         borderRadius: BorderRadius.circular(dynamicWidth(context, 0.1))),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -110,7 +110,7 @@ Widget workoutBox(context, text1, text2, text3, icon, color) {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            text(context, text1, 0.04, myBlack, bold: true),
+            text(context, text1, 0.04, myWhite, bold: true),
             CircleAvatar(
                 backgroundColor: color,
                 radius: dynamicWidth(context, 0.035),
@@ -125,7 +125,7 @@ Widget workoutBox(context, text1, text2, text3, icon, color) {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             text(context, text2, 0.05, myBlack, bold: true),
-            text(context, text3, 0.03, myGrey),
+            text(context, text3, 0.03, myWhite),
           ],
         ),
       ],
@@ -140,14 +140,14 @@ Widget expandableThingy(
     children: [
       Padding(
         padding: EdgeInsets.symmetric(vertical: dynamicHeight(context, 0.01)),
-        child: Icon(icon),
+        child: Icon(icon,color:myWhite),
       ),
       Expanded(
         child: ExpandablePanel(
           header: Padding(
             padding:
                 EdgeInsets.symmetric(vertical: dynamicHeight(context, 0.008)),
-            child: rowText(context, text1, text2, 0.056, myGrey, false,
+            child: rowText(context, text1, text2, 0.056, myLightGrey, false,
                 check: false),
           ),
           // text(context, "6am-7am", 0.06, myGrey),
@@ -162,15 +162,15 @@ Widget expandableThingy(
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  text(context, text3, 0.05, myGrey),
-                  text(context, text4, 0.05, myGrey),
+                  text(context, text3, 0.05, myYellow),
+                  text(context, text4, 0.05, myYellow),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  text(context, text5, 0.065, myBlack, bold: true),
-                  text(context, text6, 0.065, myBlack, bold: true),
+                  text(context, text5, 0.065, myWhite, bold: true),
+                  text(context, text6, 0.065, myWhite, bold: true),
                 ],
               ),
             ],
