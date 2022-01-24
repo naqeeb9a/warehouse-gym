@@ -50,7 +50,7 @@ class _DiscoverState extends State<Discover>
                     heightBox(context, 0.02),
                     discoverCard(context),
                     heightBox(context, 0.02),
-                    rowText(context, "Select by Goal","See all", 0.05, myBlack, true,
+                    rowText(context, "Trainings","See all", 0.05, myBlack, true,
                         check: true)
                   ],
                 ),
@@ -100,25 +100,63 @@ discoverCard(context) {
       ClipRRect(
         borderRadius: BorderRadius.circular(dynamicWidth(context, 0.1)),
         child: SizedBox(
-          height: dynamicHeight(context, 0.2),
+          height: dynamicHeight(context, 0.6),
           width: dynamicWidth(context, 1),
           child: Image.network(
-            "https://img3.goodfon.com/wallpaper/nbig/5/a1/bodibilder-bodybuilder-7693.jpg",
+             "https://img3.goodfon.com/wallpaper/nbig/5/a1/bodibilder-bodybuilder-7693.jpg",
             fit: BoxFit.cover,
           ),
         ),
       ),
       Positioned(
-        bottom: dynamicHeight(context, 0.03),
-        left: dynamicWidth(context, 0.1),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            text(context, "Custom Workout", 0.06, myWhite, bold: true),
-            text(context, "Smart Creator", 0.04, myWhite.withOpacity(0.9)),
-          ],
+         bottom: 0,
+        // left: dynamicWidth(context, 0.1),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(dynamicWidth(context, 0.1)),
+          child: Container(
+            width: dynamicWidth(context, 0.9),
+            height: dynamicHeight(context, 0.28),
+            color: myWhite,
+            child :Align(
+              alignment: Alignment.bottomCenter,
+              child:Padding(
+                padding:EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.03),vertical:dynamicHeight(context, 0.01),),
+                child: Column(
+                  children : [
+                   text(context, "Steve Jobs ", 0.06, myBlack,
+                            bold: true),
+                    text(context, "Gym Coach ", 0.04, myGrey,
+                            ),
+                    heightBox(context, 0.02),
+                    Row(
+  
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        trainerCard(context),
+                        trainerCard(context),
+                        trainerCard(context),
+                      ],
+                    ),
+                  ]
+                ),
+              )
+            )
         ),
+        )
+
       ),
     ],
+  );
+}
+
+Widget  trainerCard(context) {
+  return ClipRRect(
+    borderRadius: BorderRadius.circular(dynamicWidth(context, 0.02)),
+    child:Container(
+      width:dynamicWidth(context,0.23),
+      height: dynamicHeight(context, 0.12),
+      color: myGrey.withOpacity(0.5),
+
+    )
   );
 }

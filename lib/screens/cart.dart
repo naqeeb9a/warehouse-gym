@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:warehouse_gym/screens/item_viewer.dart';
 import 'package:warehouse_gym/utils/app_routes.dart';
@@ -13,6 +12,7 @@ class Cart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //backgroundColor : myBlack,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
@@ -46,16 +46,16 @@ class Cart extends StatelessWidget {
                       ],
                     ),
                     heightBox(context, 0.04),
-                    rowText(
-                        context, "Categories", "", 0.06, myBlack, true),
+                    rowText(context, "Categories", "", 0.06, myBlack, true),
                     heightBox(context, 0.02),
                     Container(
+                      width: dynamicWidth(context, 1),
+                      height: dynamicHeight(context, 0.2),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(
                           dynamicWidth(context, 0.8),
                         ),
                       ),
-                      height: dynamicHeight(context, 0.2),
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: 9,
@@ -65,9 +65,12 @@ class Cart extends StatelessWidget {
                           ) {
                             return Padding(
                               padding: EdgeInsets.symmetric(
-                                  horizontal: dynamicWidth(context, 0.01)),
+                                horizontal: dynamicWidth(context, 0.02),
+                                vertical: dynamicHeight(context, 0.0125),
+                              ),
                               child: Container(
                                 width: dynamicWidth(context, 0.3),
+                                // height :dynamicHeight(context,0.2),
                                 decoration: BoxDecoration(
                                     boxShadow: [
                                       BoxShadow(
@@ -170,12 +173,13 @@ class Cart extends StatelessWidget {
                                   BoxShadow(
                                     color: myGrey,
                                     blurRadius: 4,
-                                    offset: Offset(1, 3), // Shadow position
+                                    offset: Offset(0, 1), // Shadow position
                                   ),
                                 ],
                               ),
                               child: Padding(
                                 padding: EdgeInsets.only(
+                                    top: dynamicWidth(context,0.02),
                                     bottom: dynamicHeight(context, 0.03)),
                                 child: Column(
                                   mainAxisAlignment:
@@ -186,14 +190,14 @@ class Cart extends StatelessWidget {
                                       width: dynamicWidth(context, 0.43),
                                       height: dynamicHeight(context, 0.1),
                                       child: ClipRRect(
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(
-                                            dynamicWidth(context, 0.06),
-                                          ),
-                                          topRight: Radius.circular(
-                                            dynamicWidth(context, 0.06),
-                                          ),
-                                        ),
+                                        // borderRadius: BorderRadius.only(
+                                        //   topLeft: Radius.circular(
+                                        //     dynamicWidth(context, 0.06),
+                                        //   ),
+                                        //   topRight: Radius.circular(
+                                        //     dynamicWidth(context, 0.06),
+                                        //   ),
+                                        // ),
                                         child: Image.network(
                                           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdvQOu6H5EjLrzFA_yaU4UhuTNqsHSexLYAA&usqp=CAU",
                                           fit: BoxFit.fill,
