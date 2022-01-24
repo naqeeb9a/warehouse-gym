@@ -2,6 +2,7 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:warehouse_gym/screens/my_cart.dart';
+import 'package:warehouse_gym/screens/payment_screen.dart';
 import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
@@ -314,6 +315,34 @@ Widget itemCard(context, name, size, price) {
           ),
         ],
       ),
+    ),
+  );
+}
+
+Widget buyNow(context) {
+  return Padding(
+    padding: EdgeInsets.symmetric(
+        horizontal: dynamicWidth(context, 0.04),
+        vertical: dynamicHeight(context, 0.02)),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        InkWell(
+          onTap: () {
+            push(context, PaymentScreen());
+          },
+          child: Container(
+            height: dynamicHeight(context, 0.07),
+            width: dynamicWidth(context, 0.8),
+            decoration: BoxDecoration(
+              borderRadius:
+                  BorderRadius.circular(dynamicWidth(context, 0.1)),
+              color: myYellow,
+            ),
+            child: Center(child: text(context, "Buy Now", 0.06, myBlack)),
+          ),
+        ),
+      ],
     ),
   );
 }

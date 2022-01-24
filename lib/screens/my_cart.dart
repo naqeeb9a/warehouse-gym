@@ -13,7 +13,7 @@ class MyCart extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: myBlack,
-        bottomNavigationBar: stickyBottom(context),
+        bottomNavigationBar: buyNow(context),
         body: Padding(
           padding: EdgeInsets.symmetric(
             horizontal: dynamicWidth(context, 0.05),
