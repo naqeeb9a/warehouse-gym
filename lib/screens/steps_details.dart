@@ -16,7 +16,7 @@ class StepsDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor:myBlack,
+        backgroundColor: myBlack,
         body: Padding(
           padding:
               EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
@@ -34,12 +34,15 @@ class StepsDetails extends StatelessWidget {
                 back: true,
               ),
               heightBox(context, 0.03),
-              Center(child: text(context, "Great Work", 0.04, myLightGrey),),
+              Center(
+                child: text(context, "Great Work", 0.04, myYellow),
+              ),
               heightBox(context, 0.02),
               Center(
-                  child: text(
-                      context, "Your Daily Tasks Almost Done!", 0.08, myWhite,
-                      bold: true),),
+                child: text(
+                    context, "Your Daily Tasks Almost Done!", 0.08, myWhite,
+                    bold: true),
+              ),
               heightBox(context, 0.03),
               Center(
                 child: CircularPercentIndicator(
