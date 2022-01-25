@@ -17,6 +17,7 @@ class Activity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: myBlack,
       body: SafeArea(
         child: Padding(
           padding:
@@ -75,7 +76,8 @@ class Activity extends StatelessWidget {
                               "1000",
                               "Kcal",
                               Icons.local_fire_department_outlined,
-                              Colors.orange),
+                              myOrange,
+                              myYellow),
                         ),
                         InkWell(
                           onTap: () {
@@ -91,6 +93,7 @@ class Activity extends StatelessWidget {
                             "Steps",
                             Icons.directions_walk_outlined,
                             Colors.purple,
+                            Color(0xff534293)
                           ),
                         ),
                         InkWell(
@@ -107,6 +110,7 @@ class Activity extends StatelessWidget {
                             "Hours",
                             Icons.bed,
                             myGreen,
+                            Color(0xff0A5E2A)
                           ),
                         ),
                         InkWell(
@@ -123,6 +127,7 @@ class Activity extends StatelessWidget {
                             "liters",
                             Icons.whatshot_outlined,
                             myBlue,
+                            Color(0xff174a77)
                           ),
                         ),
                       ],
@@ -131,10 +136,10 @@ class Activity extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         workOutRow(context, "Workout", "40", " min", 0.05,
-                            myBlack, true,
+                            myWhite, true,
                             check: true),
                         workOutRow(context, "Weekly Average", "30", " min",
-                            0.035, myGrey, false),
+                            0.035, myOrange, false),
                       ],
                     ),
                     barChartCustom(context),
@@ -159,12 +164,12 @@ class Activity extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            text(context, text2, 0.09, myBlack, bold: true),
+            text(context, text2, 0.09, myWhite, bold: true),
             text(
               context,
               text3,
               0.05,
-              myGrey,
+              myOrange,
             ),
           ],
         ),
@@ -263,42 +268,57 @@ class Activity extends StatelessWidget {
           x: 0,
           barRods: [
             BarChartRodData(
-                y: 8, colors: [Colors.lightBlueAccent, Colors.greenAccent])
+                y: 8,
+                colors: [myYellow, myOrange]
+                // colors: [Colors.lightBlueAccent, Colors.greenAccent],
+                 )
           ],
         ),
         BarChartGroupData(
           x: 1,
           barRods: [
             BarChartRodData(
-                y: 10, colors: [Colors.lightBlueAccent, Colors.greenAccent])
+                y: 10, 
+                colors: [myYellow, myOrange]
+                //colors: [Colors.lightBlueAccent, Colors.greenAccent]
+                )
           ],
         ),
         BarChartGroupData(
           x: 2,
           barRods: [
             BarChartRodData(
-                y: 14, colors: [Colors.lightBlueAccent, Colors.greenAccent])
+                y: 14, colors: [myYellow, myOrange])
           ],
         ),
         BarChartGroupData(
           x: 3,
           barRods: [
             BarChartRodData(
-                y: 15, colors: [Colors.lightBlueAccent, Colors.greenAccent])
+                y: 15, 
+                colors: [myYellow, myOrange]
+                //colors: [Colors.lightBlueAccent, Colors.greenAccent]
+                )
           ],
         ),
         BarChartGroupData(
           x: 3,
           barRods: [
             BarChartRodData(
-                y: 13, colors: [Colors.lightBlueAccent, Colors.greenAccent])
+                y: 13, 
+                colors: [myYellow, myOrange]
+                //colors: [Colors.lightBlueAccent, Colors.greenAccent]
+                )
           ],
         ),
         BarChartGroupData(
           x: 3,
           barRods: [
             BarChartRodData(
-                y: 10, colors: [Colors.lightBlueAccent, Colors.greenAccent])
+                y: 10,
+                colors: [myYellow, myOrange]
+                 //colors: [Colors.lightBlueAccent, Colors.greenAccent]
+                 )
           ],
         ),
       ];

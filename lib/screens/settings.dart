@@ -12,6 +12,7 @@ class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: myBlack,
       body: SafeArea(
         child: Padding(
           padding:
@@ -22,13 +23,13 @@ class Settings extends StatelessWidget {
               heightBox(context, 0.02),
               bar(context, true, centerCheck: true, centerText: "Settings"),
               heightBox(context, 0.06),
-              text(context, "General", 0.04, myGrey),
+              text(context, "General", 0.04, myOrange),
               listSetting(context,null, "Notifications", true),
               listSetting(context,null, "Health", false),
               listSetting(context,null, "Sound", true),
               listSetting(context,null, "Privacy", false, iconCheck: true),
               heightBox(context, 0.02),
-              text(context, "Account", 0.04, myGrey),
+              text(context, "Account", 0.04, myOrange),
               listSetting(context,null, "Edit Profile", false, iconCheck: true),
               listSetting(context,Activity(), "Activity", false, iconCheck: true),
             ],
@@ -54,13 +55,16 @@ Widget listSetting(context,page, text1, check, {iconCheck = false}) {
             },
             child: ListTile(
               contentPadding: const EdgeInsets.all(0),
-              leading: text(context, text1.toString(), 0.04, myBlack, bold: true),
+              leading: text(context, text1.toString(), 0.04, myWhite, bold: true),
               trailing: iconCheck == true
                   ? Icon(
                       Icons.arrow_forward_ios,
                       size: dynamicWidth(context, 0.04),
+                      color: myWhite,
                     )
                   : Switch(
+                      activeColor: myOrange,
+                      inactiveTrackColor: myWhite,
                       onChanged: (value) {
                         setState(() {
                           value1 = value;

@@ -10,7 +10,7 @@ Widget placeCard(context, place,name,image) {
     decoration:
         BoxDecoration(color: myWhite, borderRadius: BorderRadius.circular(20),
         image: DecorationImage(fit :BoxFit.cover ,
-        colorFilter: ColorFilter.mode(myGrey, BlendMode.darken),image: NetworkImage(image),
+        colorFilter: ColorFilter.mode(myBlack.withOpacity(.5), BlendMode.colorBurn),image: NetworkImage(image),
         ),),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -25,7 +25,7 @@ Widget placeCard(context, place,name,image) {
                   place,
                   style: TextStyle(
                     fontSize: dynamicWidth(context, 0.06),
-                    color: myWhite,
+                    color: myYellow,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -45,6 +45,9 @@ Widget placeCard(context, place,name,image) {
                       ),
                 ),
               ],
+            ),
+             SizedBox(
+              height: dynamicHeight(context, 0.007),
             ),
           ],
         ),

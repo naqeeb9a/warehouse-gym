@@ -17,12 +17,14 @@ class WaterDetails extends StatelessWidget {
         backgroundColor: myBlack,
         body: Padding(
           padding:
-          EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
+              EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               heightBox(context, 0.02),
-              bar(context, true,
+              bar(
+                context,
+                true,
                 centerCheck: true,
                 centerText: "Water Details",
                 editIcon: Icons.mode_edit_outlined,
@@ -30,12 +32,15 @@ class WaterDetails extends StatelessWidget {
                 back: true,
               ),
               heightBox(context, 0.03),
-              Center(child: text(context, "Good Job!", 0.04, myYellow),),
+              Center(
+                child: text(context, "Good Job!", 0.04, myOrange),
+              ),
               heightBox(context, 0.02),
               Center(
                 child: text(
                     context, "Your Daily Intake Of Water", 0.08, myWhite,
-                    bold: true),),
+                    bold: true),
+              ),
               heightBox(context, 0.03),
               Center(
                 child: CircularPercentIndicator(
@@ -60,8 +65,8 @@ class WaterDetails extends StatelessWidget {
                             size: 50.0,
                             color: myBlue,
                           ),
-                          text(context, "159", 0.08, myWhite, bold: true),
-                          text(context, "Calories", 0.06, myLightGrey),
+                          text(context, "4", 0.08, myWhite, bold: true),
+                          text(context, "Liters", 0.06, myLightGrey),
                         ],
                       ),
                     ),
@@ -72,7 +77,6 @@ class WaterDetails extends StatelessWidget {
               ),
               heightBox(context, 0.02),
               rowText(context, "My Activity", "Today", 0.06, myWhite, true),
-
             ],
           ),
         ),

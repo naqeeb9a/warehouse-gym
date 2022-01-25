@@ -22,20 +22,25 @@ class CaloriesDetails extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               heightBox(context, 0.02),
-              bar(context, true,
-                  centerCheck: true,
-                  centerText: "Calories Details",
-                  editIcon: Icons.mode_edit_outlined,
-                  editColor: myOrange,
-                  back: true,
+              bar(
+                context,
+                true,
+                centerCheck: true,
+                centerText: "Calories Details",
+                editIcon: Icons.mode_edit_outlined,
+                editColor: myOrange,
+                back: true,
               ),
               heightBox(context, 0.03),
-              Center(child: text(context, "Keep Going!", 0.04, myLightGrey),),
+              Center(
+                child: text(context, "Keep Going!", 0.04, myOrange),
+              ),
               heightBox(context, 0.02),
               Center(
-                  child: text(
-                      context, "You Have To Eat More Calories!", 0.08, myWhite,
-                      bold: true),),
+                child: text(
+                    context, "You Have To Eat More Calories!", 0.08, myWhite,
+                    bold: true),
+              ),
               heightBox(context, 0.03),
               Center(
                 child: CircularPercentIndicator(
@@ -72,7 +77,6 @@ class CaloriesDetails extends StatelessWidget {
               ),
               heightBox(context, 0.02),
               rowText(context, "My Activity", "Today", 0.06, myWhite, true),
-
             ],
           ),
         ),

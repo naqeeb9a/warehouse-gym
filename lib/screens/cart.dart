@@ -12,6 +12,7 @@ class Cart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: myBlack,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
@@ -28,8 +29,8 @@ class Cart extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        text(context, "We Sell Everything You Need", 0.06,
-                            myBlack,
+                        text(context, "We Sell Everything You Need", 0.05,
+                            myWhite,
                             bold: true),
                       ],
                     ),
@@ -41,11 +42,11 @@ class Cart extends StatelessWidget {
                             context,
                             "Muscles soo big that you can't go through a door",
                             0.04,
-                            myGrey),
+                            myLightGrey),
                       ],
                     ),
                     heightBox(context, 0.04),
-                    rowText(context, "Categories", "", 0.06, myBlack, true),
+                    rowText(context, "Categories", "", 0.05, myWhite, true),
                     heightBox(context, 0.02),
                     Container(
                       width: dynamicWidth(context, 1),
@@ -78,7 +79,7 @@ class Cart extends StatelessWidget {
                                         offset: Offset(0, 1), // Shadow position
                                       ),
                                     ],
-                                    color: myWhite,
+                                    color: myBlack,
                                     borderRadius: BorderRadius.circular(
                                         dynamicWidth(context, 0.06))),
 
@@ -102,12 +103,12 @@ class Cart extends StatelessWidget {
                                             ),
                                           ),
                                           child: Image.network(
-                                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdvQOu6H5EjLrzFA_yaU4UhuTNqsHSexLYAA&usqp=CAU",
+                                            "https://image.shutterstock.com/image-photo/hand-hold-dumbbell-black-background-260nw-557668558.jpg",
                                             fit: BoxFit.fill,
                                           ),
                                         ),
                                       ),
-                                      text(context, "Dumbbells", 0.04, myBlack,
+                                      text(context, "Dumbbells", 0.04, myWhite,
                                           bold: true),
                                       CircleAvatar(
                                         radius: dynamicWidth(context, 0.037),
@@ -122,7 +123,7 @@ class Cart extends StatelessWidget {
                                                     context, 0.01)),
                                             child: Icon(
                                               Icons.arrow_forward_ios,
-                                              color: myBlack,
+                                              color: myOrange,
                                               size: dynamicWidth(context, 0.04),
                                             ),
                                           ),
@@ -136,7 +137,7 @@ class Cart extends StatelessWidget {
                           }),
                     ),
                     heightBox(context, 0.02),
-                    rowText(context, "Accessories", "Show All", 0.06, myBlack,
+                    rowText(context, "Accessories", "Show All", 0.05, myWhite,
                         true),
                     heightBox(context, 0.02),
                     GridView.builder(
@@ -152,8 +153,8 @@ class Cart extends StatelessWidget {
                       itemBuilder: (BuildContext context, int index) {
                         return Padding(
                           padding: EdgeInsets.symmetric(
-                            horizontal: dynamicWidth(context, 0.01),
-                            vertical: dynamicHeight(context, 0.01),
+                            horizontal: dynamicWidth(context, 0.04),
+                            vertical: dynamicHeight(context, 0.02),
                           ),
                           child: InkWell(
                             onTap: () {
@@ -163,12 +164,14 @@ class Cart extends StatelessWidget {
                               );
                             },
                             child: Container(
+                              width: dynamicWidth(context, 0.43),
+                              height: dynamicHeight(context, 0.2),
                               decoration: BoxDecoration(
-                                color: myWhite,
+                                color: myBlack,
                                 borderRadius: BorderRadius.circular(
-                                  dynamicWidth(context, 0.1),
+                                  dynamicWidth(context, 0.09),
                                 ),
-                                boxShadow: [
+                                boxShadow: const [
                                   BoxShadow(
                                     color: myGrey,
                                     blurRadius: 4,
@@ -178,7 +181,6 @@ class Cart extends StatelessWidget {
                               ),
                               child: Padding(
                                 padding: EdgeInsets.only(
-                                    top: dynamicWidth(context,0.02),
                                     bottom: dynamicHeight(context, 0.03)),
                                 child: Column(
                                   mainAxisAlignment:
@@ -198,7 +200,7 @@ class Cart extends StatelessWidget {
                                           ),
                                         ),
                                         child: Image.network(
-                                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdvQOu6H5EjLrzFA_yaU4UhuTNqsHSexLYAA&usqp=CAU",
+                                          "https://media.istockphoto.com/photos/gym-background-with-fitness-equipment-dumbbells-weight-for-workout-picture-id1213615974?k=20&m=1213615974&s=612x612&w=0&h=lJH8S7wknMvtLmM4DeWhLiIp5L1LkLrfPuWyHqeESho=",
                                           fit: BoxFit.fill,
                                         ),
                                       ),
@@ -208,7 +210,7 @@ class Cart extends StatelessWidget {
                                           horizontal:
                                               dynamicWidth(context, 0.03)),
                                       child: text(
-                                          context, "Item", 0.05, myBlack,
+                                          context, "Item", 0.04, myWhite,
                                           bold: true),
                                     ),
                                     Padding(
@@ -216,7 +218,7 @@ class Cart extends StatelessWidget {
                                           horizontal:
                                               dynamicWidth(context, 0.03)),
                                       child:
-                                          text(context, "500Rs", 0.04, myGrey),
+                                          text(context, "500Rs", 0.03, myOrange),
                                     ),
                                   ],
                                 ),

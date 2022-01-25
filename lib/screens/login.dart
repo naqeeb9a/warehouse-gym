@@ -167,3 +167,18 @@ Widget colorfulButton(context, text1, textColor, containerColor,
         child: text(context, text1, 0.05, textColor)),
   );
 }
+
+Widget colorfulButton1(context, text1, textColor, containerColor,
+    {function = ""}) {
+  return InkWell(
+    onTap: function == "" ? () {} : function,
+    child: Container(
+        width: dynamicWidth(context, 0.5),
+        height: dynamicHeight(context, 0.05),
+        decoration: BoxDecoration(
+            color: containerColor,
+            borderRadius: BorderRadius.circular(dynamicWidth(context, 0.15),),),
+        // padding: EdgeInsets.symmetric(vertical: dynamicHeight(context, 0.015)),
+        child: Center(child: text(context, text1, 0.04, textColor,bold: true),),),
+  );
+}

@@ -35,7 +35,7 @@ class StepsDetails extends StatelessWidget {
               ),
               heightBox(context, 0.03),
               Center(
-                child: text(context, "Great Work", 0.04, myYellow),
+                child: text(context, "Great Work", 0.04, myOrange),
               ),
               heightBox(context, 0.02),
               Center(

@@ -1,6 +1,8 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:warehouse_gym/screens/checkout_details.dart';
+import 'package:warehouse_gym/screens/login.dart';
 import 'package:warehouse_gym/screens/my_cart.dart';
 import 'package:warehouse_gym/screens/payment_screen.dart';
 import 'package:warehouse_gym/utils/app_routes.dart';
@@ -14,7 +16,7 @@ Widget rowText(context, text1, text2, size, color, bold, {check = false}) {
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       text(context, text1, size, color, bold: bold),
-      check == true ? Container() : text(context, text2, 0.03, myYellow)
+      check == true ? Container() : text(context, text2, 0.03, myOrange)
     ],
   );
 }
@@ -33,8 +35,8 @@ Widget homeBar(context, {check = false, text1 = "", activityCheck = false}) {
               children: [
                 activityCheck == true
                     ? text(context, DateFormat('EEEE').format(date).toString(),
-                        0.04, myGrey)
-                    : text(context, "Good Morning! ", 0.04, myWhite),
+                        0.04, myOrange)
+                    : text(context, "Good Morning! ", 0.04, myOrange),
                 activityCheck == true
                     ? text(
                         context,
@@ -94,7 +96,7 @@ Widget customProgress(context, progressDegrees, fadeInDuration) {
   );
 }
 
-Widget workoutBox(context, text1, text2, text3, icon, color) {
+Widget workoutBox(context, text1, text2, text3, icon, color,color1) {
   return Container(
     padding: EdgeInsets.all(
       dynamicWidth(context, 0.05),
@@ -102,6 +104,7 @@ Widget workoutBox(context, text1, text2, text3, icon, color) {
     width: dynamicWidth(context, 0.42),
     height: dynamicHeight(context, 0.17),
     decoration: BoxDecoration(
+        gradient: LinearGradient(colors: [color, color1]),
         color: color.withOpacity(0.9),
         borderRadius: BorderRadius.circular(dynamicWidth(context, 0.1))),
     child: Column(
@@ -148,7 +151,7 @@ Widget expandableThingy(
           header: Padding(
             padding:
                 EdgeInsets.symmetric(vertical: dynamicHeight(context, 0.008)),
-            child: rowText(context, text1, text2, 0.056, myLightGrey, false,
+            child: rowText(context, text1, text2, 0.056, myWhite, false,
                 check: false),
           ),
           // text(context, "6am-7am", 0.06, myGrey),
@@ -170,8 +173,8 @@ Widget expandableThingy(
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  text(context, text5, 0.065, myWhite, bold: true),
-                  text(context, text6, 0.065, myWhite, bold: true),
+                  text(context, text5, 0.04, myWhite, bold: true),
+                  text(context, text6, 0.04, myWhite, bold: true),
                 ],
               ),
             ],
@@ -182,49 +185,57 @@ Widget expandableThingy(
   );
 }
 
-Widget expandableThingy2(context, title, description) {
-  return Row(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Expanded(
-        child: ExpandablePanel(
-          header: Padding(
-              padding:
-                  EdgeInsets.symmetric(vertical: dynamicHeight(context, 0.008)),
-              child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: text(context, title, 0.055, myBlack))),
-          // text(context, "6am-7am", 0.06, myGrey),
-          collapsed: Text(
-            "",
-            softWrap: true,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-          ),
-          expanded: Padding(
-            padding: EdgeInsets.only(
-              top: dynamicHeight(context, 0.01),
-            ),
-            child: text(context, description, 0.04, myBlack),
-          ),
-        ),
-      ),
-    ],
-  );
-}
+// Widget expandableThingy2(context, title, description) {
+//   return Row(
+//     crossAxisAlignment: CrossAxisAlignment.start,
+//     children: [
+//       Expanded(
+//         child: ExpandablePanel(
+//           header: Padding(
+//               padding:
+//                   EdgeInsets.symmetric(vertical: dynamicHeight(context, 0.008)),
+//               child: Align(
+//                   alignment: Alignment.centerLeft,
+//                   child: text(context, title, 0.055, myWhite))),
+//           // text(context, "6am-7am", 0.06, myGrey),
+//           collapsed: Text(
+//             "",
+//             softWrap: true,
+//             maxLines: 2,
+//             overflow: TextOverflow.ellipsis,
+//           ),
+//           expanded: Padding(
+//             padding: EdgeInsets.only(
+//               top: dynamicHeight(context, 0.01),
+//             ),
+//             child: text(context, description, 0.04, myWhite),
+//           ),
+//         ),
+//       ),
+//     ],
+//   );
+// }
 
 Widget size(context, text1, {isPressed = false}) {
   return Container(
-    width: dynamicWidth(context, 0.2),
-    height: dynamicHeight(context, 0.08),
+    width: dynamicWidth(context, 0.12),
+    height: dynamicHeight(context, 0.04),
     decoration: BoxDecoration(
-      color: isPressed == true ? myYellow.withOpacity(0.7) : myWhite,
+      color: isPressed == true ? myYellow.withOpacity(0.7) : myBlack,
       borderRadius: BorderRadius.circular(
         dynamicWidth(context, 0.02),
       ),
+       boxShadow: [
+        BoxShadow(
+          color: myWhite.withOpacity(0.2),
+          spreadRadius: 3,
+          blurRadius: 6,
+          offset: const Offset(0, 3), // changes position of shadow
+        ),
+      ],
     ),
     child: Center(
-      child: text(context, text1, 0.055, myBlack),
+      child: text(context, text1, 0.03, myWhite),
     ),
   );
 }
@@ -235,30 +246,28 @@ Widget stickyBottom(context) {
         horizontal: dynamicWidth(context, 0.04),
         vertical: dynamicHeight(context, 0.02)),
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         CircleAvatar(
-          backgroundColor: myYellow,
-          radius: dynamicWidth(context, 0.08),
+          backgroundColor: myWhite,
+          radius: dynamicWidth(context, 0.05),
           child: Icon(
             Icons.bookmark_border_outlined,
             color: myBlack,
-            size: dynamicWidth(context, 0.07),
+            size: dynamicWidth(context, 0.04),
           ),
         ),
-        InkWell(
-          onTap: () {
-            push(context, MyCart());
+        widthBox(context, 0.13),
+         colorfulButton1(
+          context,
+          "Add to Cart",
+          myBlack,
+          myYellow,
+          function: () {
+            push(
+              context,
+              const MyCart(),
+            );
           },
-          child: Container(
-            height: dynamicHeight(context, 0.07),
-            width: dynamicWidth(context, 0.7),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(dynamicWidth(context, 0.1)),
-              color: myWhite,
-            ),
-            child: Center(child: text(context, "Add To Cart", 0.055, myBlack)),
-          ),
         ),
       ],
     ),
@@ -283,14 +292,14 @@ Widget itemCard(context, name, size, price) {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               heightBox(context, 0.02),
-              text(context, name, 0.05, myWhite),
+              text(context, name, 0.04, myWhite),
               heightBox(context, 0.005),
-              text(context, size, 0.04, myGrey),
+              text(context, size, 0.03, myOrange),
               heightBox(context, 0.003),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  text(context, price, 0.05, myWhite),
+                  text(context, price, 0.04, myWhite),
                   widthBox(context, 0.3),
                   Container(
                     decoration: BoxDecoration(
@@ -300,11 +309,11 @@ Widget itemCard(context, name, size, price) {
                     child: Row(
                       children: [
                         widthBox(context, 0.03),
-                        text(context, "-", 0.06, myYellow),
+                        text(context, "-", 0.06, myOrange),
                         widthBox(context, 0.02),
                         text(context, "1", 0.04, myWhite),
                         widthBox(context, 0.02),
-                        text(context, "+", 0.05, myYellow),
+                        text(context, "+", 0.05, myOrange),
                         widthBox(context, 0.03),
                       ],
                     ),
@@ -322,26 +331,14 @@ Widget itemCard(context, name, size, price) {
 Widget buyNow(context) {
   return Padding(
     padding: EdgeInsets.symmetric(
-        horizontal: dynamicWidth(context, 0.04),
-        vertical: dynamicHeight(context, 0.02)),
+        horizontal: dynamicWidth(context, 0.02),
+        vertical: dynamicHeight(context, 0.01)),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        InkWell(
-          onTap: () {
-            push(context, PaymentScreen());
-          },
-          child: Container(
-            height: dynamicHeight(context, 0.07),
-            width: dynamicWidth(context, 0.8),
-            decoration: BoxDecoration(
-              borderRadius:
-                  BorderRadius.circular(dynamicWidth(context, 0.1)),
-              color: myYellow,
-            ),
-            child: Center(child: text(context, "Buy Now", 0.06, myBlack)),
-          ),
-        ),
+        colorfulButton1(context, "Buy Now", myBlack, myYellow,function: (){
+          push(context, CheckoutDetails());
+        }),
       ],
     ),
   );

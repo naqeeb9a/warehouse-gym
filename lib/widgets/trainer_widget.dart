@@ -9,7 +9,7 @@ Widget trainerWorkCard(context, intText, data) {
     child: Container(
       width: dynamicWidth(context, 0.23),
       height: dynamicHeight(context, 0.12),
-      color: myGrey.withOpacity(0.2),
+      color: myGrey.withOpacity(0.6),
       child: Align(
         alignment: Alignment.bottomCenter,
         child: Column(
@@ -17,7 +17,7 @@ Widget trainerWorkCard(context, intText, data) {
           children: [
             text(context, intText, 0.06, myBlack, bold: true),
             heightBox(context, 0.01),
-            text(context, data, 0.04, myGrey),
+            text(context, data, 0.04,myWhite),
           ],
         ),
       ),

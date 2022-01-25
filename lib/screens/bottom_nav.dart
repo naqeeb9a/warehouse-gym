@@ -3,6 +3,7 @@ import 'package:warehouse_gym/screens/activity.dart';
 import 'package:warehouse_gym/screens/discover.dart';
 import 'package:warehouse_gym/screens/home.dart';
 import 'package:warehouse_gym/screens/settings.dart';
+import 'package:warehouse_gym/utils/config.dart';
 
 import 'cart.dart';
 
@@ -23,6 +24,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         unselectedLabelStyle: const TextStyle(color: Colors.grey),
+        //selectedLabelStyle: const TextStyle(color: myYellow),
+        backgroundColor: myYellow,
         currentIndex: value,
         onTap: (index) {
           setState(() {

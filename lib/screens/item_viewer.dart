@@ -18,6 +18,7 @@ class _ItemViewerState extends State<ItemViewer> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: myBlack,
         bottomNavigationBar: stickyBottom(context),
         body: SingleChildScrollView(
           child: Padding(
@@ -30,7 +31,7 @@ class _ItemViewerState extends State<ItemViewer> {
                 bar(context, true, centerCheck: true, centerText: "View Item",back: true),
                 heightBox(context, 0.01),
                 Container(
-                  height: dynamicHeight(context, 0.3),
+                  height: dynamicHeight(context, 0.5),
                   child: ListView(
                     children: [
                       CarouselSlider(
@@ -42,7 +43,7 @@ class _ItemViewerState extends State<ItemViewer> {
                               borderRadius: BorderRadius.circular(8.0),
                               image: DecorationImage(
                                 image: NetworkImage(
-                                    "https://thumbs.dreamstime.com/b/athlete-5888037.jpg"),
+                                    "https://media.istockphoto.com/photos/improvement-and-getting-stronger-in-fitness-exercise-and-muscle-man-picture-id1012048876?k=20&m=1012048876&s=612x612&w=0&h=7GHjg1cP5wly2CCR0VHdWRfUeV8iXZxtukM-JnsBjrc="),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -54,7 +55,7 @@ class _ItemViewerState extends State<ItemViewer> {
                               borderRadius: BorderRadius.circular(8.0),
                               image: DecorationImage(
                                 image: NetworkImage(
-                                    "https://thumbs.dreamstime.com/z/muscular-man-doing-pull-up-horizontal-bar-working-out-strong-fitness-male-pulling-showing-back-outdoors-100914287.jpg"),
+                                    "https://media.istockphoto.com/photos/heavy-weight-exercise-picture-id625739874?k=20&m=625739874&s=612x612&w=0&h=d8wzQd8HzzG__eSPo5-t4tEm6mBJotmR4zSqktUOFGM="),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -66,7 +67,18 @@ class _ItemViewerState extends State<ItemViewer> {
                               borderRadius: BorderRadius.circular(8.0),
                               image: DecorationImage(
                                 image: NetworkImage(
-                                    "https://thumbs.dreamstime.com/b/athlete-5888037.jpg"),
+                                    "https://media.istockphoto.com/photos/weight-lifting-picture-id185068878?k=20&m=185068878&s=612x612&w=0&h=jBKUAV8gWilBMT6s2MY-Bm4BXmkVnCVNRmyie2Ur9UY="),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                           Container(
+                            margin: EdgeInsets.all(6.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8.0),
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                    "https://media.istockphoto.com/photos/dumbbells-on-stand-in-gym-picture-id912113272?k=20&m=912113272&s=612x612&w=0&h=Pw0NPJuUYB3TbwlaB7GVjALyi1vNs6hZdTBswPLPu3s="),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -74,7 +86,7 @@ class _ItemViewerState extends State<ItemViewer> {
                         ],
                         options: CarouselOptions(
                           autoPlay: true,
-                          height: dynamicHeight(context, 0.3),
+                          height: dynamicHeight(context, 0.5),
                           enlargeCenterPage: true,
                           enableInfiniteScroll: true,
                           aspectRatio: 16 / 9,
@@ -90,49 +102,58 @@ class _ItemViewerState extends State<ItemViewer> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    widthBox(context, 0.125),
                     text(
                       context,
                       "Dumbbell",
-                      0.075,
-                      myBlack,
-                      bold: false,
+                      0.05,
+                      myWhite,
+                      bold :true
                     ),
-                    text(
-                      context,
-                      "Rs5000",
-                      0.055,
-                      myBlack,
-                      bold: false,
-                    ),
+                     Row(
+                       children: [
+                         Icon(Icons.star,
+                            color: myYellow, size: dynamicHeight(context, 0.02)),
+                            text(context, "(4.5)", 0.03, myGrey)
+                       ],
+                     ),
+                    
                   ],
                 ),
-                heightBox(context, 0.03),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: text(context, "Size:", 0.055, myBlack),
+                heightBox(context, 0.01),
+                text(
+                  context,
+                  "Rs: 5000",
+                  0.04,
+                  myOrange,
                 ),
+                
                 heightBox(context, 0.02),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    text(context, "Size:", 0.05, myWhite, bold: true),
                     size(context, "1kg"),
                     size(context, "2kg"),
                     size(context, "5kg"),
                     size(context, "8kg"),
                   ],
                 ),
-                heightBox(context, 0.02),
-                expandableThingy2(
-                  context,
-                  "Description",
-                  "This is the most amazing dumbbell in the wajsdkhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhorld",
-                ),
-                heightBox(context, 0.02),
-                expandableThingy2(
-                  context,
-                  "Delivery and Returns",
-                  "We don't do that here",
-                ),
+                heightBox(context, 0.04),
+                text(context, "Description", 0.05, myWhite, bold: true),
+                heightBox(context, 0.01),
+                text(context, "Minimalistic product detail screen for e-commerce", 0.03, myLightGrey)
+                // expandableThingy2(
+                //   context,
+                //   "Description",
+                //   "This is the most amazing dumbbell in the wajsdkhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhorld",
+                // ),
+                // heightBox(context, 0.02),
+                // expandableThingy2(
+                //   context,
+                //   "Delivery and Returns",
+                //   "We don't do that here",
+                // ),
               ],
             ),
           ),

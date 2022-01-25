@@ -29,7 +29,7 @@ class _DiscoverState extends State<Discover>
       "img":
           "https://simlionfitness.com/wp-content/uploads/2019/10/shutterstock_227369644-min-768x523.jpg"
     },
-     {
+    {
       "img":
           "https://img5.goodfon.com/wallpaper/nbig/f/15/back-fitness-gym-power-pose.jpg"
     },
@@ -132,7 +132,17 @@ discoverCard(context) {
           child: Container(
             width: dynamicWidth(context, 0.9),
             height: dynamicHeight(context, 0.32),
-            color: myWhite.withOpacity(0.95),
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: myWhite.withOpacity(0.2),
+                  spreadRadius: 2,
+                  blurRadius: 8,
+                  offset: const Offset(0, 3), // changes position of shadow
+                ),
+              ],
+              color: myBlack.withOpacity(0.8),
+            ),
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
@@ -142,12 +152,12 @@ discoverCard(context) {
                 ),
                 child: Column(
                   children: [
-                    text(context, "Steve Jobs ", 0.06, myBlack, bold: true),
+                    text(context, "Steve Jobs ", 0.06, myWhite, bold: true),
                     text(
                       context,
                       "Gym Coach ",
                       0.04,
-                      myGrey,
+                      myOrange,
                     ),
                     //heightBox(context, 0.02),
                     Padding(
@@ -209,4 +219,3 @@ discoverCard(context) {
     ],
   );
 }
-

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 
-Widget paymentCard(context,paymentMethod,image) {
+Widget paymentCard(context,paymentMethod,image ) {
   return Container(
     padding: EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
     width: dynamicWidth(context, 0.9),
@@ -16,13 +16,13 @@ Widget paymentCard(context,paymentMethod,image) {
       children: [
         CircleAvatar(
           radius : dynamicWidth(context, 0.09),
-          backgroundColor: myBlack,
+          backgroundColor: myGrey.withOpacity(0.2),
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal:dynamicWidth(context, 0.01),vertical:dynamicWidth(context, 0.01)),
             child: Image(
               image: NetworkImage(image),
               width: dynamicWidth(context, 0.15),
-              color:myWhite,
+              //color:color == true?myWhite:n,
             ),
           ),
         ),

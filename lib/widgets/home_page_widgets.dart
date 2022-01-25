@@ -74,13 +74,13 @@ Widget gymCards(context, img, {check = false}) {
     decoration: BoxDecoration(
       boxShadow: [
         BoxShadow(
-          color: myBlack.withOpacity(0.2),
-          spreadRadius: 2,
-          blurRadius: 8,
+          color: myWhite.withOpacity(0.2),
+          spreadRadius: 3,
+          blurRadius: 6,
           offset: const Offset(0, 3), // changes position of shadow
         ),
       ],
-      color: myWhite.withOpacity(0.9),
+      color: myBlack,
       borderRadius: BorderRadius.circular(
         dynamicWidth(context, 0.1),
       ),
@@ -139,7 +139,7 @@ Widget gymCards(context, img, {check = false}) {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                text(context, "Body Building", 0.045, myBlack, bold: true),
+                text(context, "Body Building", 0.045, myWhite, bold: true),
                 text(context, "Full body workout", 0.035, myGrey),
                 heightBox(context, 0.01),
                 Row(
