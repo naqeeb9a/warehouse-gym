@@ -4,7 +4,6 @@ import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 import 'package:warehouse_gym/widgets/essential_widgets.dart';
 import 'package:warehouse_gym/widgets/text_widge.dart';
-
 import 'login.dart';
 
 class ItemViewer extends StatefulWidget {
@@ -28,7 +27,7 @@ class _ItemViewerState extends State<ItemViewer> {
             child: Column(
               children: [
                 heightBox(context, 0.02),
-                bar(context, true, centerCheck: true, centerText: "View Item",pop: true),
+                bar(context, true, centerCheck: true, centerText: "View Item",back: true),
                 heightBox(context, 0.01),
                 Container(
                   height: dynamicHeight(context, 0.3),

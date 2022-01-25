@@ -27,7 +27,7 @@ class WaterDetails extends StatelessWidget {
                 centerText: "Water Details",
                 editIcon: Icons.mode_edit_outlined,
                 editColor: myBlue,
-                pop: true,
+                back: true,
               ),
               heightBox(context, 0.03),
               Center(child: text(context, "Good Job!", 0.04, myYellow),),

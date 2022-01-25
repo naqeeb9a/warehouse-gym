@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:warehouse_gym/screens/bottom_nav.dart';
 import 'package:warehouse_gym/screens/login.dart';
 import 'package:warehouse_gym/screens/payment_screen.dart';
-import 'package:warehouse_gym/screens/subscription.dart';
 import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
@@ -39,6 +37,7 @@ class _PlaceState extends State<Place> {
                         context,
                         true,
                         centerCheck: true,
+                        back: true,
                       ),
                       text(
                         context,

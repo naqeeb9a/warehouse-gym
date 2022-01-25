@@ -12,7 +12,6 @@ class Cart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor : myBlack,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
@@ -190,14 +189,14 @@ class Cart extends StatelessWidget {
                                       width: dynamicWidth(context, 0.43),
                                       height: dynamicHeight(context, 0.1),
                                       child: ClipRRect(
-                                        // borderRadius: BorderRadius.only(
-                                        //   topLeft: Radius.circular(
-                                        //     dynamicWidth(context, 0.06),
-                                        //   ),
-                                        //   topRight: Radius.circular(
-                                        //     dynamicWidth(context, 0.06),
-                                        //   ),
-                                        // ),
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(
+                                            dynamicWidth(context, 0.07),
+                                          ),
+                                          topRight: Radius.circular(
+                                            dynamicWidth(context, 0.07),
+                                          ),
+                                        ),
                                         child: Image.network(
                                           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdvQOu6H5EjLrzFA_yaU4UhuTNqsHSexLYAA&usqp=CAU",
                                           fit: BoxFit.fill,

@@ -27,7 +27,7 @@ class CaloriesDetails extends StatelessWidget {
                   centerText: "Calories Details",
                   editIcon: Icons.mode_edit_outlined,
                   editColor: myOrange,
-                  pop: true,
+                  back: true,
               ),
               heightBox(context, 0.03),
               Center(child: text(context, "Keep Going!", 0.04, myLightGrey),),
