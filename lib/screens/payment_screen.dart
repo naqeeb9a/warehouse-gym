@@ -24,11 +24,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
           alignment: Alignment.bottomCenter,
           child: Padding(
             padding: EdgeInsets.only(
-              bottom: dynamicHeight(context, 0.05),
+              bottom: dynamicHeight(context, 0.035),
             ),
             child: SizedBox(
               width: dynamicWidth(context, .9),
-              height: dynamicHeight(context, .86),
+              height: dynamicHeight(context, .87),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -56,7 +56,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   paymentCard(context,"Google Pay","https://th.bing.com/th/id/R.fcd16a3389b7f88c4aa5539d33f50646?rik=XMDu%2bWhbTv9Z2Q&riu=http%3a%2f%2fpurepng.com%2fpublic%2fuploads%2flarge%2fpurepng.com-google-pay-gpay-logobrandlogobrand-logoiconssymbolslogosgoogle-681522937443muxmx.png&ehk=T0t7fG5EZDdrGrQa8NAjSkNLTbX4ACe%2fDS0EiktfW8g%3d&risl=&pid=ImgRaw&r=0"),
                   paymentCard(context,"Credit Card","https://th.bing.com/th/id/R.89f8cfd38f504096c6d575ad1b5894bb?rik=IpE%2bfnLGJoA3dQ&pid=ImgRaw&r=0"),
                   paymentCard(context,"By Hand","https://th.bing.com/th/id/R.41c3f0ffc2269cc72359aa486da0c70d?rik=AUZIEAGEVbHabQ&pid=ImgRaw&r=0"),
-                  heightBox(context, 0.02),
+                  heightBox(context, 0.04),
                   colorfulButton(
                     context,
                     "Choose",

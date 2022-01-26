@@ -108,7 +108,7 @@ Widget bar(context, leadingIcon,
           ? Align(
               alignment: Alignment.center,
               child: text(context, centerText, 0.04, myWhite, bold: true))
-          : text(context, "Need Help?", 0.03, myGrey),
+          : text(context, "", 0.03, myGrey),
       centerCheck == true
           ? CircleAvatar(
               radius: dynamicWidth(context, 0.037),
