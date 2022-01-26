@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:warehouse_gym/screens/login.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 import 'package:warehouse_gym/widgets/essential_widgets.dart';

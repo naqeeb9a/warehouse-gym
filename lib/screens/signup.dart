@@ -28,7 +28,7 @@ class _SignUpState extends State<SignUp> {
               children: [
                 heightBox(context, 0.06),
                 Center(
-                  child: Container(
+                  child: SizedBox(
                     width: dynamicWidth(context, 0.4),
                     child: Image.asset("assets/warehouse.png"),
                   ),

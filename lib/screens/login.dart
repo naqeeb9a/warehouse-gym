@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:warehouse_gym/screens/bottom_nav.dart';
 import 'package:warehouse_gym/screens/signup.dart';
 import 'package:warehouse_gym/screens/subscription.dart';
 import 'package:warehouse_gym/utils/app_routes.dart';
@@ -24,7 +23,7 @@ class Login extends StatelessWidget {
               children: [
                 heightBox(context, 0.06),
                 Center(
-                  child: Container(
+                  child: SizedBox(
                     width: dynamicWidth(context, 0.4),
                     child: Image.asset("assets/warehouse.png"),
                   ),

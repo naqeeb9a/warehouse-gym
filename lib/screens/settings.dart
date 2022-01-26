@@ -31,7 +31,7 @@ class Settings extends StatelessWidget {
               heightBox(context, 0.02),
               text(context, "Account", 0.04, myOrange),
               listSetting(context,null, "Edit Profile", false, iconCheck: true),
-              listSetting(context,Activity(), "Activity", false, iconCheck: true),
+              listSetting(context,const Activity(), "Activity", false, iconCheck: true),
               listSetting(context, null, "Log Out", false,
                   noIcon: true),
             ],

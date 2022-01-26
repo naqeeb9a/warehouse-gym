@@ -67,7 +67,7 @@ class Activity extends StatelessWidget {
                           onTap: () {
                             push(
                               context,
-                              CaloriesDetails(),
+                              const CaloriesDetails(),
                             );
                           },
                           child: workoutBox(
@@ -83,7 +83,7 @@ class Activity extends StatelessWidget {
                           onTap: () {
                             push(
                               context,
-                              StepsDetails(),
+                              const StepsDetails(),
                             );
                           },
                           child: workoutBox(
@@ -93,14 +93,14 @@ class Activity extends StatelessWidget {
                             "Steps",
                             Icons.directions_walk_outlined,
                             Colors.purple,
-                            Color(0xff534293)
+                            const Color(0xff534293)
                           ),
                         ),
                         InkWell(
                           onTap: () {
                             push(
                               context,
-                              SleepDetails(),
+                              const SleepDetails(),
                             );
                           },
                           child: workoutBox(
@@ -110,14 +110,14 @@ class Activity extends StatelessWidget {
                             "Hours",
                             Icons.bed,
                             myGreen,
-                            Color(0xff0A5E2A)
+                            const Color(0xff0A5E2A)
                           ),
                         ),
                         InkWell(
                           onTap: () {
                             push(
                               context,
-                              WaterDetails(),
+                              const WaterDetails(),
                             );
                           },
                           child: workoutBox(
@@ -127,7 +127,7 @@ class Activity extends StatelessWidget {
                             "liters",
                             Icons.whatshot_outlined,
                             myBlue,
-                            Color(0xff174a77)
+                            const Color(0xff174a77)
                           ),
                         ),
                       ],

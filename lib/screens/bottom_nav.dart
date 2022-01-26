@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:warehouse_gym/screens/activity.dart';
 import 'package:warehouse_gym/screens/discover.dart';
 import 'package:warehouse_gym/screens/home.dart';
 import 'package:warehouse_gym/screens/settings.dart';

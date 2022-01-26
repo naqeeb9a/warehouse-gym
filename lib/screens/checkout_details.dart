@@ -35,7 +35,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
         body: SingleChildScrollView(
           child: Align(
             alignment: Alignment.bottomCenter,
-            child: Container(
+            child: SizedBox(
               height: dynamicHeight(context, .87),
               child: Column(
                 children: [

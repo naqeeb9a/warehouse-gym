@@ -1,7 +1,5 @@
 import 'package:dotted_border/dotted_border.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:warehouse_gym/screens/login.dart';
 import 'package:warehouse_gym/utils/config.dart';
@@ -53,16 +51,16 @@ class StepsDetails extends StatelessWidget {
                   lineWidth: 15.0,
                   percent: 0.7,
                   center: DottedBorder(
-                    dashPattern: [10, 10, 10, 10],
+                    dashPattern: const [10, 10, 10, 10],
                     color: myPurple,
                     borderType: BorderType.Circle,
                     strokeWidth: 4,
-                    child: Container(
+                    child: SizedBox(
                       width: dynamicWidth(context, 0.45),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.directions_run_outlined,
                             size: 50.0,
                             color: myPurple,

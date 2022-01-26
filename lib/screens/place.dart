@@ -51,7 +51,7 @@ class _PlaceState extends State<Place> {
                   heightBox(context, 0.025),
                   Expanded(
                     child: SingleChildScrollView(
-                      child: Container(
+                      child: SizedBox(
                         width: dynamicWidth(context, 0.9),
                         child: Wrap(
                             runSpacing: 15,

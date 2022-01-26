@@ -65,7 +65,7 @@ class MyPlan extends StatelessWidget {
                             "Steps",
                             Icons.directions_walk_outlined,
                             myPurple,
-                            Color(0xff534293)
+                            const Color(0xff534293)
                           ),
                         ),
                         InkWell(
@@ -82,7 +82,7 @@ class MyPlan extends StatelessWidget {
                             "Hours",
                             Icons.bed,
                             myGreen,
-                            Color(0xff0A5E2A)
+                            const Color(0xff0A5E2A)
                           ),
                         ),
                         InkWell(
@@ -99,7 +99,7 @@ class MyPlan extends StatelessWidget {
                             "liters",
                             Icons.whatshot_outlined,
                             myBlue,
-                            Color(0xff174a77)
+                            const Color(0xff174a77)
                           ),
                         ),
                       ],

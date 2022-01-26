@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage>
                       onTap: () {
                         push(
                           context,
-                          MyPlan(),
+                          const MyPlan(),
                         );
                       },
                       child: plansForTodayCard(

@@ -72,7 +72,7 @@ class Cart extends StatelessWidget {
                               width: dynamicWidth(context, 0.3),
                               // height :dynamicHeight(context,0.2),
                               decoration: BoxDecoration(
-                                  boxShadow: [
+                                  boxShadow: const [
                                     BoxShadow(
                                       color: myGrey,
                                       blurRadius: 4,
@@ -80,7 +80,7 @@ class Cart extends StatelessWidget {
                                     ),
                                   ],
                                   image: DecorationImage(
-                                      image: NetworkImage(
+                                      image: const NetworkImage(
                                           "https://media.istockphoto.com/photos/dumbbells-on-stand-in-gym-picture-id912113272?k=20&m=912113272&s=612x612&w=0&h=Pw0NPJuUYB3TbwlaB7GVjALyi1vNs6hZdTBswPLPu3s="),
                                       colorFilter: ColorFilter.mode(
                                           myBlack.withOpacity(.5),
@@ -130,7 +130,7 @@ class Cart extends StatelessWidget {
                         true),
                     heightBox(context, 0.02),
                     GridView.builder(
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       primary: true,
                       shrinkWrap: true,
                       itemCount: 5,
@@ -149,7 +149,7 @@ class Cart extends StatelessWidget {
                             onTap: () {
                               push(
                                 context,
-                                ItemViewer(),
+                                const ItemViewer(),
                               );
                             },
                             child: Container(
@@ -180,7 +180,7 @@ class Cart extends StatelessWidget {
                                        borderRadius: BorderRadius.circular(
                                          dynamicWidth(context, 0.04),),
                                        image: DecorationImage(
-                                        image: NetworkImage(
+                                        image: const NetworkImage(
                                           "https://media.istockphoto.com/photos/woman-exercise-workout-in-gym-fitness-breaking-relax-holding-apple-picture-id871070868?k=20&m=871070868&s=612x612&w=0&h=Gh7o1IhxEUldQIKv7nATlVm2rb3JmkKNkYz33_54A9w=",
                                         ),
                                         colorFilter: ColorFilter.mode(

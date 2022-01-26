@@ -30,7 +30,7 @@ class _ItemViewerState extends State<ItemViewer> {
                 heightBox(context, 0.02),
                 bar(context, true, centerCheck: true, centerText: "View Item",back: true),
                 heightBox(context, 0.01),
-                Container(
+                SizedBox(
                   height: dynamicHeight(context, 0.5),
                   child: ListView(
                     children: [
@@ -38,10 +38,10 @@ class _ItemViewerState extends State<ItemViewer> {
                         items: [
                           // 1
                           Container(
-                            margin: EdgeInsets.all(6.0),
+                            margin: const EdgeInsets.all(6.0),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8.0),
-                              image: DecorationImage(
+                              image: const DecorationImage(
                                 image: NetworkImage(
                                     "https://media.istockphoto.com/photos/improvement-and-getting-stronger-in-fitness-exercise-and-muscle-man-picture-id1012048876?k=20&m=1012048876&s=612x612&w=0&h=7GHjg1cP5wly2CCR0VHdWRfUeV8iXZxtukM-JnsBjrc="),
                                 fit: BoxFit.cover,
@@ -50,10 +50,10 @@ class _ItemViewerState extends State<ItemViewer> {
                           ),
                           // 2
                           Container(
-                            margin: EdgeInsets.all(6.0),
+                            margin: const EdgeInsets.all(6.0),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8.0),
-                              image: DecorationImage(
+                              image: const DecorationImage(
                                 image: NetworkImage(
                                     "https://media.istockphoto.com/photos/heavy-weight-exercise-picture-id625739874?k=20&m=625739874&s=612x612&w=0&h=d8wzQd8HzzG__eSPo5-t4tEm6mBJotmR4zSqktUOFGM="),
                                 fit: BoxFit.cover,
@@ -62,21 +62,21 @@ class _ItemViewerState extends State<ItemViewer> {
                           ),
                           // 3
                           Container(
-                            margin: EdgeInsets.all(6.0),
+                            margin: const EdgeInsets.all(6.0),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8.0),
-                              image: DecorationImage(
-                                image: NetworkImage(
+                              image: const DecorationImage(
+                                image:  NetworkImage(
                                     "https://media.istockphoto.com/photos/weight-lifting-picture-id185068878?k=20&m=185068878&s=612x612&w=0&h=jBKUAV8gWilBMT6s2MY-Bm4BXmkVnCVNRmyie2Ur9UY="),
                                 fit: BoxFit.cover,
                               ),
                             ),
                           ),
                            Container(
-                            margin: EdgeInsets.all(6.0),
+                            margin: const EdgeInsets.all(6.0),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8.0),
-                              image: DecorationImage(
+                              image: const DecorationImage(
                                 image: NetworkImage(
                                     "https://media.istockphoto.com/photos/dumbbells-on-stand-in-gym-picture-id912113272?k=20&m=912113272&s=612x612&w=0&h=Pw0NPJuUYB3TbwlaB7GVjALyi1vNs6hZdTBswPLPu3s="),
                                 fit: BoxFit.cover,
@@ -91,7 +91,7 @@ class _ItemViewerState extends State<ItemViewer> {
                           enableInfiniteScroll: true,
                           aspectRatio: 16 / 9,
                           autoPlayCurve: Curves.fastOutSlowIn,
-                          autoPlayAnimationDuration: Duration(milliseconds: 800),
+                          autoPlayAnimationDuration: const Duration(milliseconds: 800),
                           viewportFraction: 0.8,
                         ),
                       ),

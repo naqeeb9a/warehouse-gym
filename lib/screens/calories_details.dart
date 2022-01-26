@@ -51,16 +51,16 @@ class CaloriesDetails extends StatelessWidget {
                   lineWidth: 15.0,
                   percent: 0.7,
                   center: DottedBorder(
-                    dashPattern: [10, 10, 10, 10],
+                    dashPattern: const [10, 10, 10, 10],
                     color: myOrange,
                     borderType: BorderType.Circle,
                     strokeWidth: 4,
-                    child: Container(
+                    child: SizedBox(
                       width: dynamicWidth(context, 0.45),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.local_fire_department_outlined,
                             size: 50.0,
                             color: myOrange,

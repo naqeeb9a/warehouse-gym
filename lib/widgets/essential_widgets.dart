@@ -4,7 +4,6 @@ import 'package:intl/intl.dart';
 import 'package:warehouse_gym/screens/checkout_details.dart';
 import 'package:warehouse_gym/screens/login.dart';
 import 'package:warehouse_gym/screens/my_cart.dart';
-import 'package:warehouse_gym/screens/payment_screen.dart';
 import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
@@ -155,7 +154,7 @@ Widget expandableThingy(
                 check: false),
           ),
           // text(context, "6am-7am", 0.06, myGrey),
-          collapsed: Text(
+          collapsed: const Text(
             "",
             softWrap: true,
             maxLines: 2,
@@ -277,11 +276,11 @@ Widget stickyBottom(context) {
 Widget itemCard(context, name, size, price) {
   return Padding(
     padding: EdgeInsets.symmetric(vertical: dynamicHeight(context, 0.015)),
-    child: Container(
+    child: SizedBox(
       height: dynamicHeight(context, 0.12),
       child: Row(
         children: [
-          Container(
+          SizedBox(
             width: dynamicWidth(context, 0.2),
             height: dynamicHeight(context, 0.1),
             child: Image.network(
@@ -337,7 +336,7 @@ Widget buyNow(context) {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         colorfulButton1(context, "Buy Now", myBlack, myYellow,function: (){
-          push(context, CheckoutDetails());
+          push(context, const CheckoutDetails());
         }),
       ],
     ),
