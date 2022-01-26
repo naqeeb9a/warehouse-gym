@@ -32,6 +32,8 @@ class Settings extends StatelessWidget {
               text(context, "Account", 0.04, myOrange),
               listSetting(context,null, "Edit Profile", false, iconCheck: true),
               listSetting(context,Activity(), "Activity", false, iconCheck: true),
+              listSetting(context, null, "Log Out", false,
+                  noIcon: true),
             ],
           ),
         ),
@@ -40,7 +42,7 @@ class Settings extends StatelessWidget {
   }
 }
 
-Widget listSetting(context,page, text1, check, {iconCheck = false}) {
+Widget listSetting(context,page, text1, check, {iconCheck = false,noIcon = false}) {
   bool value1 = check;
   return Column(
     children: [
@@ -56,7 +58,7 @@ Widget listSetting(context,page, text1, check, {iconCheck = false}) {
             child: ListTile(
               contentPadding: const EdgeInsets.all(0),
               leading: text(context, text1.toString(), 0.04, myWhite, bold: true),
-              trailing: iconCheck == true
+              trailing:noIcon==true? widthBox(context, 0.01): iconCheck == true
                   ? Icon(
                       Icons.arrow_forward_ios,
                       size: dynamicWidth(context, 0.04),

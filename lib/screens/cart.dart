@@ -88,7 +88,7 @@ class Cart extends StatelessWidget {
                                       fit: BoxFit.cover),
                                   color: myBlack,
                                   borderRadius: BorderRadius.circular(
-                                      dynamicWidth(context, 0.06))),
+                                      dynamicWidth(context, 0.04))),
 
                               child: Padding(
                                 padding: EdgeInsets.only(
@@ -97,11 +97,6 @@ class Cart extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
-                                    // Image.network(
-                                    //   "https://i0.wp.com/swolespartan.com/wp-content/uploads/2019/07/12-247x296.png",
-                                    //   fit: BoxFit.fill,
-                                    //   height: dynamicHeight(context, 0.04),
-                                    // ),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
@@ -163,7 +158,7 @@ class Cart extends StatelessWidget {
                               decoration: BoxDecoration(
                                 color: myBlack,
                                 borderRadius: BorderRadius.circular(
-                                  dynamicWidth(context, 0.09),
+                                  dynamicWidth(context, 0.04),
                                 ),
                                 boxShadow: const [
                                   BoxShadow(
@@ -172,55 +167,43 @@ class Cart extends StatelessWidget {
                                     offset: Offset(0, 1), // Shadow position
                                   ),
                                 ],
-                                image: DecorationImage(
-                                    image: NetworkImage(
-                                        "https://media.istockphoto.com/photos/dumbbells-on-stand-in-gym-picture-id912113272?k=20&m=912113272&s=612x612&w=0&h=Pw0NPJuUYB3TbwlaB7GVjALyi1vNs6hZdTBswPLPu3s="),
-                                    colorFilter: ColorFilter.mode(
-                                        myBlack.withOpacity(.5),
-                                        BlendMode.colorBurn),
-                                    fit: BoxFit.cover),
                               ),
                               child: Column(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.end,
-                                //crossAxisAlignment: CrossAxisAlignment.end,
+                                    MainAxisAlignment.spaceBetween,
+    
                                 children: [
-                                  // Image.network(
-                                  //   "https://media.istockphoto.com/photos/gym-background-with-fitness-equipment-dumbbells-weight-for-workout-picture-id1213615974?k=20&m=1213615974&s=612x612&w=0&h=lJH8S7wknMvtLmM4DeWhLiIp5L1LkLrfPuWyHqeESho=",
-                                  //   fit: BoxFit.fill,
-                                  // ),
-                                  Container(
-                                    width: dynamicWidth(context, 0.43),
-                                    height: dynamicHeight(context, 0.04),
-                                     decoration: BoxDecoration(
-                                      //   gradient: const LinearGradient(colors: [
-                                      //   Colors.orange,
-                                      //   Colors.white
-                                        
-                                      // ]),
-                                      color: myWhite,
-                                      borderRadius: BorderRadius.circular(
-                                        dynamicWidth(context, 0.09),
+                                   Container(
+                                     width: dynamicWidth(context, 0.43),
+                                    height: dynamicHeight(context, 0.14),
+                                     decoration:BoxDecoration(
+                                       borderRadius: BorderRadius.circular(
+                                         dynamicWidth(context, 0.04),),
+                                       image: DecorationImage(
+                                        image: NetworkImage(
+                                          "https://media.istockphoto.com/photos/woman-exercise-workout-in-gym-fitness-breaking-relax-holding-apple-picture-id871070868?k=20&m=871070868&s=612x612&w=0&h=Gh7o1IhxEUldQIKv7nATlVm2rb3JmkKNkYz33_54A9w=",
+                                        ),
+                                        colorFilter: ColorFilter.mode(
+                                            myBlack.withOpacity(.5),
+                                            BlendMode.colorBurn),
+                                        fit: BoxFit.cover,
                                       ),
-                                      // boxShadow: const [
-                                      //   BoxShadow(
-                                      //     color: myGrey,
-                                      //     blurRadius: 4,
-                                      //     offset:
-                                      //         Offset(0, 1), // Shadow position
-                                      //   ),
-                                      //],
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        text(
-                                            context, "Item", 0.04, myBlack,
-                                            bold: true),
-                                        text(context, "500Rs", 0.03, myOrange),
-                                      ],
-                                    ),
+                                     ),
+                                   ),
+                                  
+                                  heightBox(context, 0.01),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      //widthBox(context,0.02),
+                                      text(
+                                          context, "Item", 0.04, myWhite,
+                                          bold: true),
+                                          //text(context, "Rs500", 0.03, myOrange),
+                                    ],
                                   ),
+                                
+                                  heightBox(context, 0.01),
                                   
                                 ],
                               ),
