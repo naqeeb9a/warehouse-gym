@@ -57,84 +57,78 @@ class Cart extends StatelessWidget {
                         ),
                       ),
                       child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 9,
-                          itemBuilder: (
-                            context,
-                            i,
-                          ) {
-                            return Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: dynamicWidth(context, 0.02),
-                                vertical: dynamicHeight(context, 0.0125),
-                              ),
-                              child: Container(
-                                width: dynamicWidth(context, 0.3),
-                                // height :dynamicHeight(context,0.2),
-                                decoration: BoxDecoration(
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: myGrey,
-                                        blurRadius: 4,
-                                        offset: Offset(0, 1), // Shadow position
-                                      ),
-                                    ],
-                                    color: myBlack,
-                                    borderRadius: BorderRadius.circular(
-                                        dynamicWidth(context, 0.06))),
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 9,
+                        itemBuilder: (
+                          context,
+                          i,
+                        ) {
+                          return Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: dynamicWidth(context, 0.02),
+                              vertical: dynamicHeight(context, 0.0125),
+                            ),
+                            child: Container(
+                              width: dynamicWidth(context, 0.3),
+                              // height :dynamicHeight(context,0.2),
+                              decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: myGrey,
+                                      blurRadius: 4,
+                                      offset: Offset(0, 1), // Shadow position
+                                    ),
+                                  ],
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                          "https://media.istockphoto.com/photos/dumbbells-on-stand-in-gym-picture-id912113272?k=20&m=912113272&s=612x612&w=0&h=Pw0NPJuUYB3TbwlaB7GVjALyi1vNs6hZdTBswPLPu3s="),
+                                      colorFilter: ColorFilter.mode(
+                                          myBlack.withOpacity(.5),
+                                          BlendMode.colorBurn),
+                                      fit: BoxFit.cover),
+                                  color: myBlack,
+                                  borderRadius: BorderRadius.circular(
+                                      dynamicWidth(context, 0.06))),
 
-                                child: Padding(
-                                  padding: EdgeInsets.only(
-                                      bottom: dynamicHeight(context, 0.02)),
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Container(
-                                        width: dynamicWidth(context, 0.3),
-                                        height: dynamicHeight(context, 0.08),
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.only(
-                                            topLeft: Radius.circular(
-                                              dynamicWidth(context, 0.06),
-                                            ),
-                                            topRight: Radius.circular(
-                                              dynamicWidth(context, 0.06),
-                                            ),
-                                          ),
-                                          child: Image.network(
-                                            "https://image.shutterstock.com/image-photo/hand-hold-dumbbell-black-background-260nw-557668558.jpg",
-                                            fit: BoxFit.fill,
-                                          ),
-                                        ),
-                                      ),
-                                      text(context, "Dumbbells", 0.04, myWhite,
-                                          bold: true),
-                                      CircleAvatar(
-                                        radius: dynamicWidth(context, 0.037),
-                                        backgroundColor:
-                                            myGrey.withOpacity(0.3),
-                                        child: CircleAvatar(
-                                          radius: dynamicWidth(context, 0.035),
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                    bottom: dynamicHeight(context, 0.02)),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    // Image.network(
+                                    //   "https://i0.wp.com/swolespartan.com/wp-content/uploads/2019/07/12-247x296.png",
+                                    //   fit: BoxFit.fill,
+                                    //   height: dynamicHeight(context, 0.04),
+                                    // ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: [
+                                        text(
+                                            context, "Dumbbells", 0.03, myWhite,
+                                            bold: true),
+                                        CircleAvatar(
+                                          radius: dynamicWidth(context, 0.02),
                                           backgroundColor: myWhite,
-                                          child: Padding(
-                                            padding: EdgeInsets.only(
-                                                left: dynamicWidth(
-                                                    context, 0.01)),
-                                            child: Icon(
-                                              Icons.arrow_forward_ios,
-                                              color: myOrange,
-                                              size: dynamicWidth(context, 0.04),
-                                            ),
+                                          child: Icon(
+                                            Icons.arrow_forward_ios,
+                                            color: myOrange,
+                                            size: dynamicWidth(context, 0.02),
                                           ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
                               ),
-                            );
-                          }),
+                            ),
+                          );
+                        },
+                      ),
                     ),
                     heightBox(context, 0.02),
                     rowText(context, "Accessories", "Show All", 0.05, myWhite,
@@ -178,50 +172,57 @@ class Cart extends StatelessWidget {
                                     offset: Offset(0, 1), // Shadow position
                                   ),
                                 ],
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://media.istockphoto.com/photos/dumbbells-on-stand-in-gym-picture-id912113272?k=20&m=912113272&s=612x612&w=0&h=Pw0NPJuUYB3TbwlaB7GVjALyi1vNs6hZdTBswPLPu3s="),
+                                    colorFilter: ColorFilter.mode(
+                                        myBlack.withOpacity(.5),
+                                        BlendMode.colorBurn),
+                                    fit: BoxFit.cover),
                               ),
-                              child: Padding(
-                                padding: EdgeInsets.only(
-                                    bottom: dynamicHeight(context, 0.03)),
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      width: dynamicWidth(context, 0.43),
-                                      height: dynamicHeight(context, 0.1),
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(
-                                            dynamicWidth(context, 0.07),
-                                          ),
-                                          topRight: Radius.circular(
-                                            dynamicWidth(context, 0.07),
-                                          ),
-                                        ),
-                                        child: Image.network(
-                                          "https://media.istockphoto.com/photos/gym-background-with-fitness-equipment-dumbbells-weight-for-workout-picture-id1213615974?k=20&m=1213615974&s=612x612&w=0&h=lJH8S7wknMvtLmM4DeWhLiIp5L1LkLrfPuWyHqeESho=",
-                                          fit: BoxFit.fill,
-                                        ),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.end,
+                                //crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  // Image.network(
+                                  //   "https://media.istockphoto.com/photos/gym-background-with-fitness-equipment-dumbbells-weight-for-workout-picture-id1213615974?k=20&m=1213615974&s=612x612&w=0&h=lJH8S7wknMvtLmM4DeWhLiIp5L1LkLrfPuWyHqeESho=",
+                                  //   fit: BoxFit.fill,
+                                  // ),
+                                  Container(
+                                    width: dynamicWidth(context, 0.43),
+                                    height: dynamicHeight(context, 0.04),
+                                     decoration: BoxDecoration(
+                                      //   gradient: const LinearGradient(colors: [
+                                      //   Colors.orange,
+                                      //   Colors.white
+                                        
+                                      // ]),
+                                      color: myWhite,
+                                      borderRadius: BorderRadius.circular(
+                                        dynamicWidth(context, 0.09),
                                       ),
+                                      // boxShadow: const [
+                                      //   BoxShadow(
+                                      //     color: myGrey,
+                                      //     blurRadius: 4,
+                                      //     offset:
+                                      //         Offset(0, 1), // Shadow position
+                                      //   ),
+                                      //],
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal:
-                                              dynamicWidth(context, 0.03)),
-                                      child: text(
-                                          context, "Item", 0.04, myWhite,
-                                          bold: true),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        text(
+                                            context, "Item", 0.04, myBlack,
+                                            bold: true),
+                                        text(context, "500Rs", 0.03, myOrange),
+                                      ],
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal:
-                                              dynamicWidth(context, 0.03)),
-                                      child:
-                                          text(context, "500Rs", 0.03, myOrange),
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                  
+                                ],
                               ),
                             ),
                           ),

@@ -159,12 +159,12 @@ Widget colorfulButton(context, text1, textColor, containerColor,
   return InkWell(
     onTap: function == "" ? () {} : function,
     child: Container(
-        width: dynamicWidth(context, 0.7),
+        width: dynamicWidth(context, 0.5),
         decoration: BoxDecoration(
             color: containerColor,
             borderRadius: BorderRadius.circular(dynamicWidth(context, 0.05))),
         padding: EdgeInsets.symmetric(vertical: dynamicHeight(context, 0.02)),
-        child: text(context, text1, 0.05, textColor)),
+        child: text(context, text1, 0.04, textColor,bold: true)),
   );
 }
 

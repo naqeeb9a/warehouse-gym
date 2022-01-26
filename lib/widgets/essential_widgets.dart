@@ -331,8 +331,8 @@ Widget itemCard(context, name, size, price) {
 Widget buyNow(context) {
   return Padding(
     padding: EdgeInsets.symmetric(
-        horizontal: dynamicWidth(context, 0.02),
-        vertical: dynamicHeight(context, 0.01)),
+         horizontal: dynamicWidth(context, 0.04),
+        vertical: dynamicHeight(context, 0.02)),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
