@@ -191,13 +191,13 @@ class Cart extends StatelessWidget {
                                      ),
                                    ),
                                   
-                                  heightBox(context, 0.01),
+                                  heightBox(context, 0.007),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       //widthBox(context,0.02),
                                       text(
-                                          context, "Item", 0.04, myWhite,
+                                          context, "Item", 0.03, myWhite,
                                           bold: true),
                                           //text(context, "Rs500", 0.03, myOrange),
                                     ],
