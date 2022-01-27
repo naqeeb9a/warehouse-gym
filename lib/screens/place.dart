@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:warehouse_gym/screens/gym_details.dart';
 import 'package:warehouse_gym/screens/login.dart';
 import 'package:warehouse_gym/screens/payment_screen.dart';
 import 'package:warehouse_gym/utils/app_routes.dart';
@@ -30,25 +31,14 @@ class _PlaceState extends State<Place> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      bar(
-                        context,
-                        true,
-                        centerCheck: true,
-                        back: true,
-                      ),
-                      text(
-                        context,
-                        "Choose Gym",
-                        .07,
-                        myWhite,
-                        bold: true,
-                      ),
-                    ],
+                  bar(
+                    context,
+                    true,
+                    centerCheck: true,
+                    back: true,
+                    centerText: "Choose Gym",
                   ),
-                  heightBox(context, 0.025),
+                  heightBox(context, 0.03),
                   Expanded(
                     child: SingleChildScrollView(
                       child: SizedBox(
@@ -59,8 +49,16 @@ class _PlaceState extends State<Place> {
                             children: [
                               placeCard(context, "SPRINGS SOUK", "Dubai",
                                   "https://static.dezeen.com/uploads/2019/10/warehouse-gym-springs-interiors-vshd-design_dezeen_1704_col_2.jpg"),
-                              placeCard(context, "AL QUOZ", "Dubai",
-                                  "https://whgym.com/wp-content/uploads/elementor/thumbs/Al-Quoz-2-phi5gc1btya3l37eqpjiwxe59e55tg8rdbq41xa8jo.jpg"),
+                              InkWell(
+                                onTap: () {
+                                  push(
+                                    context,
+                                    AlQuoz(),
+                                  );
+                                },
+                                child: placeCard(context, "AL QUOZ", "Dubai",
+                                    "https://whgym.com/wp-content/uploads/elementor/thumbs/Al-Quoz-2-phi5gc1btya3l37eqpjiwxe59e55tg8rdbq41xa8jo.jpg"),
+                              ),
                               placeCard(context, "DIFC", "Dubai",
                                   "https://whgym.com/wp-content/uploads/elementor/thumbs/DIFC-1-phi5i8njouw14mfqm17agy2smiqyfct5yrck34ghxg.jpg"),
                               placeCard(context, "JUMEIRAH-PARK", "Dubai",

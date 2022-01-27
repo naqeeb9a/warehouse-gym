@@ -32,25 +32,14 @@ class _PaymentScreenState extends State<PaymentScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      bar(
-                        context,
-                        true,
-                        centerCheck: true,
-                        back: true,
-                      ),
-                      text(
-                        context,
-                        "Payment Method",
-                        .07,
-                        myWhite,
-                        bold: true,
-                      )
-                    ],
+                  bar(
+                    context,
+                    true,
+                    centerCheck: true,
+                    back: true,
+                    centerText: "Payment Method"
                   ),
-                  heightBox(context, 0.02),
+                  heightBox(context, 0.04),
                   paymentCard(context,"Apple Pay",
                       "https://th.bing.com/th/id/R.22031d47ff205a4aedfcbd0feaac2502?rik=9H8MC%2fnfgiy0JQ&riu=http%3a%2f%2flogos-download.com%2fwp-content%2fuploads%2f2016%2f09%2fApple_Pay_logo.png&ehk=xCbjh5G1JZBTNhGK4XZASFVMwsRdNXZvoO%2fRZhiF3fo%3d&risl=&pid=ImgRaw&r=0"),
                   paymentCard(context,"Google Pay","https://th.bing.com/th/id/R.fcd16a3389b7f88c4aa5539d33f50646?rik=XMDu%2bWhbTv9Z2Q&riu=http%3a%2f%2fpurepng.com%2fpublic%2fuploads%2flarge%2fpurepng.com-google-pay-gpay-logobrandlogobrand-logoiconssymbolslogosgoogle-681522937443muxmx.png&ehk=T0t7fG5EZDdrGrQa8NAjSkNLTbX4ACe%2fDS0EiktfW8g%3d&risl=&pid=ImgRaw&r=0"),

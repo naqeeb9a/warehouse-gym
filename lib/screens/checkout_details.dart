@@ -152,9 +152,14 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                                   color: myWhite,
                                   fontSize: dynamicWidth(context, 0.03),
                                 ),
-                                icon: Icon(Icons.arrow_drop_down_sharp,
-                                    color: myWhite,
-                                    size: dynamicWidth(context, 0.05)),
+                                icon: Icon(
+                                  Icons.arrow_drop_down_sharp,
+                                  color: myWhite,
+                                  size: dynamicWidth(
+                                    context,
+                                    0.05,
+                                  ),
+                                ),
                                 items: <String>['YYYY', 'B', 'C', 'D']
                                     .map((String value) {
                                   return DropdownMenuItem<String>(
@@ -168,7 +173,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                                 width: dynamicWidth(context, 0.12),
                                 child: inputTextWidget(context, "code", true),
                               ),
-                              widthBox(context, 0.005)
+                              widthBox(context, 0.005),
                             ],
                           ),
                           heightBox(context, 0.08),

@@ -106,7 +106,7 @@ Widget bar(context, leadingIcon,
       (centerCheck == true)
           ? Align(
               alignment: Alignment.center,
-              child: text(context, centerText, 0.04, myWhite, bold: true))
+              child: text(context, centerText, 0.06, myWhite, bold: true))
           : text(context, "", 0.03, myGrey),
       centerCheck == true
           ? CircleAvatar(

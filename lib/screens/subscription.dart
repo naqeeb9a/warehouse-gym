@@ -28,23 +28,14 @@ class _SubscriptionState extends State<Subscription> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    bar(
-                      context,
-                      true,
-                      centerCheck: true,
-                    ),
-                    text(
-                      context,
-                      "Subscription",
-                      .07,
-                      myWhite,
-                      bold: true,
-                    ),
-                  ],
+                bar(
+                  context,
+                  true,
+                  centerCheck: true,
+                  back: true,
+                  centerText: "Subscription"
                 ),
+                heightBox(context, 0.04),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [

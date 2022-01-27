@@ -342,3 +342,13 @@ Widget buyNow(context) {
     ),
   );
 }
+
+Widget rowText2(context, text1, text2, size, color,  {check = false}) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      text(context, text1, size, color, bold: true),
+      check == true ? Container() : text(context, text2, size, color,bold: true)
+    ],
+  );
+}
