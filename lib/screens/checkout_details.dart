@@ -29,12 +29,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              InkWell(
-                onTap: (){
-                  push(context, BottomNavBar());
-                },
-                  child:
-                      colorfulButton1(context, "Confirm", myBlack, myYellow)),
+              colorfulButton1(context, "Confirm", myBlack, myYellow,function: (){push(context, BottomNavBar());}),
             ],
           ),
         ),
