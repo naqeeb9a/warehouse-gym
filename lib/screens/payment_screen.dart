@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:warehouse_gym/screens/bottom_nav.dart';
 import 'package:warehouse_gym/screens/login.dart';
 import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';

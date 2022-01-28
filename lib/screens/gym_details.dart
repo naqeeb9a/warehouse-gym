@@ -84,6 +84,18 @@ class _GymDetailState extends State<GymDetail> {
                         "Productivity is at an all-time high in the busy streets of Al Quoz, brimming with industrialists and businessmen. The Warehouse Gym at Al Quoz stands out, with its graffiti-clad walls and highly energetic atmosphere among the industrialised setting. An ideal place for hustlers to let off steam and significantly elevate their ability to focus.",
                         0.04,
                         myWhite),
+                    heightBox(context,0.02),
+                    Container(
+                      width: dynamicWidth(context,0.3),
+                      height: dynamicHeight(context,0.04),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: myYellow,
+                          width: 3,
+                        ),
+                      ),
+                      child:Center(child: text(context, "View Classes", 0.03, myWhite,bold:true)),
+                    ),
                     heightBox(context, 0.04),
                     Align(
                       alignment: Alignment.centerLeft,
