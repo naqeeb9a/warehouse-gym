@@ -58,12 +58,12 @@ Widget placeCard(context, place, name, image) {
             ),
           ],
         ),
-        const Radio(
-          value: "yes",
-          groupValue: null,
-          onChanged: null,
-          visualDensity: VisualDensity(horizontal: -4),
-        ),
+        // const Radio(
+        //   value: "yes",
+        //   groupValue: null,
+        //   onChanged: null,
+        //   visualDensity: VisualDensity(horizontal: -4),
+        // ),
       ],
     ),
   );

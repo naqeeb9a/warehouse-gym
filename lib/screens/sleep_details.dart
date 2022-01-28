@@ -3,7 +3,7 @@ import 'package:warehouse_gym/screens/login.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 import 'package:warehouse_gym/widgets/essential_widgets.dart';
-import 'package:warehouse_gym/widgets/text_widge.dart';
+import 'package:warehouse_gym/widgets/text_widget.dart';
 
 class SleepDetails extends StatelessWidget {
   const SleepDetails({Key? key}) : super(key: key);

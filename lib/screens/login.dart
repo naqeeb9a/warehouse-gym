@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:warehouse_gym/screens/bottom_nav.dart';
+import 'package:warehouse_gym/screens/place.dart';
 import 'package:warehouse_gym/screens/signup.dart';
 import 'package:warehouse_gym/screens/subscription.dart';
 import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
-import 'package:warehouse_gym/widgets/text_widge.dart';
+import 'package:warehouse_gym/widgets/text_widget.dart';
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
@@ -49,7 +51,7 @@ class Login extends StatelessWidget {
                     alignment: Alignment.center,
                     child: colorfulButton(context, "Sign In", myBlack, myYellow,
                         function: () {
-                      push(context, const Subscription());
+                      push(context, const BottomNavBar());
                     })),
                 heightBox(context, 0.03),
                 Row(
@@ -58,9 +60,9 @@ class Login extends StatelessWidget {
                     text(context, "Don't have an account?", 0.03, myWhite),
                     InkWell(
                       onTap :  () {
-                        push(context, const SignUp());
+                        push(context, const Place());
                       },
-                      child: text(context, " Signup", 0.03, myOrange),),
+                      child: text(context, " Register", 0.03, myOrange),),
                   ],
                 ),
               ],

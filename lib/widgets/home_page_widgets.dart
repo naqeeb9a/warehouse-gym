@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' as math;
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
-import 'package:warehouse_gym/widgets/text_widge.dart';
+import 'package:warehouse_gym/widgets/text_widget.dart';
 
 import 'essential_widgets.dart';
 

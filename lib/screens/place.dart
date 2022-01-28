@@ -6,7 +6,7 @@ import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 import 'package:warehouse_gym/widgets/place_widget.dart';
-import 'package:warehouse_gym/widgets/text_widge.dart';
+import 'package:warehouse_gym/widgets/text_widget.dart';
 
 class Place extends StatefulWidget {
   const Place({Key? key}) : super(key: key);
@@ -23,11 +23,13 @@ class _PlaceState extends State<Place> {
         backgroundColor: myBlack,
         body: Align(
           alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: EdgeInsets.only(bottom: dynamicHeight(context, 0.05)),
-            child: SizedBox(
-              width: dynamicWidth(context, .9),
-              height: dynamicHeight(context, .86),
+          child: SizedBox(
+            width: dynamicWidth(context, 1),
+            height: dynamicHeight(context, 1),
+            child: Padding(
+               padding: EdgeInsets.symmetric(
+                    horizontal: dynamicWidth(context, 0.04),
+                    vertical: dynamicHeight(context, 0.02)),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -53,7 +55,7 @@ class _PlaceState extends State<Place> {
                                 onTap: () {
                                   push(
                                     context,
-                                    AlQuoz(),
+                                    GymDetail(),
                                   );
                                 },
                                 child: placeCard(context, "AL QUOZ", "Dubai",
@@ -78,19 +80,19 @@ class _PlaceState extends State<Place> {
                       ),
                     ),
                   ),
-                  heightBox(context, 0.025),
-                  colorfulButton(
-                    context,
-                    "Choose",
-                    myBlack,
-                    myYellow,
-                    function: () {
-                      push(
-                        context,
-                        const PaymentScreen(),
-                      );
-                    },
-                  ),
+                  //heightBox(context, 0.025),
+                  // colorfulButton(
+                  //   context,
+                  //   "Choose",
+                  //   myBlack,
+                  //   myYellow,
+                  //   function: () {
+                  //     push(
+                  //       context,
+                  //       const PaymentScreen(),
+                  //     );
+                  //   },
+                  // ),
                 ],
               ),
             ),

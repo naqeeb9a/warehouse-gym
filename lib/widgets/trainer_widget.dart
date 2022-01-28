@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
-import 'package:warehouse_gym/widgets/text_widge.dart';
+import 'package:warehouse_gym/widgets/text_widget.dart';
 
 Widget trainerWorkCard(context, intText, data) {
   return ClipRRect(

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:warehouse_gym/screens/login.dart';
+import 'package:warehouse_gym/screens/payment_screen.dart';
 import 'package:warehouse_gym/screens/place.dart';
 import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
-import 'package:warehouse_gym/widgets/text_widge.dart';
+import 'package:warehouse_gym/widgets/text_widget.dart';
 
 class Subscription extends StatefulWidget {
   const Subscription({Key? key}) : super(key: key);
@@ -93,7 +94,7 @@ class _SubscriptionState extends State<Subscription> {
                   myBlack,
                   myYellow,
                   function: (){
-                    push(context, const Place());
+                    push(context, const PaymentScreen());
                   }
                 ),
               ],
