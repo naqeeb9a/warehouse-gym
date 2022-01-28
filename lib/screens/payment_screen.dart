@@ -21,14 +21,14 @@ class _PaymentScreenState extends State<PaymentScreen> {
       child: Scaffold(
         backgroundColor: myBlack,
         body: Align(
-          alignment: Alignment.bottomCenter,
+          alignment: Alignment.center,
           child: Padding(
             padding: EdgeInsets.only(
               bottom: dynamicHeight(context, 0.035),
             ),
             child: SizedBox(
               width: dynamicWidth(context, .9),
-              height: dynamicHeight(context, .87),
+              height: dynamicHeight(context, .91),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -46,18 +46,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   paymentCard(context,"Credit Card","https://th.bing.com/th/id/R.89f8cfd38f504096c6d575ad1b5894bb?rik=IpE%2bfnLGJoA3dQ&pid=ImgRaw&r=0"),
                   paymentCard(context,"By Hand","https://th.bing.com/th/id/R.41c3f0ffc2269cc72359aa486da0c70d?rik=AUZIEAGEVbHabQ&pid=ImgRaw&r=0"),
                   heightBox(context, 0.04),
-                  colorfulButton(
-                    context,
-                    "Choose",
-                    myBlack,
-                    myYellow,
-                    function: () {
-                      push(
-                        context,
-                        const BottomNavBar(),
-                      );
-                    },
-                  ),
                 ],
               ),
             ),

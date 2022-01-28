@@ -23,14 +23,17 @@ _makingPhoneCall() async {
     throw 'Could not launch $url';
   }
 }
+
 _location() async {
-  const url = 'https://www.google.com/maps/place/The+Warehouse+Gym+-+Al+Quoz/@25.1181504,55.2077027,17z/data=!3m1!4b1!4m5!3m4!1s0x3e5f6bc21a5b0f63:0x750ec1967705cd3!8m2!3d25.1181504!4d55.2098914';
+  const url =
+      'https://www.google.com/maps/place/The+Warehouse+Gym+-+Al+Quoz/@25.1181504,55.2077027,17z/data=!3m1!4b1!4m5!3m4!1s0x3e5f6bc21a5b0f63:0x750ec1967705cd3!8m2!3d25.1181504!4d55.2098914';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
     throw 'Could not launch $url';
   }
 }
+
 class _GymDetailState extends State<GymDetail> {
   @override
   Widget build(BuildContext context) {
@@ -45,8 +48,9 @@ class _GymDetailState extends State<GymDetail> {
             child: SingleChildScrollView(
               child: Padding(
                 padding: EdgeInsets.symmetric(
-                    horizontal: dynamicWidth(context, 0.04),
-                    vertical: dynamicHeight(context, 0.02)),
+                  horizontal: dynamicWidth(context, 0.04),
+                  vertical: dynamicHeight(context, 0.02),
+                ),
                 child: Column(
                   children: [
                     bar(context, true,
@@ -145,7 +149,7 @@ class _GymDetailState extends State<GymDetail> {
                           myBlack,
                           myYellow,
                           function: () {
-                            push(context,  SignUp());
+                            push(context, SignUp());
                           },
                         ),
                       ],

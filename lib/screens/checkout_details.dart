@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:warehouse_gym/screens/bottom_nav.dart';
 import 'package:warehouse_gym/screens/login.dart';
+import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 import 'package:warehouse_gym/widgets/text_widget.dart';
@@ -27,7 +29,12 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              colorfulButton1(context, "Confirm", myBlack, myYellow),
+              InkWell(
+                onTap: (){
+                  push(context, BottomNavBar());
+                },
+                  child:
+                      colorfulButton1(context, "Confirm", myBlack, myYellow)),
             ],
           ),
         ),
