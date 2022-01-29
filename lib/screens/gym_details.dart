@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:warehouse_gym/screens/fitness_classes.dart';
 import 'package:warehouse_gym/screens/login.dart';
 import 'package:warehouse_gym/screens/signup.dart';
 import 'package:warehouse_gym/utils/app_routes.dart';
@@ -85,16 +86,21 @@ class _GymDetailState extends State<GymDetail> {
                         0.04,
                         myWhite),
                     heightBox(context,0.02),
-                    Container(
-                      width: dynamicWidth(context,0.3),
-                      height: dynamicHeight(context,0.04),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: myYellow,
-                          width: 3,
+                    InkWell(
+                      onTap : () {
+                        push(context,const FitnessClasses());
+                      },
+                      child: Container(
+                        width: dynamicWidth(context,0.3),
+                        height: dynamicHeight(context,0.04),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: myYellow,
+                            width: 3,
+                          ),
                         ),
+                        child:Center(child: text(context, "View Classes", 0.03, myWhite,bold:true)),
                       ),
-                      child:Center(child: text(context, "View Classes", 0.03, myWhite,bold:true)),
                     ),
                     heightBox(context, 0.04),
                     Align(
