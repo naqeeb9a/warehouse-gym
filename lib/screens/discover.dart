@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:warehouse_gym/screens/trainer_category.dart';
+import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 import 'package:warehouse_gym/widgets/essential_widgets.dart';
@@ -63,23 +65,39 @@ class _DiscoverState extends State<Discover>
                     heightBox(context, 0.02),
                     homeBar(context, check: true, text1: "Personal Trainer"),
                     heightBox(context, 0.02),
-                    rowText(
-                        context, "Trainers", "See all", 0.04, myBlack, true),
+                    InkWell(
+                      onTap: () {
+                        push(context, TrainerCategory());
+                      },
+                      child: rowText(
+                          context, "Trainers", "See all", 0.04, myBlack, true),
+                    ),
                     heightBox(context, 0.02),
                     SizedBox(
-                     height: dynamicHeight(context, 0.6),
+                      height: dynamicHeight(context, 0.6),
                       child: ListView(
                         children: [
                           CarouselSlider(
                             items: [
-                              discoverCard(context,"https://img3.goodfon.com/wallpaper/nbig/5/a1/bodibilder-bodybuilder-7693.jpg","Steve Jobs" , "BodyBuilding"),
-                              discoverCard(context,"https://images.unsplash.com/photo-1579758682665-53a1a614eea6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODh8fGd5bXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60","Lucifer","Boxing"),
-                              discoverCard(context,"https://images.unsplash.com/photo-1591089627083-d9d049d833f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTd8fGd5bXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60","John Smith","MMA"),
+                              discoverCard(
+                                  context,
+                                  "https://img3.goodfon.com/wallpaper/nbig/5/a1/bodibilder-bodybuilder-7693.jpg",
+                                  "Steve Jobs",
+                                  "BodyBuilding"),
+                              discoverCard(
+                                  context,
+                                  "https://images.unsplash.com/photo-1579758682665-53a1a614eea6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODh8fGd5bXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                                  "Lucifer",
+                                  "Boxing"),
+                              discoverCard(
+                                  context,
+                                  "https://images.unsplash.com/photo-1591089627083-d9d049d833f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTd8fGd5bXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                                  "John Smith",
+                                  "MMA"),
                             ],
                             options: CarouselOptions(
                               autoPlay: true,
                               height: dynamicHeight(context, 0.6),
-                             // width:dynamicWidth(context, 1),
                               enlargeCenterPage: true,
                               enableInfiniteScroll: true,
                               aspectRatio: 16 / 9,
@@ -92,7 +110,6 @@ class _DiscoverState extends State<Discover>
                         ],
                       ),
                     ),
-                    // discoverCard(context),
                     heightBox(context, 0.02),
                   ],
                 ),
@@ -202,7 +219,6 @@ discoverCard(context, image, name, expertise) {
                               dynamicWidth(context, 0.05),
                             ),
                           ),
-                          
                           child: Center(
                             child: text(context, "Message", 0.03, myBlack,
                                 bold: true),
@@ -217,7 +233,6 @@ discoverCard(context, image, name, expertise) {
                               dynamicWidth(context, 0.05),
                             ),
                           ),
-                         
                           child: Center(
                             child: text(context, "Booked", 0.03, myBlack,
                                 bold: true),
