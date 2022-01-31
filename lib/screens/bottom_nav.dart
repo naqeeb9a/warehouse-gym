@@ -5,6 +5,7 @@ import 'package:warehouse_gym/screens/settings.dart';
 import 'package:warehouse_gym/utils/config.dart';
 
 import 'cart.dart';
+import 'my_cart.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({Key? key}) : super(key: key);
@@ -16,6 +17,7 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   int value = 0;
   final PageController _pageController = PageController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,12 +38,26 @@ class _BottomNavBarState extends State<BottomNavBar> {
         },
         showUnselectedLabels: true,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: "Home"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person_outlined ), label: "Trainer"),
+            icon: Icon(Icons.home_outlined),
+            label: "Home",
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart_outlined ), label: "Cart"),
-          BottomNavigationBarItem(icon: Icon(Icons.settings_outlined), label: "Setting"),
+            icon: Icon(Icons.person_outlined),
+            label: "Trainer",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_bag_outlined),
+            label: "Products",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart_outlined),
+            label: "My Cart",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings_outlined),
+            label: "Setting",
+          ),
         ],
       ),
     );
@@ -55,7 +71,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           value = index;
         });
       },
-      children: const [HomePage(), Discover(), Cart(), Settings()],
+      children: const [HomePage(), Discover(), Cart(), MyCart(), Settings()],
     );
   }
 }

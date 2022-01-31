@@ -95,7 +95,7 @@ Widget customProgress(context, progressDegrees, fadeInDuration) {
   );
 }
 
-Widget workoutBox(context, text1, text2, text3, icon, color,color1) {
+Widget workoutBox(context, text1, text2, text3, icon, color, color1) {
   return Container(
     padding: EdgeInsets.all(
       dynamicWidth(context, 0.05),
@@ -143,7 +143,7 @@ Widget expandableThingy(
     children: [
       Padding(
         padding: EdgeInsets.symmetric(vertical: dynamicHeight(context, 0.01)),
-        child: Icon(icon,color:myWhite),
+        child: Icon(icon, color: myWhite),
       ),
       Expanded(
         child: ExpandablePanel(
@@ -224,7 +224,7 @@ Widget size(context, text1, {isPressed = false}) {
       borderRadius: BorderRadius.circular(
         dynamicWidth(context, 0.02),
       ),
-       boxShadow: [
+      boxShadow: [
         BoxShadow(
           color: myWhite.withOpacity(0.2),
           spreadRadius: 3,
@@ -256,17 +256,12 @@ Widget stickyBottom(context) {
           ),
         ),
         widthBox(context, 0.13),
-         colorfulButton1(
+        colorfulButton1(
           context,
           "Add to Cart",
           myBlack,
           myYellow,
-          function: () {
-            push(
-              context,
-              const MyCart(),
-            );
-          },
+          function: () {},
         ),
       ],
     ),
@@ -330,12 +325,12 @@ Widget itemCard(context, name, size, price) {
 Widget buyNow(context) {
   return Padding(
     padding: EdgeInsets.symmetric(
-         horizontal: dynamicWidth(context, 0.04),
+        horizontal: dynamicWidth(context, 0.04),
         vertical: dynamicHeight(context, 0.02)),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        colorfulButton1(context, "Buy Now", myBlack, myYellow,function: (){
+        colorfulButton1(context, "Buy Now", myBlack, myYellow, function: () {
           push(context, const CheckoutDetails());
         }),
       ],
@@ -343,12 +338,14 @@ Widget buyNow(context) {
   );
 }
 
-Widget rowText2(context, text1, text2, size, color,  {check = false}) {
+Widget rowText2(context, text1, text2, size, color, {check = false}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       text(context, text1, size, color, bold: true),
-      check == true ? Container() : text(context, text2, size, color,bold: true)
+      check == true
+          ? Container()
+          : text(context, text2, size, color, bold: true)
     ],
   );
 }
