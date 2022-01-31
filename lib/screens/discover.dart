@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
@@ -62,32 +63,47 @@ class _DiscoverState extends State<Discover>
                     heightBox(context, 0.02),
                     homeBar(context, check: true, text1: "Personal Trainer"),
                     heightBox(context, 0.02),
-                    discoverCard(context),
-                    heightBox(context, 0.02),
                     rowText(
-                        context, "Trainings", "See all", 0.05, myBlack, true,
-                        check: true)
+                        context, "Trainers", "See all", 0.04, myBlack, true),
+                    heightBox(context, 0.02),
+                    SizedBox(
+                     height: dynamicHeight(context, 0.6),
+                      child: ListView(
+                        children: [
+                          CarouselSlider(
+                            items: [
+                              discoverCard(context,"https://img3.goodfon.com/wallpaper/nbig/5/a1/bodibilder-bodybuilder-7693.jpg","Steve Jobs" , "BodyBuilding"),
+                              discoverCard(context,"https://images.unsplash.com/photo-1579758682665-53a1a614eea6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODh8fGd5bXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60","Lucifer","Boxing"),
+                              discoverCard(context,"https://images.unsplash.com/photo-1591089627083-d9d049d833f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTd8fGd5bXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60","John Smith","MMA"),
+                            ],
+                            options: CarouselOptions(
+                              autoPlay: true,
+                              height: dynamicHeight(context, 0.6),
+                             // width:dynamicWidth(context, 1),
+                              enlargeCenterPage: true,
+                              enableInfiniteScroll: true,
+                              aspectRatio: 16 / 9,
+                              autoPlayCurve: Curves.fastOutSlowIn,
+                              autoPlayAnimationDuration:
+                                  const Duration(milliseconds: 800),
+                              viewportFraction: 0.8,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    // discoverCard(context),
+                    heightBox(context, 0.02),
                   ],
                 ),
               ),
-              // SizedBox(
-              //   height: dynamicHeight(context, 0.35),
-              //   width: dynamicWidth(context, 1),
-              //   child: ListView.builder(
-              //     scrollDirection: Axis.horizontal,
-              //     itemCount: images.length,
-              //     itemBuilder: (BuildContext context, int index) {
-              //       return gymCards(context, images[index]["img"], check: true);
-              //     },
-              //   ),
-              // ),
               Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: dynamicWidth(context, 0.05)),
                 child: Column(
                   children: [
-                    // rowText(context, "Add New Task", "See all", 0.04, myBlack,
-                    //     true),
+                    rowText(
+                        context, "Exercise", "See all", 0.04, myWhite, true),
                     ListView.builder(
                       itemCount: images.length,
                       shrinkWrap: true,
@@ -110,16 +126,16 @@ class _DiscoverState extends State<Discover>
   }
 }
 
-discoverCard(context) {
+discoverCard(context, image, name, expertise) {
   return Stack(
     children: [
       ClipRRect(
         borderRadius: BorderRadius.circular(dynamicWidth(context, 0.1)),
         child: SizedBox(
-          height: dynamicHeight(context, 0.6),
-          width: dynamicWidth(context, 1),
+          height: dynamicHeight(context, 0.5),
+          width: dynamicWidth(context, 0.7),
           child: Image.network(
-            "https://img3.goodfon.com/wallpaper/nbig/5/a1/bodibilder-bodybuilder-7693.jpg",
+            image,
             fit: BoxFit.cover,
           ),
         ),
@@ -129,8 +145,8 @@ discoverCard(context) {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(dynamicWidth(context, 0.1)),
           child: Container(
-            width: dynamicWidth(context, 0.9),
-            height: dynamicHeight(context, 0.32),
+            width: dynamicWidth(context, 0.7),
+            height: dynamicHeight(context, 0.27),
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -150,12 +166,13 @@ discoverCard(context) {
                   vertical: dynamicHeight(context, 0.01),
                 ),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    text(context, "Steve Jobs ", 0.06, myWhite, bold: true),
+                    text(context, name, 0.044, myWhite, bold: true),
                     text(
                       context,
-                      "Gym Coach ",
-                      0.04,
+                      expertise,
+                      0.034,
                       myOrange,
                     ),
                     //heightBox(context, 0.02),
@@ -177,34 +194,34 @@ discoverCard(context) {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
-                          width: dynamicWidth(context, 0.35),
-                          height: dynamicHeight(context, 0.06),
+                          width: dynamicWidth(context, 0.3),
+                          height: dynamicHeight(context, 0.05),
                           decoration: BoxDecoration(
                             color: myGrey.withOpacity(0.8),
                             borderRadius: BorderRadius.circular(
                               dynamicWidth(context, 0.05),
                             ),
                           ),
-                          padding: EdgeInsets.symmetric(
-                            vertical: dynamicHeight(context, 0.018),
+                          
+                          child: Center(
+                            child: text(context, "Message", 0.03, myBlack,
+                                bold: true),
                           ),
-                          child: text(context, "Message", 0.04, myBlack,
-                              bold: true),
                         ),
                         Container(
-                          width: dynamicWidth(context, 0.35),
-                          height: dynamicHeight(context, 0.06),
+                          width: dynamicWidth(context, 0.3),
+                          height: dynamicHeight(context, 0.05),
                           decoration: BoxDecoration(
                             color: myYellow,
                             borderRadius: BorderRadius.circular(
                               dynamicWidth(context, 0.05),
                             ),
                           ),
-                          padding: EdgeInsets.symmetric(
-                            vertical: dynamicHeight(context, 0.018),
+                         
+                          child: Center(
+                            child: text(context, "Booked", 0.03, myBlack,
+                                bold: true),
                           ),
-                          child: text(context, "Booked", 0.04, myBlack,
-                              bold: true),
                         ),
                       ],
                     ),

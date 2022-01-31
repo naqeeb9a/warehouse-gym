@@ -7,17 +7,17 @@ Widget trainerWorkCard(context, intText, data) {
   return ClipRRect(
     borderRadius: BorderRadius.circular(dynamicWidth(context, 0.025)),
     child: Container(
-      width: dynamicWidth(context, 0.23),
-      height: dynamicHeight(context, 0.12),
+      width: dynamicWidth(context, 0.18),
+      height: dynamicHeight(context, 0.08),
       color: myGrey.withOpacity(0.6),
       child: Align(
         alignment: Alignment.bottomCenter,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            text(context, intText, 0.06, myBlack, bold: true),
+            text(context, intText, 0.044, myBlack, bold: true),
             heightBox(context, 0.01),
-            text(context, data, 0.04,myWhite),
+            text(context, data, 0.03,myWhite),
           ],
         ),
       ),

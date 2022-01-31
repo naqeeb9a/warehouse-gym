@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' as math;
+import 'package:warehouse_gym/screens/video_player.dart';
+import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 import 'package:warehouse_gym/widgets/text_widget.dart';
@@ -7,6 +9,7 @@ import 'package:warehouse_gym/widgets/text_widget.dart';
 import 'essential_widgets.dart';
 
 Widget gymCardsRow(context, img, index) {
+  
   return Container(
     margin: EdgeInsets.symmetric(vertical: dynamicHeight(context, 0.01)),
     height: dynamicHeight(context, 0.07),
@@ -54,11 +57,16 @@ Widget gymCardsRow(context, img, index) {
               ),
             ],
           ),
-          child: const CircleAvatar(
-            backgroundColor: Colors.white,
-            child: Icon(
-              Icons.play_arrow,
-              color: Colors.orange,
+          child: InkWell(
+            onTap : () {
+              push(context, VideoPlayer());
+            },
+            child: const CircleAvatar(
+              backgroundColor: Colors.white,
+              child: Icon(
+                Icons.play_arrow,
+                color: Colors.orange,
+              ),
             ),
           ),
         ),
