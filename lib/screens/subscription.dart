@@ -21,21 +21,18 @@ class _SubscriptionState extends State<Subscription> {
       body: Align(
         alignment: Alignment.bottomCenter,
         child: Padding(
-          padding: EdgeInsets.only(bottom: dynamicHeight(context, 0.05)),
+          padding: EdgeInsets.only(
+            bottom: dynamicHeight(context, 0.02),
+          ),
           child: SizedBox(
             width: dynamicWidth(context, .9),
             height: dynamicHeight(context, .91),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                bar(
-                  context,
-                  true,
-                  centerCheck: true,
-                  back: true,
-                  centerText: "Subscription"
-                ),
-                heightBox(context, 0.06),
+                bar(context, true,
+                    centerCheck: true, back: true, centerText: "Subscription"),
+                heightBox(context, 0.03),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -84,11 +81,28 @@ class _SubscriptionState extends State<Subscription> {
                     ),
                   ],
                 ),
-                heightBox(context, 0.02),
-                planCard(context, "One Day Pass", "20 dollar/day"),
-                planCard(context, "Free Trial", "200 dollar/month"),
-                planCard(context, "Annual", "150 dollar/month"),
-                heightBox(context, 0.08),
+                heightBox(context, 0.015),
+                SizedBox(
+                  height: dynamicHeight(context, 0.6),
+                  child: SingleChildScrollView(
+                    child: Wrap(
+                      runSpacing: 15,
+                      children: [
+                        planCard(context, "STANDARD MEMBERSHIP",
+                            "Access to Al Quoz, Al Quoz Ladies Only Gym Springs Souk,\nIBN Battuta, Business Bay and Dubai Design District plus\nUnlimited Standard Group Classes."),
+                        planCard(context, "PREMIUM MEMBERSHIP",
+                            "Access to DIFC, Khawaneej, Khawaneej Ladies Only Gym\nand all Standard Branches plus Unlimited CrossFit Sessions\nand group classes."),
+                        planCard(context, "PREMIUM PLUS",
+                            "Access to All Locations, Unlimited CrossFit sessions and all\nother classes, Priority Booking, 25% Off On selected items\nin Juice Bar, 8x Guest Passes per month, 2x Recovery\nTreatments of your choice per month."),
+                        planCard(context, "PAY AS YOU GO",
+                            "Not ready to commit or on vacation\nwe have daily and weekly rates"),
+                        planCard(context, "ONE DAY PASS",
+                            "Just here to check the gym? Get the One Day Pass"),
+                      ],
+                    ),
+                  ),
+                ),
+                heightBox(context, 0.002),
               ],
             ),
           ),
@@ -100,15 +114,15 @@ class _SubscriptionState extends State<Subscription> {
 
 Widget planCard(context, validity, paisa) {
   return InkWell(
-    onTap: (){
+    onTap: () {
       push(context, PaymentScreen());
     },
     child: Container(
       padding: EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
       width: dynamicWidth(context, 0.9),
       height: dynamicHeight(context, 0.12),
-      decoration:
-          BoxDecoration(color: myWhite, borderRadius: BorderRadius.circular(20)),
+      decoration: BoxDecoration(
+          color: myWhite, borderRadius: BorderRadius.circular(20)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -121,20 +135,20 @@ Widget planCard(context, validity, paisa) {
                   Text(
                     validity,
                     style: TextStyle(
-                      fontSize: dynamicWidth(context, 0.05),
+                      fontSize: dynamicWidth(context, 0.045),
                     ),
                   ),
                 ],
               ),
               SizedBox(
-                height: dynamicHeight(context, 0.007),
+                height: dynamicHeight(context, 0.003),
               ),
               Row(
                 children: [
                   Text(
                     paisa,
                     style: TextStyle(
-                        fontSize: dynamicWidth(context, 0.04),
+                        fontSize: dynamicWidth(context, 0.03),
                         color: myBlack.withOpacity(0.4)),
                   ),
                 ],
