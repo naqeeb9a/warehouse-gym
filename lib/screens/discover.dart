@@ -1,6 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:warehouse_gym/screens/trainer_category.dart';
+import 'package:warehouse_gym/screens/trainer_subscription.dart';
+import 'package:warehouse_gym/screens/trainer_view.dart';
 import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
@@ -14,6 +17,16 @@ class Discover extends StatefulWidget {
 
   @override
   State<Discover> createState() => _DiscoverState();
+}
+
+
+_launchEmail() async {
+  String email = "cmctech@ouiquit.com";
+  if (await canLaunch("mailto:$email")) {
+    await launch("mailto:$email");
+  } else {
+    throw 'Could not launch';
+  }
 }
 
 class _DiscoverState extends State<Discover>
@@ -67,7 +80,7 @@ class _DiscoverState extends State<Discover>
                     heightBox(context, 0.02),
                     InkWell(
                       onTap: () {
-                        push(context, TrainerCategory());
+                        push(context, const TrainerCategory());
                       },
                       child: rowText(
                           context, "Trainers", "See all", 0.04, myBlack, true),
@@ -144,109 +157,128 @@ class _DiscoverState extends State<Discover>
 }
 
 discoverCard(context, image, name, expertise) {
-  return Stack(
-    children: [
-      ClipRRect(
-        borderRadius: BorderRadius.circular(dynamicWidth(context, 0.1)),
-        child: SizedBox(
-          height: dynamicHeight(context, 0.5),
-          width: dynamicWidth(context, 0.7),
-          child: Image.network(
-            image,
-            fit: BoxFit.cover,
-          ),
-        ),
-      ),
-      Positioned(
-        bottom: 0,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(dynamicWidth(context, 0.1)),
-          child: Container(
-            width: dynamicWidth(context, 0.7),
-            height: dynamicHeight(context, 0.27),
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: myWhite.withOpacity(0.2),
-                  spreadRadius: 2,
-                  blurRadius: 8,
-                  offset: const Offset(0, 3), // changes position of shadow
-                ),
-              ],
-              color: myBlack.withOpacity(0.8),
+  return InkWell(
+    onTap: () {
+      push(context, TrainerView(image: image, name: name, expertise: expertise));
+    },
+    child: Hero(
+      tag :0,
+      child: Stack(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(dynamicWidth(context, 0.1)),
+            child: SizedBox(
+              height: dynamicHeight(context, 0.5),
+              width: dynamicWidth(context, 0.7),
+              child: Image.network(
+                image,
+                fit: BoxFit.cover,
+              ),
             ),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: dynamicWidth(context, 0.03),
-                  vertical: dynamicHeight(context, 0.01),
+          ),
+          Positioned(
+            bottom: 0,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(dynamicWidth(context, 0.1)),
+              child: Container(
+                width: dynamicWidth(context, 0.7),
+                height: dynamicHeight(context, 0.27),
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: myWhite.withOpacity(0.2),
+                      spreadRadius: 2,
+                      blurRadius: 8,
+                      offset: const Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                  color: myBlack.withOpacity(0.8),
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    text(context, name, 0.044, myWhite, bold: true),
-                    text(
-                      context,
-                      expertise,
-                      0.034,
-                      myOrange,
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: dynamicWidth(context, 0.03),
+                      vertical: dynamicHeight(context, 0.01),
                     ),
-                    //heightBox(context, 0.02),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: dynamicWidth(context, 0.02),
-                        vertical: dynamicHeight(context, 0.02),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          trainerWorkCard(context, "4", "Work Experience"),
-                          trainerWorkCard(context, "32", "Completed Workouts"),
-                          trainerWorkCard(context, "21", "Active cilents"),
-                        ],
-                      ),
-                    ),
-                    Row(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Container(
-                          width: dynamicWidth(context, 0.3),
-                          height: dynamicHeight(context, 0.05),
-                          decoration: BoxDecoration(
-                            color: myGrey.withOpacity(0.8),
-                            borderRadius: BorderRadius.circular(
-                              dynamicWidth(context, 0.05),
-                            ),
+                        text(context, name, 0.044, myWhite, bold: true),
+                        text(
+                          context,
+                          expertise,
+                          0.034,
+                          myOrange,
+                        ),
+                        //heightBox(context, 0.02),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: dynamicWidth(context, 0.02),
+                            vertical: dynamicHeight(context, 0.02),
                           ),
-                          child: Center(
-                            child: text(context, "Message", 0.03, myBlack,
-                                bold: true),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              trainerWorkCard(context, "4", "Work Experience", 0.18,0.08,),
+                              trainerWorkCard(context, "8", "Years Experience",0.18,0.08),
+                              trainerWorkCard(context, "21", "Active cilents",0.18,0.08),
+                            ],
                           ),
                         ),
-                        Container(
-                          width: dynamicWidth(context, 0.3),
-                          height: dynamicHeight(context, 0.05),
-                          decoration: BoxDecoration(
-                            color: myYellow,
-                            borderRadius: BorderRadius.circular(
-                              dynamicWidth(context, 0.05),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            InkWell(
+                              onTap: ()async{
+      
+                                await _launchEmail();
+                              },
+                              child: Container(
+                                width: dynamicWidth(context, 0.3),
+                                height: dynamicHeight(context, 0.05),
+                                decoration: BoxDecoration(
+                                  color: myGrey.withOpacity(0.8),
+                                  borderRadius: BorderRadius.circular(
+                                    dynamicWidth(context, 0.05),
+                                  ),
+                                ),
+                                child: Center(
+                                  child: text(context, "Email", 0.03, myBlack,
+                                      bold: true),
+                                ),
+                              ),
                             ),
-                          ),
-                          child: Center(
-                            child: text(context, "Booked", 0.03, myBlack,
-                                bold: true),
-                          ),
+                            InkWell(
+                              onTap : (){
+                                push(context, const TrainerSubscription());
+                              },
+                              child: Container(
+                                width: dynamicWidth(context, 0.3),
+                                height: dynamicHeight(context, 0.05),
+                                decoration: BoxDecoration(
+                                  color: myYellow,
+                                  borderRadius: BorderRadius.circular(
+                                    dynamicWidth(context, 0.05),
+                                  ),
+                                ),
+                                child: Center(
+                                  child: text(context, "Book", 0.03, myBlack,
+                                      bold: true),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  ],
+                  ),
                 ),
               ),
             ),
           ),
-        ),
+        ],
       ),
-    ],
+    ),
   );
 }

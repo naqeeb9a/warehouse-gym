@@ -1,24 +1,24 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 import 'package:warehouse_gym/screens/login.dart';
-import 'package:warehouse_gym/screens/membership_screen.dart';
-import 'package:warehouse_gym/utils/app_routes.dart';
+import 'package:warehouse_gym/screens/subscription.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 import 'package:warehouse_gym/widgets/text_widget.dart';
 
-class Subscription extends StatefulWidget {
-  const Subscription({Key? key}) : super(key: key);
+class TrainerSubscription extends StatefulWidget {
+  const TrainerSubscription({ Key? key }) : super(key: key);
 
   @override
-  _SubscriptionState createState() => _SubscriptionState();
+  _TrainerSubscriptionState createState() => _TrainerSubscriptionState();
 }
 
-class _SubscriptionState extends State<Subscription> {
+class _TrainerSubscriptionState extends State<TrainerSubscription> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: myBlack,
-      body: Align(
+    return SafeArea(
+      child :Scaffold(
+        backgroundColor: myBlack,
+        body :  Align(
         alignment: Alignment.bottomCenter,
         child: Padding(
           padding: EdgeInsets.only(
@@ -31,20 +31,20 @@ class _SubscriptionState extends State<Subscription> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 bar(context, true,
-                    centerCheck: true, back: true, centerText: "Subscription"),
+                    centerCheck: true, back: true, centerText: "Trainer Subscription"),
                 heightBox(context, 0.03),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    text(
-                      context,
-                      "GO PRO",
-                      .07,
-                      myWhite,
-                      bold: true,
-                    ),
-                  ],
-                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.start,
+                //   children: [
+                //     text(
+                //       context,
+                //       "GO PRO",
+                //       .07,
+                //       myWhite,
+                //       bold: true,
+                //     ),
+                //   ],
+                // ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -108,55 +108,7 @@ class _SubscriptionState extends State<Subscription> {
           ),
         ),
       ),
+      )
     );
   }
-}
-
-Widget planCard(context, validity, paisa) {
-  return InkWell(
-    onTap: () {
-      push(context, MemberShip(name: validity));
-    },
-    child: Container(
-      padding: EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
-      width: dynamicWidth(context, 0.9),
-      height: dynamicHeight(context, 0.12),
-      decoration: BoxDecoration(
-          color: myWhite, borderRadius: BorderRadius.circular(20)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    validity,
-                    style: TextStyle(
-                      fontSize: dynamicWidth(context, 0.045),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: dynamicHeight(context, 0.003),
-              ),
-              Row(
-                children: [
-                  Text(
-                    paisa,
-                    style: TextStyle(
-                        fontSize: dynamicWidth(context, 0.03),
-                        color: myBlack.withOpacity(0.4)),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ],
-      ),
-    ),
-  );
 }

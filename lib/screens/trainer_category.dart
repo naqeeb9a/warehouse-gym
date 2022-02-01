@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:warehouse_gym/screens/login.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
-import 'package:warehouse_gym/widgets/place_widget.dart';
+import 'package:warehouse_gym/widgets/trainer_category_widget.dart';
 
 class TrainerCategory extends StatefulWidget {
   const TrainerCategory({Key? key}) : super(key: key);
@@ -45,19 +45,19 @@ class _TrainerCategoryState extends State<TrainerCategory> {
                           runSpacing: 15,
                           direction: Axis.horizontal,
                           children: [
-                            placeCard(context, " BOXING ",
+                            trainerCard(context, " BOXING ",
                                 "https://www.muscleandfitness.com/wp-content/uploads/2020/05/boxer-training-bag.jpg?quality=86&strip=all"),
-                            placeCard(context, " KARATE ",
+                            trainerCard(context, " KARATE ",
                                 "https://www.cnet.com/a/img/u1GXV5wAty7pZdWZHYQfFRQJL3M=/1200x630/2019/08/07/5feebd5e-5363-41fb-bc1b-da29adaa9595/karate.png"),
-                            placeCard(context, " BODYBUILDING ",
+                            trainerCard(context, " BODYBUILDING ",
                                 "https://steroids-usa.org/wp-content/uploads/2021/01/Bodybuilder-654x368-1.jpg"),
-                            placeCard(context, " CATHLETICS ",
+                            trainerCard(context, " CATHLETICS ",
                                 "https://caliathletics.com/wp-content/uploads/2018/09/Planche-The-ultimate-tutorial-and-step-by-step-progressions-1024x429.jpg"),
-                            placeCard(context, " ATHLETICS ",
+                            trainerCard(context, " ATHLETICS ",
                                 "https://www.mensjournal.com/wp-content/uploads/mf/1280-sled-push.jpg?quality=86&strip=all"),
-                            placeCard(context, " MMA FIGHTING ",
+                            trainerCard(context, " MMA FIGHTING ",
                                 "https://evolve-vacation.com/wp-content/uploads/2019/07/Troy-ONE-Championship-e1563439258511.jpg"),
-                            placeCard(context, " BOXFIT ",
+                            trainerCard(context, " BOXFIT ",
                                 "https://i.pinimg.com/originals/5d/62/0e/5d620e5b869b55c4be5e2911c85d668e.jpg"),
                             // placeCard(context, " DUBAI DESIGN DISTRICT ",
                             //     "https://whgym.com/wp-content/uploads/elementor/thumbs/D3-phi5ncvwwdw8c704q8u61nl521iwc14k037q5cvc1w.jpg"),

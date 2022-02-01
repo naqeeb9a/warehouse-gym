@@ -7,7 +7,7 @@ import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 Widget paymentCard(context,paymentMethod,image ) {
   return InkWell(
     onTap: (){
-      push(context, CheckoutDetails());
+      push(context, const CheckoutDetails());
     },
     child: Container(
       padding: EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
@@ -68,12 +68,6 @@ Widget paymentCard(context,paymentMethod,image ) {
            width: dynamicWidth(context, 0.1),
 
           ),
-          // const Radio(
-          //   value: "yes",
-          //   groupValue: null,
-          //   onChanged: null,
-          //   visualDensity: VisualDensity(horizontal: -4),
-          // ),
         ],
       ),
     ),

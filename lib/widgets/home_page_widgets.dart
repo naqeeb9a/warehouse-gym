@@ -9,7 +9,6 @@ import 'package:warehouse_gym/widgets/text_widget.dart';
 import 'essential_widgets.dart';
 
 Widget gymCardsRow(context, img, index) {
-  
   return Container(
     margin: EdgeInsets.symmetric(vertical: dynamicHeight(context, 0.01)),
     height: dynamicHeight(context, 0.07),
@@ -58,8 +57,8 @@ Widget gymCardsRow(context, img, index) {
             ],
           ),
           child: InkWell(
-            onTap : () {
-              push(context, VideoPlayer());
+            onTap: () {
+              push(context, const VideoPlayers());
             },
             child: const CircleAvatar(
               backgroundColor: Colors.white,
@@ -128,11 +127,16 @@ Widget gymCards(context, img, {check = false}) {
                           ),
                         ],
                       ),
-                      child: const CircleAvatar(
-                        backgroundColor: Colors.white,
-                        child: Icon(
-                          Icons.play_arrow,
-                          color: Colors.orange,
+                      child: InkWell(
+                        onTap: () {
+                          push(context, const VideoPlayers());
+                        },
+                        child: const CircleAvatar(
+                          backgroundColor: Colors.white,
+                          child: Icon(
+                            Icons.play_arrow,
+                            color: Colors.orange,
+                          ),
                         ),
                       ),
                     ),

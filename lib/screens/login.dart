@@ -55,12 +55,12 @@ class Login extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    text(context, "Don't have an account?", 0.03, myWhite),
+                    text(context, "Don't have an account?", 0.035, myWhite),
                     InkWell(
                       onTap :  () {
                         push(context, const Place());
                       },
-                      child: text(context, " Register", 0.03, myOrange),),
+                      child: text(context, " Register", 0.035, myOrange,bold:true),),
                   ],
                 ),
               ],

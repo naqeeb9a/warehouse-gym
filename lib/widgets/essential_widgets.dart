@@ -1,9 +1,10 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:warehouse_gym/screens/checkout_details.dart';
+import 'package:motion_toast/motion_toast.dart';
+import 'package:motion_toast/resources/arrays.dart';
 import 'package:warehouse_gym/screens/login.dart';
-import 'package:warehouse_gym/screens/my_cart.dart';
+import 'package:warehouse_gym/screens/payment_screen.dart';
 import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
@@ -184,36 +185,6 @@ Widget expandableThingy(
   );
 }
 
-// Widget expandableThingy2(context, title, description) {
-//   return Row(
-//     crossAxisAlignment: CrossAxisAlignment.start,
-//     children: [
-//       Expanded(
-//         child: ExpandablePanel(
-//           header: Padding(
-//               padding:
-//                   EdgeInsets.symmetric(vertical: dynamicHeight(context, 0.008)),
-//               child: Align(
-//                   alignment: Alignment.centerLeft,
-//                   child: text(context, title, 0.055, myWhite))),
-//           // text(context, "6am-7am", 0.06, myGrey),
-//           collapsed: Text(
-//             "",
-//             softWrap: true,
-//             maxLines: 2,
-//             overflow: TextOverflow.ellipsis,
-//           ),
-//           expanded: Padding(
-//             padding: EdgeInsets.only(
-//               top: dynamicHeight(context, 0.01),
-//             ),
-//             child: text(context, description, 0.04, myWhite),
-//           ),
-//         ),
-//       ),
-//     ],
-//   );
-// }
 
 Widget size(context, text1, {isPressed = false}) {
   return Container(
@@ -261,7 +232,22 @@ Widget stickyBottom(context) {
           "Add to Cart",
           myBlack,
           myYellow,
-          function: () {},
+          function: () {
+             MotionToast.success(
+              title: const Text(
+                "ADDED SUCCESSFULLY",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              description: const Text(
+                "The item added to cart",
+                style: TextStyle(fontSize: 12),
+              ),
+              layoutOrientation: ORIENTATION.ltr,
+              animationType: ANIMATION.fromRight,
+              width: 300,
+              toastDuration: const Duration(milliseconds: 2200),
+            ).show(context);
+          },
         ),
       ],
     ),
@@ -331,7 +317,7 @@ Widget buyNow(context) {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         colorfulButton1(context, "Buy Now", myBlack, myYellow, function: () {
-          push(context, const CheckoutDetails());
+          push(context, const PaymentScreen());
         }),
       ],
     ),

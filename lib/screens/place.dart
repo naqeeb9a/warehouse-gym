@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:warehouse_gym/screens/gym_details.dart';
 import 'package:warehouse_gym/screens/login.dart';
-import 'package:warehouse_gym/screens/payment_screen.dart';
-import 'package:warehouse_gym/utils/app_routes.dart';
 import 'package:warehouse_gym/utils/config.dart';
 import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 import 'package:warehouse_gym/widgets/place_widget.dart';
-import 'package:warehouse_gym/widgets/text_widget.dart';
 
 class Place extends StatefulWidget {
   const Place({Key? key}) : super(key: key);
@@ -51,16 +47,8 @@ class _PlaceState extends State<Place> {
                             children: [
                               placeCard(context, " SPRINGS SOUK ",
                                   "https://static.dezeen.com/uploads/2019/10/warehouse-gym-springs-interiors-vshd-design_dezeen_1704_col_2.jpg"),
-                              InkWell(
-                                onTap: () {
-                                  push(
-                                    context,
-                                    GymDetail(),
-                                  );
-                                },
-                                child: placeCard(context, " AL QUOZ ",
-                                    "https://whgym.com/wp-content/uploads/elementor/thumbs/Al-Quoz-2-phi5gc1btya3l37eqpjiwxe59e55tg8rdbq41xa8jo.jpg"),
-                              ),
+                              placeCard(context, " AL QUOZ ",
+                                  "https://whgym.com/wp-content/uploads/elementor/thumbs/Al-Quoz-2-phi5gc1btya3l37eqpjiwxe59e55tg8rdbq41xa8jo.jpg"),
                               placeCard(context, " DIFC ",
                                   "https://whgym.com/wp-content/uploads/elementor/thumbs/DIFC-1-phi5i8njouw14mfqm17agy2smiqyfct5yrck34ghxg.jpg"),
                               placeCard(context, " JUMEIRAH-PARK ",
@@ -79,19 +67,6 @@ class _PlaceState extends State<Place> {
                       ),
                     ),
                   ),
-                  //heightBox(context, 0.025),
-                  // colorfulButton(
-                  //   context,
-                  //   "Choose",
-                  //   myBlack,
-                  //   myYellow,
-                  //   function: () {
-                  //     push(
-                  //       context,
-                  //       const PaymentScreen(),
-                  //     );
-                  //   },
-                  // ),
                 ],
               ),
             ),
