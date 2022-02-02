@@ -128,7 +128,12 @@ class _FitnessClassesState extends State<FitnessClasses> {
                       itemBuilder: (BuildContext context, int index) {
                         return InkWell(
                           onTap: () {
-                            push(context, const ClassesDetails());
+                            push(
+                              context,
+                              ClassesDetails(
+                                name: classesData[index]['classname'],
+                              ),
+                            );
                           },
                           child: fitness(context, classesData[index]["image"],
                               classesData[index]["classname"]),

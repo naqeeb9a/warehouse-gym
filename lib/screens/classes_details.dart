@@ -7,7 +7,8 @@ import 'package:warehouse_gym/utils/dynamic_sizes.dart';
 import 'package:warehouse_gym/widgets/text_widget.dart';
 
 class ClassesDetails extends StatefulWidget {
-  const ClassesDetails({Key? key}) : super(key: key);
+  String name;
+  ClassesDetails({required this.name,Key? key}) : super(key: key);
 
   @override
   _ClassesDetailsState createState() => _ClassesDetailsState();
@@ -33,7 +34,7 @@ class _ClassesDetailsState extends State<ClassesDetails> {
                 children: [
                   bar(context, true,
                       centerCheck: true,
-                      centerText: "Crossfit Training",
+                      centerText: widget.name,
                       back: true),
                   heightBox(context, 0.01),
                   SizedBox(
@@ -54,19 +55,7 @@ class _ClassesDetailsState extends State<ClassesDetails> {
                                 ),
                               ),
                             ),
-                            // 2
-                            // Container(
-                            //   margin: const EdgeInsets.all(6.0),
-                            //   decoration: BoxDecoration(
-                            //     borderRadius: BorderRadius.circular(8.0),
-                            //     image: const DecorationImage(
-                            //       image: NetworkImage(
-                            //           "https://media.istockphoto.com/photos/heavy-weight-exercise-picture-id625739874?k=20&m=625739874&s=612x612&w=0&h=d8wzQd8HzzG__eSPo5-t4tEm6mBJotmR4zSqktUOFGM="),
-                            //       fit: BoxFit.cover,
-                            //     ),
-                            //   ),
-                            // ),
-                            // 3
+                      
                             Container(
                               margin: const EdgeInsets.all(6.0),
                               decoration: BoxDecoration(

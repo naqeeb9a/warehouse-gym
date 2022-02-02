@@ -13,28 +13,31 @@ class Settings extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: myBlack,
-      body: SafeArea(
-        child: Padding(
-          padding:
-              EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              heightBox(context, 0.02),
-              bar(context, true, centerCheck: true, centerText: "Settings"),
-              heightBox(context, 0.06),
-              text(context, "General", 0.04, myOrange),
-              listSetting(context,null, "Notifications", true),
-              listSetting(context,null, "Health", false),
-              listSetting(context,null, "Sound", true),
-              listSetting(context,null, "Privacy", false, iconCheck: true),
-              heightBox(context, 0.02),
-              text(context, "Account", 0.04, myOrange),
-              listSetting(context,null, "Edit Profile", false, iconCheck: true),
-              listSetting(context,const Activity(), "Activity", false, iconCheck: true),
-              listSetting(context, null, "Log Out", false,
-                  noIcon: true),
-            ],
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding:
+                EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.05)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                heightBox(context, 0.02),
+                bar(context, true, centerCheck: true, centerText: "Settings"),
+                heightBox(context, 0.06),
+                text(context, "General", 0.04, myOrange),
+                listSetting(context, null, "Connect Gadget", false),
+                listSetting(context,null, "Notifications", true),
+                listSetting(context,null, "Health", false),
+                listSetting(context,null, "Sound", true),
+                listSetting(context,null, "Privacy", false, iconCheck: true),
+                heightBox(context, 0.02),
+                text(context, "Account", 0.04, myOrange),
+                listSetting(context,null, "Edit Profile", false, iconCheck: true),
+                listSetting(context,const Activity(), "Activity", false, iconCheck: true),
+                listSetting(context, null, "Log Out", false,
+                    noIcon: true),
+              ],
+            ),
           ),
         ),
       ),

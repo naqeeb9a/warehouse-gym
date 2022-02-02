@@ -29,7 +29,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              colorfulButton1(context, "Confirm", myBlack, myYellow,function: (){push(context, const BottomNavBar());}),
+              colorfulButton1(context, "Confirm", myBlack, myYellow,function: (){pushAndRemoveUntil(context, const BottomNavBar());}),
             ],
           ),
         ),

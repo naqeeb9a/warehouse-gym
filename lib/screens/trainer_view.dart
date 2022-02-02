@@ -12,8 +12,8 @@ import 'package:warehouse_gym/widgets/trainer_widget.dart';
 // ignore: must_be_immutable
 class TrainerView extends StatefulWidget {
   dynamic image ;
-  String name , expertise;
-  TrainerView({ required this.image, required this.name,required this.expertise, Key? key }) : super(key: key);
+  String name , expertise,work,experience,cilent;
+  TrainerView({ required this.image, required this.name,required this.expertise,required this.work,required this.experience,required this.cilent, Key? key }) : super(key: key);
 
   @override
   _TrainerViewState createState() => _TrainerViewState();
@@ -139,9 +139,11 @@ class _TrainerViewState extends State<TrainerView> {
                                       child: Center(
                                         child: text(context, "Book", 0.04, myBlack,
                                             bold: true),
+                                            
                                       ),
                                     ),
                                   ),
+                                  
                                 ],
                               ),
                             ],

@@ -19,7 +19,6 @@ class Discover extends StatefulWidget {
   State<Discover> createState() => _DiscoverState();
 }
 
-
 _launchEmail() async {
   String email = "cmctech@ouiquit.com";
   if (await canLaunch("mailto:$email")) {
@@ -96,17 +95,26 @@ class _DiscoverState extends State<Discover>
                                   context,
                                   "https://img3.goodfon.com/wallpaper/nbig/5/a1/bodibilder-bodybuilder-7693.jpg",
                                   "Steve Jobs",
-                                  "BodyBuilding"),
+                                  "BodyBuilding",
+                                  "3 Work Experience",
+                                  "5 Years Experience",
+                                  "21 Active Cilents"),
                               discoverCard(
                                   context,
                                   "https://images.unsplash.com/photo-1579758682665-53a1a614eea6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODh8fGd5bXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
                                   "Lucifer",
-                                  "Boxing"),
+                                  "Boxing",
+                                  "5 Work Experience",
+                                  "4 Years Experience",
+                                  "18 Active Cilents"),
                               discoverCard(
                                   context,
                                   "https://images.unsplash.com/photo-1591089627083-d9d049d833f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTd8fGd5bXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
                                   "John Smith",
-                                  "MMA"),
+                                  "MMA",
+                                  "5 Work Experience",
+                                  "4.5 Years Experience",
+                                  "20 Active Cilents"),
                             ],
                             options: CarouselOptions(
                               autoPlay: true,
@@ -156,13 +164,23 @@ class _DiscoverState extends State<Discover>
   }
 }
 
-discoverCard(context, image, name, expertise) {
+discoverCard(context, image, name, expertise, work, experience, cilent) {
   return InkWell(
     onTap: () {
-      push(context, TrainerView(image: image, name: name, expertise: expertise));
+      push(
+        context,
+        TrainerView(
+          image: image,
+          name: name,
+          expertise: expertise,
+          work: work,
+          experience: experience,
+          cilent: cilent,
+        ),
+      );
     },
     child: Hero(
-      tag :0,
+      tag: 0,
       child: Stack(
         children: [
           ClipRRect(
@@ -220,9 +238,17 @@ discoverCard(context, image, name, expertise) {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              trainerWorkCard(context, "4", "Work Experience", 0.18,0.08,),
-                              trainerWorkCard(context, "8", "Years Experience",0.18,0.08),
-                              trainerWorkCard(context, "21", "Active cilents",0.18,0.08),
+                              trainerWorkCard(
+                                context,
+                                "4",
+                                "Work Experience",
+                                0.18,
+                                0.08,
+                              ),
+                              trainerWorkCard(
+                                  context, "8", "Years Experience", 0.18, 0.08),
+                              trainerWorkCard(
+                                  context, "21", "Active cilents", 0.18, 0.08),
                             ],
                           ),
                         ),
@@ -230,8 +256,7 @@ discoverCard(context, image, name, expertise) {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             InkWell(
-                              onTap: ()async{
-      
+                              onTap: () async {
                                 await _launchEmail();
                               },
                               child: Container(
@@ -250,7 +275,7 @@ discoverCard(context, image, name, expertise) {
                               ),
                             ),
                             InkWell(
-                              onTap : (){
+                              onTap: () {
                                 push(context, const TrainerSubscription());
                               },
                               child: Container(
